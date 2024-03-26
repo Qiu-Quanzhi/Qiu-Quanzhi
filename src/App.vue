@@ -16,7 +16,7 @@ onMounted(() => {
 const year=new Date().getFullYear()
 type socialMedia = {id: string,url: string}
 const socialMediaList = ref< Array<socialMedia> >([])
-  fetch('/data/socialMedias.json')
+  fetch('/assets/data/socialMedias.json')
     .then((response) => response.json())
     .then((json: Array<socialMedia>) => {
         socialMediaList.value = json

@@ -5,7 +5,7 @@ import netease from './netease.vue'
 import { ref } from "vue";
 type bilibili = { aid?: number, bvid?: string, cid?: number, title: string }
 const list = ref<{ bilibili_list: Array<bilibili> }>({ bilibili_list: [] })
-fetch('/data/works.json')
+fetch('/assets/data/works.json')
     .then((response) => response.json())
     .then((json: { bilibili_list: Array<bilibili> }) => {
 
