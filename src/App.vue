@@ -43,7 +43,7 @@ const changeLang=(lang:string)=>{
   <view id="home" class="flex-col item-center content-center">
     <view :class="['info', 'card', 'blanked', loaded ? 'loaded' : '']">
       <view class="flex-row item-center">
-        <img aria-hidden="true" class="info-logo" :src="`assets/logo.webp`" />
+        <img aria-hidden="true" class="info-logo" src="https://q.qlogo.cn/headimg_dl?dst_uin=2766468782&spec=640" />
         <view class="flex-col">
           <view class="flex-row item-center">
             <h2>{{ t('name') }}</h2>
