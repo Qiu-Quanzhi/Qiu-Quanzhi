@@ -193,8 +193,8 @@ a{
 }
 
 :root {
-	--theme-color: #75c800;
-	--theme-color-active: rgba(117, 200, 0, 0.6);
+	--theme-color: #6cf;
+	--theme-color-active: #66ccffde;
 	--w-alpha-5: rgba(255, 255, 255, .05);
 	--w-alpha-10: rgba(255, 255, 255, .1);
 	--w-alpha-15: rgba(255, 255, 255, .15);
