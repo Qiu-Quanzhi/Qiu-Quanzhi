@@ -87,7 +87,7 @@ const changeLang=(lang:string)=>{
           <p class="workLinkIntro">{{ t('parts.work.contents[0].intro') }}</p>
           <p class="workLinkCat">{{ t('parts.work.contents[0].cat') }}</p>
         </div>
-      </a><a href="historyApp/" target="_blank" class="workLink" id="workLink_History">
+      </a><a href="historicalMap/" target="_blank" class="workLink" id="workLink_History">
         <div class="workLinkPic"></div>
         <div class="workLinkText">
           <p class="workLinkTitle">{{ t('parts.work.contents[1].title') }}</p>
@@ -210,7 +210,7 @@ const changeLang=(lang:string)=>{
     cursor: pointer
 }
 
-.selection[data-v-34e9b3a1]:hover {
+.selection:hover {
     transform: scale(1.05)
 }
 
@@ -273,7 +273,7 @@ text {
     z-index: 10;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    background: url(https://static-mp-8f34b9ba-e81c-4d1f-bbbd-74bfdffa1140.next.bspapp.com/assets/Bilibili-10c4e9fb.svg) no-repeat center;
+    background: url(/assets/icons/Bilibili.svg) no-repeat center;
     background-size: 10%;
     background-color: var(--b-alpha-90)
 }
@@ -297,7 +297,7 @@ text {
     cursor: pointer
 }
 
-.list-item[data-v-34e9b3a1]:hover {
+.list-item:hover {
     transform: scale(1.05)
 }
 
@@ -330,7 +330,7 @@ text {
     cursor: default
 }
 
-.lang_area span[data-v-c8f5412d]:hover {
+.lang_area span:hover {
     transform: scale(1.1)
 }
 
@@ -381,7 +381,7 @@ text {
     margin-top: 50px
 }
 
-.block[data-v-c8f5412d]:hover {
+.block:hover {
     background-color: var(--w-alpha-90);
     transform: scale(1.01);
     -webkit-backdrop-filter: none;
@@ -439,7 +439,7 @@ text {
     transition: .25s
 }
 
-.tag-box>span[data-v-c8f5412d]:hover {
+.tag-box>span:hover {
     background-color: var(--b-alpha-10);
     color: var(--txt-b);
     -webkit-box-shadow: rgba(0, 0, 0, .1) 0 5px 10px;
@@ -454,7 +454,7 @@ text {
     transform: scale(1)
 }
 
-.media-box img[data-v-c8f5412d]:hover {
+.media-box img:hover {
     opacity: 1;
     transform: scale(1.05);
     border-color: var(--theme-color);
@@ -488,7 +488,7 @@ text {
     overflow-x: auto
 }
 
-#logBox[data-v-c8f5412d]::-webkit-scrollbar {
+#logBox::-webkit-scrollbar {
     height: 5px
 }
 
@@ -499,7 +499,7 @@ text {
     vertical-align: top
 }
 
-.logText1[data-v-c8f5412d],
+.logText1,
 .logText3 {
     font-size: 18px;
     line-height: 3px;
@@ -526,7 +526,7 @@ footer {
     border-radius: 10px
 }
 
-footer[data-v-c8f5412d]:hover {
+footer:hover {
     transition: backdrop-filter .1s;
     background-color: var(---b-alpha-30);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
@@ -558,12 +558,12 @@ footer a {
     font-size: 12px
 }
 
-footer a[data-v-c8f5412d]:hover {
+footer a:hover {
     border-color: var(--theme-color);
     color: var(--theme-color)
 }
 
-footer a[data-v-c8f5412d]:active {
+footer a:active {
     border-color: var(--theme-color-active);
     color: var(--theme-color-active)
 }
@@ -574,20 +574,20 @@ footer a[data-v-c8f5412d]:active {
     font-weight: initial
 }
 
-div[data-v-c8f5412d] ::-webkit-scrollbar {
+div ::-webkit-scrollbar {
     width: 5px
 }
 
-div[data-v-c8f5412d] ::-webkit-scrollbar-thumb {
+div ::-webkit-scrollbar-thumb {
     background-color: var(--b-alpha-10);
     border-radius: 3px
 }
 
-div[data-v-c8f5412d] ::-webkit-scrollbar-thumb:hover {
+div ::-webkit-scrollbar-thumb:hover {
     background-color: var(--b-alpha-20)
 }
 
-div[data-v-c8f5412d] ::-webkit-scrollbar-thumb:active {
+div ::-webkit-scrollbar-thumb:active {
     background-color: var(--theme-color)
 }
 
@@ -600,7 +600,7 @@ div[data-v-c8f5412d] ::-webkit-scrollbar-thumb:active {
         transform: scale(.8)
     }
 
-    .info h2[data-v-c8f5412d],
+    .info h2,
     .info span {
         font-size: .7em
     }

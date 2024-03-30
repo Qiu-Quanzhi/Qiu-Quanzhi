@@ -139,7 +139,7 @@ a{
 	background-size: cover;
 	background-position: center;
 	filter: brightness(0.9);
-	background-image: url(https://mp-8f34b9ba-e81c-4d1f-bbbd-74bfdffa1140.cdn.bspapp.com/cloudstorage/cdaf92b2-c447-499c-86a4-87039224fee8.jpg);
+	background-image: url(/historicalMap/cover.webp);
 	transition: transform 1.5s, opacity 1s;
 	transform: scale(1.05);
 	opacity: 0;
@@ -226,13 +226,13 @@ a{
 	--b-alpha-90: rgba(0, 0, 0, .9);
 }
 
-@font-face {
+/* @font-face {
 	font-family: hywh;
-	src: url(https://mp-8f34b9ba-e81c-4d1f-bbbd-74bfdffa1140.cdn.bspapp.com/cloudstorage/2660a366-0d33-4929-a977-348a6e1c89fe.woff2);
-}
+	src: url();
+} */
 
 span,p,h1,h2,h3,h4,h5,a {
-	font-family: hywh, "黑体", sans-serif;
+	font-family: Microsoft Yahei, PingFangSC-Regular;
 }
 
 ht {
