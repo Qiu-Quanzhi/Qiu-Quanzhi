@@ -87,7 +87,7 @@ const changeLang=(lang:string)=>{
           <p class="workLinkIntro">{{ t('parts.work.contents[0].intro') }}</p>
           <p class="workLinkCat">{{ t('parts.work.contents[0].cat') }}</p>
         </div>
-      </a><a href="historicalMap/" target="_blank" class="workLink" id="workLink_History">
+      </a><a href="AncientMap/" target="_blank" class="workLink" id="workLink_History">
         <div class="workLinkPic"></div>
         <div class="workLinkText">
           <p class="workLinkTitle">{{ t('parts.work.contents[1].title') }}</p>
