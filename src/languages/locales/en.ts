@@ -73,10 +73,11 @@ const en ={
         avatar: 'An avatar',
         Bilibili: 'Bilibili',
         Netease: 'Netease CloudMusic',
-        Lofter: 'Lofter',
+        Lofter: 'LOFTER',
         Weixin: 'WeChat Subscription',
         mail: 'Email',
         Github: 'Github',
+        X: 'X',
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'

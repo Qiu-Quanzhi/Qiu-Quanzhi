@@ -73,10 +73,11 @@ const zh_HK ={
         avatar: '一幅頭像',
         Bilibili: '嗶哩嗶哩',
         Netease: '網易雲音樂',
-        Lofter: '樂乎',
+        Lofter: 'LOFTER',
         Weixin: '微信公眾號',
         mail: '電子郵箱',
         Github: 'Github',
+        X: 'X',
         goto: '轉到 ',
         footer: '頁腳',
         scrolldown: '下一頁'

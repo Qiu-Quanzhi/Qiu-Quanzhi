@@ -64,7 +64,7 @@
     ---b-alpha-90: rgba(0, 0, 0, .9)
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --theme-color: #66ccff;
         --theme-color-active: #66ccffDE;
@@ -196,6 +196,11 @@ body,
     padding: 20px;
     border-radius: 10px;
     transition: transform .25s
+}
+
+.card.mini{
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .card:hover {

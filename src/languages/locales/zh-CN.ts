@@ -73,10 +73,11 @@ const zh_CN ={
         avatar: '一幅头像',
         Bilibili: '哔哩哔哩',
         Netease: '网易云音乐',
-        Lofter: '乐乎',
+        Lofter: '老福特',
         Weixin: '微信公众号',
         mail: '电子邮箱',
         Github: 'Github',
+        X: 'X',
         goto: '转到 ',
         footer: '页脚',
         scrolldown: '下一页'
