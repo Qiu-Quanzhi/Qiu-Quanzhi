@@ -46,7 +46,7 @@ const changeLang = (lang: string) => {
     <view id="home" class="flex-col item-center content-center">
       <view class="info">
         <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '', 'mini']">
-          <span class="time-display"> {{ date.getUTCHours() }}:{{ date.getUTCMinutes() }} <span class="time-timezone">(UTC +8:00)</span></span>
+          <span class="time-display"> {{ date.getUTCHours().toString().padStart(2,'0') }}:{{ date.getUTCMinutes().toString().padStart(2,'0') }} <span class="time-timezone">(UTC +8:00)</span></span>
         </view>
         <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '']">
           <view class="flex-row item-center">
