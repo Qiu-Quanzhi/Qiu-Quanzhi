@@ -17,6 +17,6 @@ function enter() {
 	document.getElementById("sidebar-mask").setAttribute("class", "sidebar mask")
 	document.getElementById("sidebar").setAttribute("class", "sidebar")
 	setTimeout(function() {
-		window.location.href = "//historyApp.qqzhi.cc"
+		window.location.href = "https://app.qqzhi.cc/HistoryApp"
 	}, 400)
 }
