@@ -194,7 +194,7 @@ a{
 
 :root {
 	--theme-color: #6cf;
-	--theme-color-active: #33ee99de;
+	--theme-color-active: #66ccffde;
 	--w-alpha-5: rgba(255, 255, 255, .05);
 	--w-alpha-10: rgba(255, 255, 255, .1);
 	--w-alpha-15: rgba(255, 255, 255, .15);
