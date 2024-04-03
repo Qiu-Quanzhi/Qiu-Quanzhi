@@ -1,3 +1,0 @@
-# robots.txt
-User-agent: *
-Sitemap: https://www.QQzhi.cc/sitemap.xml
