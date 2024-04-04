@@ -136,6 +136,10 @@
         filter: brightness(2)
     }
 
+    .selection {
+        filter: brightness(2)
+    }
+
     html {
         filter: brightness(.9)
     }
@@ -147,6 +151,8 @@
     .card{
         opacity: 0.5;
     }
+
+    
 }
 
 * {

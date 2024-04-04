@@ -228,7 +228,7 @@ const changeLang = (lang: string) => {
 }
 
 .selection.selected {
-  opacity: .9;
+  opacity: 1;
   transform: scale(1.05)
 }
 
