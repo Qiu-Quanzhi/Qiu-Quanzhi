@@ -25,7 +25,7 @@ const tab=ref('weixin')
         <view @click="tab='weixin'" class="flex-col item-center">
             <img alt="微信公众号" :class="['selection',tab=='weixin'?'selected':'']" :src="`assets/icons/Weixin.svg`"/>
             <span v-show="tab=='weixin'" class="underline2"></span>
-            <a target="_blank" href="https://blog.qqzhi.cc/" :class="['selection-id',tab=='weixin'?'selected':'']">@旅禾Tristan<br><text>(停书笥 代展)</text></a>
+            <a target="_blank" href="https://blog.qqzhi.cc/" :class="['selection-id',tab=='weixin'?'selected':'']">@旅禾Tristan<br><text>(未名岛 代展)</text></a>
         </view>
         <view @click="tab='netease'" class="flex-col item-center">
             <img alt="网易云音乐" :class="['selection',tab=='netease'?'selected':'']" :src="`assets/icons/Netease.svg`"/>
