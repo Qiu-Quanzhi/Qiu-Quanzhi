@@ -88,7 +88,7 @@ const tab=ref('weixin')
     transform: scale(1.05);
 }
 .selection.selected{
-    opacity: 0.9;
+    opacity: 1;
     transform: scale(1.05);
 }
 .selection-id{
