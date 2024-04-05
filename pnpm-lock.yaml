@@ -15,13 +15,13 @@ dependencies:
 devDependencies:
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
-    version: 5.0.4(vite@5.2.6)(vue@3.4.21)
+    version: 5.0.4(vite@5.2.8)(vue@3.4.21)
   typescript:
     specifier: ^5.2.2
     version: 5.4.3
   vite:
-    specifier: ^5.2.0
-    version: 5.2.6
+    specifier: ^5.2.8
+    version: 5.2.8
   vue-tsc:
     specifier: ^2.0.6
     version: 2.0.7(typescript@5.4.3)
@@ -326,7 +326,6 @@ packages:
     resolution: {integrity: sha512-Iu0Kno1vrD7zHQDxOmvweqLkAzjxEVqNhUIXBsZ8hu8Oak7/5VTPrxOEZXYC1nmrBVJp0ZcL2E7lSuuOVaE3+w==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -335,7 +334,6 @@ packages:
     resolution: {integrity: sha512-C31QrW47llgVyrRjIwiOwsHFcaIwmkKi3PCroQY5aVq4H0A5v/vVVAtFsI1nfBngtoRpeREvZOkIhmRwUKkAdw==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -344,7 +342,6 @@ packages:
     resolution: {integrity: sha512-Oq90dtMHvthFOPMl7pt7KmxzX7E71AfyIhh+cPhLY9oko97Zf2C9tt/XJD4RgxhaGeAraAXDtqxvKE1y/j35lA==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -353,7 +350,6 @@ packages:
     resolution: {integrity: sha512-yUD/8wMffnTKuiIsl6xU+4IA8UNhQ/f1sAnQebmE/lyQ8abjsVyDkyRkWop0kdMhKMprpNIhPmYlCxgHrPoXoA==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -362,7 +358,6 @@ packages:
     resolution: {integrity: sha512-9RyNqoFNdF0vu/qqX63fKotBh43fJQeYC98hCaf89DYQpv+xu0D8QFSOS0biA7cGuqJFOc1bJ+m2rhhsKcw1hw==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -395,14 +390,14 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@vitejs/plugin-vue@5.0.4(vite@5.2.6)(vue@3.4.21):
+  /@vitejs/plugin-vue@5.0.4(vite@5.2.8)(vue@3.4.21):
     resolution: {integrity: sha512-WS3hevEszI6CEVEx28F8RjTX97k3KsrcY6kvTg7+Whm5y3oYvcqzVeGCU3hxSAn4uY2CLCkeokkGKpoctccilQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.2.6
+      vite: 5.2.8
       vue: 3.4.21(typescript@5.4.3)
     dev: true
 
@@ -671,8 +666,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /vite@5.2.6:
-    resolution: {integrity: sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==}
+  /vite@5.2.8:
+    resolution: {integrity: sha512-OyZR+c1CE8yeHw5V5t59aXsUPPVTHMDjEZz8MgguLL/Q7NblxhZUlTu9xSPqlsUO/y+X7dlU05jdhvyycD55DA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
