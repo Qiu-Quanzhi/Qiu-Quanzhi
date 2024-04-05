@@ -1,7 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import langs from './languages/index'
-let locale=location.search.replace("?","").toLowerCase()
-if(!locale)locale=navigator.language.toLowerCase()||'zh-cn'
+let locale=location.search.replace("?","").toLowerCase()||'zh-cn'
 
 const i18n=createI18n({
     fallbackLocale: 'zh',
