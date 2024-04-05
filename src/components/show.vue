@@ -142,7 +142,7 @@ text{
     z-index: 10;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    background: url('../assets/icons/Bilibili.svg') no-repeat center;
+    background: url(/assets/icons/Bilibili.svg) no-repeat center;
     background-size: 10%;
     background-color: var(--b-alpha-90);
 }
