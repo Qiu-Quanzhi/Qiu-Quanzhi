@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue(),
     viteCompression({
       algorithm: 'brotliCompress',
-      deleteOriginFile:true
+      deleteOriginFile:false
     })
   ],
   base: './',
