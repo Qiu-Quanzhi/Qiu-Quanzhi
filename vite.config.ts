@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [vue(),
     viteCompression({
       algorithm: 'gzip',
+      deleteOriginFile:true
     })
   ],
   base: './',
