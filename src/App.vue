@@ -45,9 +45,6 @@ const changeLang = (lang: string) => {
 
     <view id="home" class="flex-col item-center content-center">
       <view class="info">
-        <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '', 'mini']">
-          <span class="time-display"> {{ date.getUTCHours().toString().padStart(2,'0') }}:{{ date.getUTCMinutes().toString().padStart(2,'0') }} <span class="time-timezone">(UTC +8:00)</span></span>
-        </view>
         <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '']">
           <view class="flex-row item-center">
             <img aria-hidden="true" class="info-logo" src="https://q.qlogo.cn/headimg_dl?dst_uin=2766468782&spec=640" />
@@ -70,6 +67,10 @@ const changeLang = (lang: string) => {
               :href="item.url.startsWith('*') ? undefined : item.url"><img :title="t('aria.' + item.id)"
                 :alt="t('aria.' + item.id)" height="25" width="25" :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
+        </view>
+        <view :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
+          <a class="time-display"> {{ date.getUTCHours().toString().padStart(2, '0') }}:{{
+    date.getUTCMinutes().toString().padStart(2,'0') }} <a class="time-timezone">(UTC +8:00)</a></a>
         </view>
       </view>
     </view>
@@ -427,7 +428,7 @@ text {
   position: absolute;
   right: calc((100% - 200px)*.1);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
 }
 
