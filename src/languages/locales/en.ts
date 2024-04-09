@@ -18,8 +18,8 @@ const en ={
             title:'Project Works',
             contents:[
                 {
-                    title: 'Ryoine\'s Inn',
-                    intro: 'Publish kinds of documents',
+                    title: 'Lyuhe\'s Inn',
+                    intro: 'Publish kinds of article',
                     cat: 'Blog'
                 },{
                     title: 'Exhibition of the Acient',
@@ -37,7 +37,7 @@ const en ={
             ]
         },
         show: {
-            title: 'Works show',
+            title: 'Works Exhibition',
             tip: 'Only Chinese Simplified content is available below'
         },
         log: {

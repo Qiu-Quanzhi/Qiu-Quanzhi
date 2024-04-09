@@ -19,7 +19,7 @@ const zh_HK ={
             contents:[
                 {
                     title: '旅禾小棧',
-                    intro: '萬年一更，發佈各類文章與文檔',
+                    intro: '隨緣更新，發佈各類文章與文檔',
                     cat: '個人博客'
                 },{
                     title: '古國簡展',

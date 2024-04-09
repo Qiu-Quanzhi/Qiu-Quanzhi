@@ -19,7 +19,7 @@ const zh_CN ={
             contents:[
                 {
                     title: '旅禾小栈',
-                    intro: '万年一更，发布各类文章与文档',
+                    intro: '随缘更新，发布各类文章与文档',
                     cat: '个人博客'
                 },{
                     title: '古国简展',
