@@ -15,7 +15,7 @@ const en ={
             ]
         },
         work:{
-            title:'Project Works',
+            title:'Works Link',
             contents:[
                 {
                     title: 'Lyuhe\'s Inn',
