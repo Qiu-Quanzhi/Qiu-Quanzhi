@@ -1,8 +1,8 @@
 const zh_HK ={
     lang: 'zh-HK',
-    name: '旅禾Tristan',
+    name: '邱泉智Yau Chuen Chi',
     tags: ['00後','知識','技術','學生'],
-    slogan: '永不熄滅的理想之焰 足可抵擋凜冬的風霜刀劍',
+    slogan: '永不熄滅的理想之焰，足可抵擋凜冬的風霜刀劍',
     parts:{
         about:{
             title:'關於我',
