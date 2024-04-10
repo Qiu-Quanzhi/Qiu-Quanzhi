@@ -1,8 +1,8 @@
 const zh_CN ={
     lang: 'zh-CN',
-    name: '旅禾Tristan',
+    name: '邱泉智',
     tags: ['00后','知识','技术','学生'],
-    slogan: '永不熄灭的理想之焰 足可抵挡凛冬的风霜刀剑',
+    slogan: '永不熄灭的理想之焰，足可抵挡凛冬的风霜刀剑',
     parts:{
         about:{
             title:'关于我',

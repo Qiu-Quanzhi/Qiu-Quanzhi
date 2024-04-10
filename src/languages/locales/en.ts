@@ -1,6 +1,6 @@
 const en ={
     lang: 'en',
-    name: 'Tristan Chiu',
+    name: 'QIU Quanzhi',
     tags: ['00s','Creator','Tech','Student'],
     slogan: 'Ideal that never goes is enough to withstand the odds.',
     parts:{
@@ -18,7 +18,7 @@ const en ={
             title:'Works Link',
             contents:[
                 {
-                    title: 'Lyuhe\'s Inn',
+                    title: 'Ryoine\'s Inn',
                     intro: 'Publish kinds of article',
                     cat: 'Blog'
                 },{

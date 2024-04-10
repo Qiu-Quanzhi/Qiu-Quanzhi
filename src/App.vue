@@ -21,22 +21,19 @@ fetch('/assets/data/socialMedias.json')
   .then((json: Array<socialMedia>) => {
     socialMediaList.value = json
   })
-const changeLang = (lang: string) => {
-  location.search = lang
-}
 </script>
 
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
-    <div class="lang_area">
-      <span @click="changeLang('zh-CN')" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']"
-        lang="zh-cn">简</span>
+    <div class="lang-area" data-nosnippet>
+      <a href="/zh-cn" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']"
+        lang="zh-cn">简</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <span @click="changeLang('zh-HK')" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']"
-        lang="zh-hk">繁</span>
+      <a href="/zh-hk" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']"
+        lang="zh-hk">繁</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <span @click="changeLang('en')" aria-label="Switch to English" :class="[t('lang') == 'en' ? 'current' : '']"
-        lang="en-us">EN</span>
+      <a href="/en" aria-label="Switch to English" :class="[t('lang') == 'en' ? 'current' : '']"
+        lang="en-us">EN</a>
     </div>
     <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#about"></a>
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
@@ -68,9 +65,9 @@ const changeLang = (lang: string) => {
                 :alt="t('aria.' + item.id)" height="25" width="25" :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
-        <view :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
-          <a class="time-display"> {{ date.getUTCHours().toString().padStart(2, '0') }}:{{
-    date.getUTCMinutes().toString().padStart(2,'0') }} <a class="time-timezone">(UTC +8:00)</a></a>
+        <view data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
+          <span class="time-display"> {{ date.getUTCHours().toString().padStart(2, '0') }}:{{
+    date.getUTCMinutes().toString().padStart(2,'0') }} <span class="time-timezone">(UTC +8:00)</span></span>
         </view>
       </view>
     </view>
@@ -88,7 +85,7 @@ const changeLang = (lang: string) => {
       <p>{{ t('parts.about.contents[3]') }}</p>
       <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="link">i@qqzhi.cc</a></p>
     </view>
-    <view id="work" class="flex-col item-center block">
+    <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
       <div class="workList"><a href="https://blog.qqzhi.cc/" target="_blank" class="workLink" id="workLink_Blog">
@@ -123,13 +120,13 @@ const changeLang = (lang: string) => {
           </div>
         </a></div>
     </view>
-    <view id="show" class="flex-col item-center block">
+    <view data-nosnippet id="show" class="flex-col item-center block">
       <h3>{{ t('parts.show.title') }}</h3>
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
       <show></show>
     </view>
-    <view id="log" class="flex-col item-center block">
+    <view data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.log.tip') }}</p>
       <div class="logBoxOuter">
@@ -157,7 +154,7 @@ const changeLang = (lang: string) => {
         </div>
       </div>
     </view>
-    <footer id="footer">
+    <footer data-nosnippet id="footer">
       <div>
         <p>{{ t('footer[0].title') }}</p><a href="http://xyzxoj.work/" target="_blank">{{ t('footer[0].contents[0]')
           }}</a>
@@ -329,7 +326,7 @@ text {
   display: block
 }
 
-.lang_area {
+.lang-area {
   -webkit-user-select: none;
   user-select: none;
   display: block;
@@ -338,17 +335,17 @@ text {
   top: 25px
 }
 
-.lang_area span.current {
+.lang-area a.current {
   opacity: 1;
   transform: scale(1.1);
   cursor: default
 }
 
-.lang_area span:hover {
+.lang-area a:hover {
   transform: scale(1.1)
 }
 
-.lang_area span {
+.lang-area a {
   display: inline-block;
   font-size: 16px;
   color: #fff;
@@ -356,7 +353,7 @@ text {
   cursor: pointer
 }
 
-.lang_area .s_line {
+.lang-area .s_line {
   display: inline-block;
   font-size: 12px;
   margin: 0 5px;
@@ -585,7 +582,8 @@ footer a {
   position: relative;
   border-bottom: 1px solid transparent;
   color: #fff;
-  font-size: 12px
+  font-size: 12px;
+  cursor: pointer;
 }
 
 footer a:hover {
