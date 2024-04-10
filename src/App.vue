@@ -26,7 +26,7 @@ fetch('/assets/data/socialMedias.json')
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
-      <a href="/zh-cn" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']"
+      <a href="/" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']"
         lang="zh-cn">简</a>
       <i class="s_line" aria-hidden="true">|</i>
       <a href="/zh-hk" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']"
