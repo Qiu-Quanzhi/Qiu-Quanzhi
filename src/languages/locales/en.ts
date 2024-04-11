@@ -1,6 +1,6 @@
 const en ={
     lang: 'en',
-    name: 'QIU Quanzhi',
+    name: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
     tags: ['00s','Creator','Tech','Student'],
     slogan: 'Ideal that never goes is enough to withstand the odds.',
     parts:{

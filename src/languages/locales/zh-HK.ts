@@ -1,6 +1,6 @@
 const zh_HK ={
     lang: 'zh-HK',
-    name: '邱泉智Yau Chuen Chi',
+    name: '邱泉智<rp>(</rp><rt>Yau Chuen Chi</rt><rp>)</rp>',
     tags: ['00後','知識','技術','學生'],
     slogan: '永不熄滅的理想之焰，足可抵擋凜冬的風霜刀劍',
     parts:{
