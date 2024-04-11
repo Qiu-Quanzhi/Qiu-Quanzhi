@@ -178,8 +178,7 @@ fetch('/assets/data/socialMedias.json')
       <div id="copyright">
         <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
         <p>{{ t('texts.background') }}: Frozen in Time - Lunanella</p>
-        <img width="12px" height="auto" src="https://icp.gov.moe/images/ico64.png"><a rel="nofollow" target="__blank"
-          href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
+        <a rel="nofollow" target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
   </view>
