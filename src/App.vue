@@ -50,7 +50,7 @@ fetch('/assets/data/socialMedias.json')
                 <h2>
                   <ruby style="ruby-position: under;">
                 <ruby style="ruby-position: over;" v-html="t('name')">
-                </ruby><rt>(旅禾Tristan)</rt></ruby>
+                </ruby><rt lang="zh-cn">(旅禾Tristan)</rt></ruby>
                 </h2>
                 <view class="tag-box">
                   <span>{{ t('tags[0]') }}</span>
