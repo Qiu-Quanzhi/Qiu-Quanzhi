@@ -47,7 +47,11 @@ fetch('/assets/data/socialMedias.json')
             <img aria-hidden="true" class="info-logo" src="https://q.qlogo.cn/headimg_dl?dst_uin=2766468782&spec=640" />
             <view class="flex-col">
               <view class="flex-row item-center">
-                <h2>{{ t('name') }}</h2>
+                <h2>
+                  <ruby style="ruby-position: under;">
+                <ruby style="ruby-position: over;" v-html="t('name')">
+                </ruby><rt>(旅禾Tristan)</rt></ruby>
+                </h2>
                 <view class="tag-box">
                   <span>{{ t('tags[0]') }}</span>
                   <span>{{ t('tags[1]') }}</span>
