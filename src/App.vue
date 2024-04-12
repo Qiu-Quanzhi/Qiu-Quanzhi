@@ -11,16 +11,16 @@ const loaded = ref(false)
 onMounted(() => {
   setTimeout(() => {
     loaded.value = true
-fetch('/assets/data/socialMedias.json')
-  .then((response) => response.json())
-  .then((json: Array<socialMedia>) => {
-    socialMediaList.value = json
-  })
   }, 500);
 })
 let date = new Date(Date.now() + 28800000)
 type socialMedia = { id: string, url: string, mode: string | undefined }
 const socialMediaList = ref<Array<socialMedia>>([])
+fetch('/assets/data/socialMedias.json')
+  .then((response) => response.json())
+  .then((json: Array<socialMedia>) => {
+    socialMediaList.value = json
+  })
   const openLink=(event:any)=>{
     console.log(event)
     if (event) {
