@@ -140,7 +140,7 @@ fetch('/assets/data/socialMedias.json')
         <div id="logBox">
           <div>
             <p class="logText1">2022.8.16</p>
-            <p class="logText2">{{ t('parts.log.contents[2]') }}「<a class="link">QQzhi.cc</a>」</p>
+            <p class="logText2">{{ t('parts.log.contents[2]') }}「<span class="highlight">QQzhi.cc</span>」</p>
           </div>
           <div>
             <p class="logText1">2022.8.17</p>
@@ -163,7 +163,7 @@ fetch('/assets/data/socialMedias.json')
     </view>
     <footer data-nosnippet id="footer">
       <div>
-        <p>{{ t('footer[0].title') }}</p><a href="http://xyzxoj.work/" target="_blank">{{ t('footer[0].contents[0]')
+        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="http://xyzxoj.work/" target="_blank">{{ t('footer[0].contents[0]')
           }}</a>
       </div>
       <div>
@@ -185,7 +185,7 @@ fetch('/assets/data/socialMedias.json')
       <div id="copyright">
         <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
         <p>{{ t('texts.background') }}: Frozen in Time - Lunanella</p>
-        <a rel="nofollow" target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
+        <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
   </view>
@@ -333,6 +333,7 @@ text {
 }
 
 .lang-area {
+  z-index: 100;
   -webkit-user-select: none;
   user-select: none;
   display: block;
