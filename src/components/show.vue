@@ -13,7 +13,7 @@ fetch('/assets/data/works.json')
         bilibili_index.value = 0
     })
 const bilibili_index = ref(-1)
-const tab=ref('bilibili')
+const tab=ref('weixin')
 </script>
 <template>
     <view class="selection-box flex-row">
