@@ -5,8 +5,6 @@ const { t } = useI18n()
 
 import show from './components/show.vue';
 
-document.querySelector('html')!.lang = t('lang')
-
 const loaded = ref(false)
 const activated=ref(false)
 onMounted(() => {
@@ -61,7 +59,7 @@ fetch('/assets/data/socialMedias.json')
               <view class="flex-row item-center">
                 <h2>
                   <ruby style="ruby-position: under;">
-                <ruby style="ruby-position: over;" v-html="t('name')">
+                <ruby style="ruby-position: over;" v-html="t('nameHTML')">
                 </ruby><rt lang="zh-cn">(旅禾Tristan)</rt></ruby>
                 </h2>
                 <view class="tag-box">
