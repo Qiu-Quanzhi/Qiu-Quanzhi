@@ -11,16 +11,16 @@ const loaded = ref(false)
 onMounted(() => {
   setTimeout(() => {
     loaded.value = true
-  }, 500);
-})
-let date = new Date(Date.now() + 28800000)
-type socialMedia = { id: string, url: string, mode: string | undefined }
-const socialMediaList = ref<Array<socialMedia>>([])
 fetch('/assets/data/socialMedias.json')
   .then((response) => response.json())
   .then((json: Array<socialMedia>) => {
     socialMediaList.value = json
   })
+  }, 500);
+})
+let date = new Date(Date.now() + 28800000)
+type socialMedia = { id: string, url: string, mode: string | undefined }
+const socialMediaList = ref<Array<socialMedia>>([])
   const openLink=(event:any)=>{
     console.log(event)
     if (event) {
@@ -131,7 +131,7 @@ fetch('/assets/data/socialMedias.json')
       <h3>{{ t('parts.show.title') }}</h3>
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
-      <show></show>
+      <show v-if="loaded"></show>
     </view>
     <view data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
@@ -385,8 +385,8 @@ text {
 
 .block {
   background-color: var(--w-alpha-90);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: var(--filter-glass-1);
+  backdrop-filter: var(--filter-glass-1);
   width: calc(100% - 40px);
   padding-top: 20px;
   padding-bottom: 50px;
@@ -403,7 +403,7 @@ text {
   background-color: var(--w-alpha-90);
   transform: scale(1.01);
   -webkit-backdrop-filter: none;
-  backdrop-filter: none
+  backdrop-filter: none;
 }
 
 .block h3 {
