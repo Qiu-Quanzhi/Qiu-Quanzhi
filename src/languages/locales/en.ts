@@ -67,7 +67,8 @@ const en ={
         background: 'Background',
         copied: 'Copied',
         id: 'ID',
-        address: 'ADD'
+        address: 'ADD',
+        clickToLoad: 'Click to load'
     },
     aria: {
         avatar: 'An avatar',

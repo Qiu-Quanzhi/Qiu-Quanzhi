@@ -137,7 +137,7 @@ fetch('/assets/data/socialMedias.json')
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
       <show v-if="activated"></show>
-      <span v-else class="pointer" @click="()=>{activated=true}">点击加载</span>
+      <span v-else class="pointer" @click="()=>{activated=true}">{{t('texts.clickToLoad')}}</span>
     </view>
     <view data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
@@ -459,7 +459,13 @@ text {
 
 .media-box {
   width: 100%;
-  margin-top: 15px
+  margin-top: 15px;
+  height: 25px;
+}
+
+.media-box>a{
+  width: 25px;
+  height: 25px;
 }
 
 .tag-box {

@@ -67,7 +67,8 @@ const zh_HK ={
         background: '背景',
         copied: '已嘗試複製',
         id: '號碼',
-        address: '地址'
+        address: '地址',
+        clickToLoad: '點擊載入'
     },
     aria: {
         avatar: '一幅頭像',

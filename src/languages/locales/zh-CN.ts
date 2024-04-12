@@ -67,7 +67,8 @@ const zh_CN ={
         background: '背景',
         copied: '已尝试复制',
         id: '号码',
-        address: '地址'
+        address: '地址',
+        clickToLoad: '点击加载'
     },
     aria: {
         avatar: '一幅头像',
