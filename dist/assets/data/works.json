@@ -1,13 +1,6 @@
 {
     "bilibili_list": [
         {
-            "bvid": "BV1ou4y1q7yV",
-            "title": "「旅禾·数学」奔驰定理&四心"
-        },
-        {
-            "bvid": "BV1Yg4y1w7dH",
-            "title": "「旅禾干货」简明的双拼输入法入坑指南呈上！"
-        },{
             "bvid": "BV1jj411U7QL",
             "title": "「旅禾·数学」正弦&余弦定理"
         },{
@@ -23,8 +16,12 @@
             "bvid": "BV1tP4y167H4",
             "title": "一分钟带你了解：求和符号&求积符号"
         },{
-            "bvid": "BV1jj411U7QL",
-            "title": "「旅禾·数学」正弦&余弦定理"
+            "bvid": "BV1ou4y1q7yV",
+            "title": "「旅禾·数学」奔驰定理&四心"
+        },
+        {
+            "bvid": "BV1Yg4y1w7dH",
+            "title": "「旅禾干货」简明的双拼输入法入坑指南呈上！"
         }
     ]
 }

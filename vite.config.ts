@@ -2,11 +2,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
+import compression from 'vite-plugin-compression'
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    compression({
+      algorithm: "brotliCompress",
+      ext: ".br",
+      threshold: 0
+    }
+    )],
   base: './',
-  build:{
+  build: {
     rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
@@ -16,7 +25,7 @@ export default defineConfig({
     },
 
     target: 'esnext',
-    modulePreload:{
+    modulePreload: {
       polyfill: false
     },
     reportCompressedSize: false,

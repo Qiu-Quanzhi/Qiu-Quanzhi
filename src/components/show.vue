@@ -13,7 +13,7 @@ fetch('/assets/data/works.json')
         bilibili_index.value = 0
     })
 const bilibili_index = ref(-1)
-const tab=ref('weixin')
+const tab=ref('bilibili')
 </script>
 <template>
     <view class="selection-box flex-row">
@@ -35,7 +35,7 @@ const tab=ref('weixin')
     </view>
     <view v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
         <view class="media">
-            <a target="_blank" v-if="bilibili_index != -1" :href="`https://www.bilibili.com/video/${list.bilibili_list[bilibili_index].bvid||list.bilibili_list[bilibili_index].aid}`" class="media-tip">点此进入原视频</a>
+            <!-- <a target="_blank" v-if="bilibili_index != -1" :href="`https://www.bilibili.com/video/${list.bilibili_list[bilibili_index].bvid||list.bilibili_list[bilibili_index].aid}`" class="media-tip">点此进入原视频</a> -->
             <bilibili class="player" v-if="bilibili_index != -1" :aid="list.bilibili_list[bilibili_index].aid"
                 :bvid="list.bilibili_list[bilibili_index].bvid" :cid="list.bilibili_list[bilibili_index].cid"></bilibili>
         </view>
@@ -105,7 +105,7 @@ text{
     color: var(--theme-color);
 }
 .show-box {
-    width: calc((100vw - 80px));
+    width: calc((100vw - 300px));
 }
 
 @media screen and (max-width: 660px) {
