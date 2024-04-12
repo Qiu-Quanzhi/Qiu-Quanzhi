@@ -97,7 +97,7 @@ fetch('/assets/data/socialMedias.json')
       <p>{{ t('parts.about.contents[1]') }}</p>
       <p>{{ t('parts.about.contents[2]') }}</p>
       <p>{{ t('parts.about.contents[3]') }}</p>
-      <p>{{ t('parts.about.contents[4]') }}<span href="mailto:i@qqzhi.cc" class="link">i@qqzhi.cc</span></p>
+      <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="link">i@qqzhi.cc</a></p>
     </view>
     <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
