@@ -4,7 +4,8 @@
   },
   {
     "id": "Weixin",
-    "url": "*https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951"
+    "url": "https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951",
+    "mode": "embed"
   },
   {
     "id": "mail",

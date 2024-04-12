@@ -14,13 +14,20 @@ onMounted(() => {
   }, 500);
 })
 let date = new Date(Date.now() + 28800000)
-type socialMedia = { id: string, url: string }
+type socialMedia = { id: string, url: string, mode: string | undefined }
 const socialMediaList = ref<Array<socialMedia>>([])
 fetch('/assets/data/socialMedias.json')
   .then((response) => response.json())
   .then((json: Array<socialMedia>) => {
     socialMediaList.value = json
   })
+  const openLink=(event:any)=>{
+    console.log(event)
+    if (event) {
+      event.preventDefault()
+      event.currentTarget.href&&window.open( event.currentTarget.href , '', 'height=615,width=450,scrollbars=yes,status =yes')
+    }
+  }
 </script>
 
 <template>
@@ -63,10 +70,8 @@ fetch('/assets/data/socialMedias.json')
             </view>
           </view>
           <view class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank"
-              :onclick="item.url.startsWith('*') ? 'window.open(\'' + item.url.slice(1) + '\', \'\', \'height=615,width=450,scrollbars=yes,status =yes\')' : ''"
-              :href="item.url.startsWith('*') ? undefined : item.url"><img :title="t('aria.' + item.id)"
-                :alt="t('aria.' + item.id)" height="25" width="25" :src="`assets/icons/${item.id}.svg`" /></a>
+            <a v-for="item in socialMediaList" target="_blank" @click=" item.mode && openLink($event) " :href="item.url">
+            <img :title="t('aria.' + item.id)" :alt="t('aria.' + item.id)" height="25" width="25" :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
         <view data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
@@ -87,7 +92,7 @@ fetch('/assets/data/socialMedias.json')
       <p>{{ t('parts.about.contents[1]') }}</p>
       <p>{{ t('parts.about.contents[2]') }}</p>
       <p>{{ t('parts.about.contents[3]') }}</p>
-      <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="link">i@qqzhi.cc</a></p>
+      <p>{{ t('parts.about.contents[4]') }}<span href="mailto:i@qqzhi.cc" class="link">i@qqzhi.cc</span></p>
     </view>
     <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
@@ -113,9 +118,7 @@ fetch('/assets/data/socialMedias.json')
             <p class="workLinkIntro">{{ t('parts.work.contents[2].intro') }}</p>
             <p class="workLinkCat">{{ t('parts.work.contents[2].cat') }}</p>
           </div>
-        </a><a
-          onclick="window.open('https:\/\/mp.weixin.qq.com\/mp\/homepage?__biz=Mzg3MDY2MzM3MA==&amp;hid=1&amp;sn=c08c5cacb8a243ed154c5696e9f69951', '', 'height=615,width=450,scrollbars=yes,status =yes')"
-          target="_blank" class="workLink" id="workLink_Article">
+        </a><a @click="openLink" href="https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951" target="_blank" class="workLink" id="workLink_Article">
           <div class="workLinkPic"></div>
           <div class="workLinkText">
             <p class="workLinkTitle">{{ t('parts.work.contents[3].title') }}</p>
