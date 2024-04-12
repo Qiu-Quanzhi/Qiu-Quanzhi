@@ -62,7 +62,7 @@ const en ={
         contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
     },{
         title:'More Content',
-        contents: ["Home-Original Hall","Home-Zhihu","Home-QQ Music"]
+        contents: ["Home-YCG","Home-Zhihu","Home-QQ Music"]
     }],
     texts:{
         background: 'Background',
