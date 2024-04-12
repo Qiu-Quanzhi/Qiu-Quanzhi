@@ -8,6 +8,7 @@ import show from './components/show.vue';
 document.querySelector('html')!.lang = t('lang')
 
 const loaded = ref(false)
+const activated=ref(false)
 onMounted(() => {
   setTimeout(() => {
     loaded.value = true
@@ -28,6 +29,10 @@ fetch('/assets/data/socialMedias.json')
       event.currentTarget.href&&window.open( event.currentTarget.href , '', 'height=615,width=450,scrollbars=yes,status =yes')
     }
   }
+  addEventListener('scroll',()=>{
+    if(scrollY>0)
+    activated.value=true
+  })
 </script>
 
 <template>
@@ -131,7 +136,8 @@ fetch('/assets/data/socialMedias.json')
       <h3>{{ t('parts.show.title') }}</h3>
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
-      <show v-if="loaded"></show>
+      <show v-if="activated"></show>
+      <span v-else>点击加载</span>
     </view>
     <view data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
