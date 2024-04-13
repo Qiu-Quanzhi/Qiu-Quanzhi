@@ -1,7 +1,8 @@
 :root {
     color-scheme: light dark;
-    --theme-color: #09e;
-    --theme-color-active: #09ed;
+    --theme-color: #66ccff;
+    --theme-color-active: #66ccffDE;
+    --highlight-color: #0077BB;
     --w-alpha-5: rgba(255, 255, 255, .05);
     --w-alpha-10: rgba(255, 255, 255, .1);
     --w-alpha-15: rgba(255, 255, 255, .15);
@@ -287,7 +288,7 @@ body,
 }
 
 .highlight {
-    color: var(--theme-color);
+    color: var(--highlight-color)!important
 }
 
 .pointer{
