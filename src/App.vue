@@ -561,7 +561,7 @@ text {
 }
 
 .logText3 {
-  color: var(--b-alpha-20)
+  color: var(--b-alpha-60)
 }
 
 footer {
