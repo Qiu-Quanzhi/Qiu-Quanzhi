@@ -54,7 +54,7 @@ fetch('/assets/data/socialMedias.json')
       <view class="info">
         <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '']">
           <view class="flex-row item-center">
-            <img aria-hidden="true" class="info-logo" src="https://q.qlogo.cn/headimg_dl?dst_uin=2766468782&spec=100&img_type=webp" />
+            <img aria-hidden="true" class="info-logo" src="/assets/logo.webp" />
             <view class="flex-col">
               <view class="flex-row item-center">
                 <h2>
