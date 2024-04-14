@@ -462,7 +462,8 @@ text {
 
 .info h2 {
   margin-block-start: 0;
-  margin-block-end: 0
+  margin-block-end: 0;
+  white-space: nowrap;
 }
 
 .info-logo {
@@ -496,7 +497,8 @@ text {
   border-radius: 5px;
   background-color: var(--b-alpha-5);
   color: var(--b-alpha-40);
-  transition: .25s
+  transition: .25s;
+  white-space: nowrap;
 }
 
 .tag-box>span:hover {
@@ -661,9 +663,8 @@ div ::-webkit-scrollbar-thumb:active {
     transform: scale(.9)
   }
 
-  .info h2,
-  .info span {
-    font-size: .7em
+  .info h2{
+    transform: scale(0.9)
   }
 
   .tag-box {
