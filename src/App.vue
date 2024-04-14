@@ -287,6 +287,14 @@ text {
     max-width: none !important
   }
 
+  .lang-area a{
+    font-size: 20px!important;
+  }
+  
+  .lang-area i{
+    font-size: 16px!important;
+  }
+
   footer {
     line-height: 2em;
   }
