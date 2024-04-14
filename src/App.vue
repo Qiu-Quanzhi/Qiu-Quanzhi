@@ -286,6 +286,14 @@ text {
     height: unset !important;
     max-width: none !important
   }
+
+  footer {
+    line-height: 2em;
+  }
+
+  footer a{
+    font-size: 15px!important
+  }
 }
 
 .player {
