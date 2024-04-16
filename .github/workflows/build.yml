@@ -17,8 +17,8 @@ jobs:
       # url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: 工作流签出
-        uses: actions/checkout@v4
+      # - name: 工作流签出
+        # uses: actions/checkout@v4
       # - name: 页面初始化
         # uses: actions/configure-pages@v5
       # - name: IndexNow配置
