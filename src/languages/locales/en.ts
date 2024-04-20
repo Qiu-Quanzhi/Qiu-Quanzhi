@@ -19,7 +19,7 @@ const en ={
             title:'Works Link',
             contents:[
                 {
-                    title: 'Ryoine\'s Inn',
+                    title: 'Tristan\'s Inn',
                     intro: 'Publish kinds of article',
                     cat: 'Blog'
                 },{
