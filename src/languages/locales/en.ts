@@ -1,4 +1,4 @@
-const en ={
+export default {
     lang: 'en',
     name: '邱泉智',
     nameHTML: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
@@ -85,5 +85,3 @@ const en ={
         scrolldown: 'Page down'
     }
 }
-
-export default en
