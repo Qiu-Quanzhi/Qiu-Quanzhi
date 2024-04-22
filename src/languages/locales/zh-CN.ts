@@ -1,4 +1,4 @@
-const zh_CN ={
+export default {
     lang: 'zh-CN',
     name: '邱泉智',
     nameHTML: '邱泉智',
@@ -85,5 +85,3 @@ const zh_CN ={
         scrolldown: '下一页'
     }
 }
-
-export default zh_CN

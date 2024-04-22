@@ -1,4 +1,4 @@
-const zh_HK ={
+export default {
     lang: 'zh-HK',
     name: '邱泉智',
     nameHTML: '邱泉智<rp>(</rp><rt>Yau Chuen Chi</rt><rp>)</rp>',
@@ -86,5 +86,3 @@ const zh_HK ={
     }
 
 }
-
-export default zh_HK
