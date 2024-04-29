@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vite": "^5.2.10",
-    "vue": "^3.4.25",
+    "vue": "^3.4.26",
     "vue-i18n": "^9.13.1"
   },
   "devDependencies": {
