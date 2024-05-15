@@ -9,7 +9,7 @@ export default {
             title:'About Me',
             contents:[
                 'I am a technical learner and a theoretical practitioner,',
-                'Currently studying at Xinyi Middle School in Guangdong Province,',
+                'Currently studying at Xinyi Middle School in Guangdong, China,',
                 'Keening to discuss various academic topics.',
                 'Welcome to make progress together!',
                 'Contact Email: '
@@ -75,7 +75,7 @@ export default {
         avatar: 'An avatar',
         Bilibili: 'Bilibili',
         Netease: 'Netease CloudMusic',
-        Lofter: 'LOFTER',
+        LinkedIn: 'LinkedIn',
         Weixin: 'WeChat Subscription',
         mail: 'Email',
         Github: 'Github',

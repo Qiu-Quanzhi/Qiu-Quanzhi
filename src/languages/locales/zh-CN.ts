@@ -75,7 +75,7 @@ export default {
         avatar: '一幅头像',
         Bilibili: '哔哩哔哩',
         Netease: '网易云音乐',
-        Lofter: '老福特',
+        LinkedIn: '领英',
         Weixin: '微信公众号',
         mail: '电子邮箱',
         Github: 'Github',

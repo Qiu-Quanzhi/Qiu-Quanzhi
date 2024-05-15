@@ -75,7 +75,7 @@ export default {
         avatar: '一幅頭像',
         Bilibili: '嗶哩嗶哩',
         Netease: '網易雲音樂',
-        Lofter: 'LOFTER',
+        LinkedIn: 'LinkedIn',
         Weixin: '微信公眾號',
         mail: '電子郵箱',
         Github: 'Github',
