@@ -73,6 +73,7 @@
     :root {
         --theme-color: #66ccff;
         --theme-color-active: #66ccffDE;
+        --highlight-color: #66ccff;
         --b-alpha-5: rgba(255, 255, 255, .05);
         --b-alpha-10: rgba(255, 255, 255, .1);
         --b-alpha-15: rgba(255, 255, 255, .15);
