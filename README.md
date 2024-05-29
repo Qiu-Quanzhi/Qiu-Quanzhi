@@ -1,2 +1,2 @@
-![Qiu-Quanzhi Github 统计数据](https://github-readme-stats.vercel.app/api?username=Qiu-Quanzhi&locale=cn&count_private=true&show_icons=true&hide_rank=false&bg_color=30,904e95,e96443&icon_color=fff&title_color=fff&text_color=fff&line_height=20)
+![Qiu-Quanzhi Github 统计数据](https://github-readme-stats.vercel.app/api?username=Qiu-Quanzhi&locale=cn&count_private=true&show_icons=true&hide_rank=false&bg_color=30,904e95,e96443&include_all_commits=true&icon_color=fff&title_color=fff&text_color=fff&line_height=20)
 ![常用语言](https://github-readme-stats.vercel.app/api/top-langs/?username=Qiu-Quanzhi&locale=cn&layout=compact&bg_color=-30,e96443,904e95&title_color=fff&text_color=fff)
