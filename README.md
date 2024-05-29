@@ -1,2 +1,2 @@
 
-[![Qiu-Quanzhi's GitHub stats](https://github-readme-stats.vercel.app/api?username=Qiu-Quanzhi)](https://github.com/anuraghazra/github-readme-stats)
+[![Qiu-Quanzhi's GitHub stats](https://github-readme-stats.vercel.app/api?username=Qiu-Quanzhi)]
