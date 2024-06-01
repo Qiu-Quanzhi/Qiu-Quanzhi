@@ -170,7 +170,8 @@
 }
 
 body {
-    color: var(--txt-b)
+    color: var(--txt-b);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
 }
 
 .bg {
