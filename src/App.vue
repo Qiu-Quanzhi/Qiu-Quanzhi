@@ -186,9 +186,9 @@ fetch('/assets/data/socialMedias.json')
           }}</a><br>
         <a href="https://y.qq.com/n/ryqq/singer/0029evxu40hcqi" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
       </div>
-      <div id="copyright">
+      <div>
         <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
-        <p>{{ t('texts.background') }}: Frozen in Time - Lunanella</p>
+        <a>{{ t('texts.background') }}: Frozen in Time - Lunanella</a><br/>
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
