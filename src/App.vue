@@ -1,49 +1,72 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n()
 
 import show from './components/show.vue';
 
 const loaded = ref(false)
-const activated=ref(false)
-onMounted(() => {
-  setTimeout(() => {
-    loaded.value = true
-  }, 500);
-})
-let date = new Date(Date.now() + 28800000)
+const activated = ref(false)
+const contactContent = ref([t('footer[1].contents[0]'),t('footer[1].contents[1]'),t('footer[1].contents[2]')])
+const contactList = ['2424742162','RyoineQ','i@qqzhi.cc']
+
+let date = new Date(Date.now() + 8 * 3600000)
 type socialMedia = { id: string, url: string, mode: string | undefined }
 const socialMediaList = ref<Array<socialMedia>>([])
 fetch('/assets/data/socialMedias.json')
   .then((response) => response.json())
   .then((json: Array<socialMedia>) => {
     socialMediaList.value = json
+  }).catch((error) => {
+    console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
+  });
+const openLink = (event: MouseEvent) => {
+  event.preventDefault()
+  event.currentTarget instanceof HTMLAnchorElement && window.open(event.currentTarget.href, '', 'height=615,width=450,scrollbars=yes,status=yes')
+}
+const copyContact=(idx:number)=>{
+  navigator.clipboard.writeText(contactList[idx])
+  .then(() => {
+    console.log('[内容已复制到剪贴板 Content copied to clipboard]');
   })
-  const openLink=(event:any)=>{
-    console.log(event)
-    if (event) {
-      event.preventDefault()
-      event.currentTarget.href&&window.open( event.currentTarget.href , '', 'height=615,width=450,scrollbars=yes,status =yes')
-    }
+  .catch((error) => {
+    console.error('[复制内容时出错 Error on copying content]', error);
+  });
+  contactContent.value[idx]=t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
+}
+const handleScroll = () => {
+  if (window.scrollY > 0) {
+    activated.value = true;
   }
-  addEventListener('scroll',()=>{
-    if(scrollY>0)
-    activated.value=true
-  })
+};
+
+onMounted(async () => {
+  setTimeout(() => {
+    loaded.value = true
+  }, 500);
+  window.addEventListener('scroll', handleScroll);
+  try {
+    const response = await fetch('/assets/data/socialMedias.json');
+    const json = await response.json();
+    socialMediaList.value = json;
+  } catch (error) {
+    console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
+  }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
-      <a href="/" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']"
-        lang="zh-cn">简</a>
+      <a href="/" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']" lang="zh-cn">简</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/zh-hk" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']"
-        lang="zh-hk">繁</a>
+      <a href="/zh-hk" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']" lang="zh-hk">繁</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/en" aria-label="Switch to English" :class="[t('lang') == 'en' ? 'current' : '']"
-        lang="en-us">EN</a>
+      <a href="/en" aria-label="Switch to English" :class="[t('lang') == 'en' ? 'current' : '']" lang="en-us">EN</a>
     </div>
     <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#about"></a>
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
@@ -52,15 +75,17 @@ fetch('/assets/data/socialMedias.json')
 
     <view id="home" class="flex-col item-center content-center">
       <view class="info">
-        <view :class="[ 'card', 'blanked', loaded ? 'loaded' : '']">
+        <view :class="['card', 'blanked', loaded ? 'loaded' : '']">
           <view class="flex-row item-center">
             <img aria-hidden="true" class="info-logo" src="/assets/logo.webp" />
             <view class="flex-col">
               <view class="flex-row item-center">
                 <h2>
                   <ruby style="ruby-position: under;">
-                <ruby style="ruby-position: over;" v-html="t('nameHTML')">
-                </ruby><rt lang="zh-cn">(旅禾Tristan)</rt></ruby>
+                    <ruby style="ruby-position: over;" v-html="t('nameHTML')">
+                    </ruby>
+                    <rt lang="zh-cn">(旅禾Tristan)</rt>
+                  </ruby>
                 </h2>
                 <view class="tag-box">
                   <span>{{ t('tags[0]') }}</span>
@@ -73,8 +98,9 @@ fetch('/assets/data/socialMedias.json')
             </view>
           </view>
           <view class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" @click=" item.mode && openLink($event) " :href="item.url">
-            <img :title="t('aria.' + item.id)" :alt="t('aria.' + item.id)" height="25" width="25" :src="`assets/icons/${item.id}.svg`" /></a>
+            <a v-for="item in socialMediaList" target="_blank" @click=" item.mode && openLink($event)" :href="item.url">
+              <img :title="t('aria.' + item.id)" :alt="t('aria.' + item.id)" height="25" width="25"
+                :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
         <view data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
@@ -121,7 +147,9 @@ fetch('/assets/data/socialMedias.json')
             <p class="workLinkIntro">{{ t('parts.work.contents[2].intro') }}</p>
             <p class="workLinkCat">{{ t('parts.work.contents[2].cat') }}</p>
           </div>
-        </a><a @click="openLink" href="https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951" target="_blank" class="workLink" id="workLink_Article">
+        </a><a @click="openLink"
+          href="https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951"
+          target="_blank" class="workLink" id="workLink_Article">
           <div class="workLinkPic"></div>
           <div class="workLinkText">
             <p class="workLinkTitle">{{ t('parts.work.contents[3].title') }}</p>
@@ -135,7 +163,7 @@ fetch('/assets/data/socialMedias.json')
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
       <show v-if="activated"></show>
-      <span v-else class="pointer" @click="()=>{activated=true}">{{t('texts.clickToLoad')}}</span>
+      <span v-else class="pointer" @click="() => { activated = true }">{{ t('texts.clickToLoad') }}</span>
     </view>
     <view data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
@@ -167,17 +195,18 @@ fetch('/assets/data/socialMedias.json')
     </view>
     <footer data-nosnippet id="footer">
       <div>
-        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="http://xyzxoj.work/" target="_blank">{{ t('footer[0].contents[0]')
-          }}</a>
+        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="http://xyzxoj.work/" target="_blank">{{
+          t('footer[0].contents[0]')
+        }}</a>
       </div>
       <div>
         <p>{{ t('footer[1].title') }}</p>
-        <a :onclick="'navigator.clipboard.writeText(\'2766468782\');document.querySelector(\'#QQ\').innerText=\'' + t('footer[1].contents[0]') + ' (' + t('texts.copied') + ')\''"
-          id="QQ" target="_blank">{{ t('footer[1].contents[0]') }}</a><br>
-        <a :onclick="'navigator.clipboard.writeText(\'Qiu-Quanzhi\');document.querySelector(\'#Weixin\').innerText=\'' + t('footer[1].contents[1]') + ' (' + t('texts.copied') + ')\''"
-          id="Weixin" target="_blank">{{ t('footer[1].contents[1]') }}</a><br>
-        <a :onclick="'navigator.clipboard.writeText(\'i@qqzhi.cc\');document.querySelector(\'#Mail\').innerText=\'' + t('footer[1].contents[2]') + ' (' + t('texts.copied') + ')\''"
-          id="Mail" target="_blank">{{ t('footer[1].contents[2]') }}</a><br>
+        <a @click="copyContact(0)"
+          id="QQ" target="_blank">{{ contactContent[0] }}</a><br>
+        <a @click="copyContact(1)"
+          id="Weixin" target="_blank">{{ contactContent[1] }}</a><br>
+        <a @click="copyContact(2)"
+          id="Mail" target="_blank">{{ contactContent[2] }}</a><br>
       </div>
       <div>
         <p>{{ t('footer[2].title') }}</p>
@@ -188,7 +217,7 @@ fetch('/assets/data/socialMedias.json')
       </div>
       <div>
         <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
-        <a>{{ t('texts.background') }}: Frozen in Time - Lunanella</a><br/>
+        <a>{{ t('texts.background') }}: Frozen in Time - Lunanella</a><br />
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
@@ -287,20 +316,20 @@ text {
     max-width: none !important
   }
 
-  .lang-area a{
-    font-size: 20px!important;
+  .lang-area a {
+    font-size: 20px !important;
   }
-  
-  .lang-area i{
-    font-size: 16px!important;
+
+  .lang-area i {
+    font-size: 16px !important;
   }
 
   footer {
     line-height: 2em;
   }
 
-  footer a{
-    font-size: 15px!important
+  footer a {
+    font-size: 15px !important
   }
 }
 
@@ -439,12 +468,12 @@ text {
   margin-block-start: 0
 }
 
-.time-display{
+.time-display {
   font-size: 15px;
   font-weight: 800;
 }
 
-.time-timezone{
+.time-timezone {
   opacity: 0.5;
 }
 
@@ -456,7 +485,7 @@ text {
   align-items: center;
 }
 
-.info>view{
+.info>view {
   margin: 7.5px;
 }
 
@@ -478,7 +507,7 @@ text {
   height: 25px;
 }
 
-.media-box>a{
+.media-box>a {
   width: 25px;
   height: 25px;
 }
@@ -663,7 +692,7 @@ div ::-webkit-scrollbar-thumb:active {
     transform: scale(.9)
   }
 
-  .info h2{
+  .info h2 {
     transform: scale(0.9)
   }
 
