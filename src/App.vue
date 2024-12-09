@@ -217,7 +217,7 @@ onUnmounted(() => {
       </div>
       <div>
         <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
-        <a>{{ t('texts.background') }}: Frozen in Time - Lunanella</a><br />
+        <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br />
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
@@ -642,7 +642,7 @@ footer p {
   color: #fff
 }
 
-footer a {
+footer a,footer span {
   position: relative;
   border-bottom: 1px solid transparent;
   color: #fff;
