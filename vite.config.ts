@@ -22,5 +22,10 @@ export default defineConfig({
       polyfill: false
     },
     reportCompressedSize: false,
+  },
+  resolve:{
+    alias: {
+      "@assets": resolve(__dirname,"src/assets")
+    }
   }
 })
