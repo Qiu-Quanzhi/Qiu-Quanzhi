@@ -408,3 +408,7 @@ a.link:active {
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--b-alpha-20)
 }
+
+.alpha-50{
+    opacity: 0.5;
+}

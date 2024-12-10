@@ -1,11 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue()
+    vue(),
+    createSvgIconsPlugin({
+      iconDirs: [resolve(__dirname, 'src/icons')]
+    }),
   ],
   base: './',
   build: {
@@ -25,7 +29,8 @@ export default defineConfig({
   },
   resolve:{
     alias: {
-      "@": resolve(__dirname,"src/")
+      "@": resolve(__dirname,"src/"),
+      "components": resolve(__dirname,"src/components/")
     }
   }
 })

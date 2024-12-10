@@ -5,7 +5,8 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-import show from './components/show.vue';
+import show from 'components/show.vue';
+import cardInfo from 'components/cardInfo.vue';
 
 const loaded = ref(false)
 const activated = ref(false)
@@ -102,11 +103,7 @@ onMounted(async () => {
                 :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
-        <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
-          <a target="_blank" href="https://time.is/UTC+8">
-            <span class="time-display"> {{ time.shortTime }} <span class="time-timezone">({{ time.timezone }})</span></span>
-          </a>
-        </div>
+        <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
       </view>
     </view>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
@@ -463,15 +460,6 @@ text {
 .block>p {
   font-size: 14px;
   margin-block-start: 0
-}
-
-.time-display {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.time-timezone {
-  opacity: 0.5;
 }
 
 .info {
