@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import blog from './blog.vue'
-import bilibili from './bilibili.vue'
-import netease from './netease.vue'
+import blog from './show/blog.vue'
+import bilibili from './show/bilibili.vue'
+import netease from './show/netease.vue'
 import { ref } from "vue";
 type bilibili = { aid?: number, bvid?: string, cid?: number, title: string }
 const list = ref<{ bilibili_list: Array<bilibili> }>({ bilibili_list: [] })
@@ -35,7 +35,6 @@ const tab=ref('weixin')
     </view>
     <view v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
         <view class="media">
-            <!-- <a target="_blank" v-if="bilibili_index != -1" :href="`https://www.bilibili.com/video/${list.bilibili_list[bilibili_index].bvid||list.bilibili_list[bilibili_index].aid}`" class="media-tip">点此进入原视频</a> -->
             <bilibili class="player" v-if="bilibili_index != -1" :aid="list.bilibili_list[bilibili_index].aid"
                 :bvid="list.bilibili_list[bilibili_index].bvid" :cid="list.bilibili_list[bilibili_index].cid"></bilibili>
         </view>

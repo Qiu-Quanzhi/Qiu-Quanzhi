@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue';
+import { info, time } from '@/data'
+
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-const { t } = useI18n()
+const { t } = useI18n();
 
 import show from './components/show.vue';
 
 const loaded = ref(false)
 const activated = ref(false)
-const contactContent = ref([t('footer[1].contents[0]'),t('footer[1].contents[1]'),t('footer[1].contents[2]')])
-const contactList = ['2424742162','RyoineQ','i@qqzhi.cc']
 
-let date = new Date(Date.now() + 8 * 3600000)
+
+// let timezoneOffset = new Date()
+
 type socialMedia = { id: string, url: string, mode: string | undefined }
 const socialMediaList = ref<Array<socialMedia>>([])
 fetch('/assets/data/socialMedias.json')
@@ -20,19 +22,21 @@ fetch('/assets/data/socialMedias.json')
   }).catch((error) => {
     console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
   });
+const contactContent = ref([t('footer[1].contents[0]'), t('footer[1].contents[1]'), t('footer[1].contents[2]')])
+const contactList = ['2424742162', 'RyoineQ', 'i@qqzhi.cc']
 const openLink = (event: MouseEvent) => {
   event.preventDefault()
   event.currentTarget instanceof HTMLAnchorElement && window.open(event.currentTarget.href, '', 'height=615,width=450,scrollbars=yes,status=yes')
 }
-const copyContact=(idx:number)=>{
+const copyContact = (idx: number) => {
   navigator.clipboard.writeText(contactList[idx])
-  .then(() => {
-    console.log('[内容已复制到剪贴板 Content copied to clipboard]');
-  })
-  .catch((error) => {
-    console.error('[复制内容时出错 Error on copying content]', error);
-  });
-  contactContent.value[idx]=t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
+    .then(() => {
+      console.log('[内容已复制到剪贴板 Content copied to clipboard]');
+    })
+    .catch((error) => {
+      console.error('[复制内容时出错 Error on copying content]', error);
+    });
+  contactContent.value[idx] = t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
 }
 const handleScroll = () => {
   if (window.scrollY > 0) {
@@ -53,10 +57,6 @@ onMounted(async () => {
     console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
   }
 })
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
 </script>
 
 <template>
@@ -72,7 +72,6 @@ onUnmounted(() => {
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
     <a :aria-label="t('aria.goto') + t('parts.log.title')" href="#log"></a>
     <a :aria-label="t('aria.goto') + t('aria.footer')" href="#footer"></a>
-
     <view id="home" class="flex-col item-center content-center">
       <view class="info">
         <view :class="['card', 'blanked', loaded ? 'loaded' : '']">
@@ -84,7 +83,7 @@ onUnmounted(() => {
                   <ruby style="ruby-position: under;">
                     <ruby style="ruby-position: over;" v-html="t('nameHTML')">
                     </ruby>
-                    <rt lang="zh-cn">(旅禾Tristan)</rt>
+                    <rt lang="zh-cn">({{ info.nickName }})</rt>
                   </ruby>
                 </h2>
                 <view class="tag-box">
@@ -99,14 +98,15 @@ onUnmounted(() => {
           </view>
           <view class="flex-row content-evenly media-box">
             <a v-for="item in socialMediaList" target="_blank" @click=" item.mode && openLink($event)" :href="item.url">
-              <img :title="t('aria.' + item.id)" :alt="t('aria.' + item.id)" height="25" width="25"
+              <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
                 :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
-        <view data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
-          <span class="time-display"> {{ date.getUTCHours().toString().padStart(2, '0') }}:{{
-    date.getUTCMinutes().toString().padStart(2,'0') }} <span class="time-timezone">(UTC +8:00)</span></span>
-        </view>
+        <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini']">
+          <a target="_blank" href="https://time.is/UTC+8">
+            <span class="time-display"> {{ time.shortTime }} <span class="time-timezone">({{ time.timezone }})</span></span>
+          </a>
+        </div>
       </view>
     </view>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
@@ -201,12 +201,9 @@ onUnmounted(() => {
       </div>
       <div>
         <p>{{ t('footer[1].title') }}</p>
-        <a @click="copyContact(0)"
-          id="QQ" target="_blank">{{ contactContent[0] }}</a><br>
-        <a @click="copyContact(1)"
-          id="Weixin" target="_blank">{{ contactContent[1] }}</a><br>
-        <a @click="copyContact(2)"
-          id="Mail" target="_blank">{{ contactContent[2] }}</a><br>
+        <a @click="copyContact(0)" id="QQ" target="_blank">{{ contactContent[0] }}</a><br>
+        <a @click="copyContact(1)" id="Weixin" target="_blank">{{ contactContent[1] }}</a><br>
+        <a @click="copyContact(2)" id="Mail" target="_blank">{{ contactContent[2] }}</a><br>
       </div>
       <div>
         <p>{{ t('footer[2].title') }}</p>
@@ -216,7 +213,7 @@ onUnmounted(() => {
         <a href="https://y.qq.com/n/ryqq/singer/0029evxu40hcqi" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
       </div>
       <div>
-        <p>© {{ date.getUTCFullYear() }} {{ t('name') }}</p>
+        <p>© {{ time.year }} {{ t('name') }}</p>
         <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br />
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
@@ -642,7 +639,8 @@ footer p {
   color: #fff
 }
 
-footer a,footer span {
+footer a,
+footer span {
   position: relative;
   border-bottom: 1px solid transparent;
   color: #fff;
