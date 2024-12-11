@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import icon from "components/icon.vue";
 defineProps<{
-    info: object,
-    time: object,
+    info: {
+        loc: string,
+        email: string
+    },
+    time: {
+        shortTime: string,
+        timezone: string
+    },
     loaded: boolean
 }>()
 </script>
@@ -30,10 +36,14 @@ defineProps<{
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .card {
     transform: scale(0.8);
     margin: -5px;
+    &:hover {
+        box-shadow: var(--b-alpha-30) 0 10px 30px;
+        transform: scale(1.1);
+    }
 }
 .row{
     margin: 5px 0;
