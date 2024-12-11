@@ -42,7 +42,6 @@ defineProps<{
     margin: -5px;
     &:hover {
         box-shadow: var(--b-alpha-30) 0 10px 30px;
-        transform: scale(1.1);
     }
 }
 .row{
