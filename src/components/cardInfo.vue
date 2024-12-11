@@ -3,7 +3,9 @@ import icon from "components/icon.vue";
 defineProps<{
     info: {
         loc: string,
-        email: string
+        email: string,
+        GPGFingerprint: String,
+        GPGUrl: string
     },
     time: {
         shortTime: string,
@@ -31,6 +33,12 @@ defineProps<{
             <icon class="icon" name="mail"></icon>
             <a class="text" target="_blank" href="mailto:i@qqzhi.cc">
                 {{ info.email }}
+            </a>
+        </div>
+        <div class="row flex-row">
+            <icon class="icon" name="key"></icon>
+            <a class="text" target="_blank" v-html="info.GPGFingerprint" :href="info.GPGUrl">
+                
             </a>
         </div>
     </div>
