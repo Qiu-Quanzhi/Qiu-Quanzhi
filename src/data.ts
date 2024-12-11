@@ -1,7 +1,8 @@
 const info = {
     lang: 'zh-CN',
     nickName: '旅禾Tristan',
-    loc: 'Maoming, China'
+    email: 'i@qqzhi.cc',
+    loc: 'Maoming, Guangdong, China'
 }
 
 

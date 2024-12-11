@@ -24,7 +24,7 @@ export default defineComponent({
         },
         size: {
             type: String,
-            default: '20',
+            default: '22',
         },
     },
     setup(props) {
