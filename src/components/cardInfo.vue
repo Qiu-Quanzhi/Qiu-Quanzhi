@@ -47,7 +47,7 @@ defineProps<{
 <style lang="scss" scoped>
 .wrapper {
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.6;
     &:hover{
         opacity: unset;
     }

@@ -427,7 +427,7 @@ text {
 }
 
 .block {
-  background-color: var(--w-alpha-90);
+  background-color: var(--w-alpha-80);
   -webkit-backdrop-filter: var(--filter-glass-1);
   backdrop-filter: var(--filter-glass-1);
   width: calc(100% - 40px);
@@ -443,7 +443,7 @@ text {
 }
 
 .block:hover {
-  background-color: var(--w-alpha-90);
+  background-color: var(--w-alpha-80);
   transform: scale(1.01);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
