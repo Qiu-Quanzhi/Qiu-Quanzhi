@@ -47,6 +47,10 @@ defineProps<{
 <style lang="scss" scoped>
 .wrapper {
     width: 100%;
+    opacity: 0.5;
+    &:hover{
+        opacity: unset;
+    }
 }
 
 .card {
