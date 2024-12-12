@@ -1,0 +1,5 @@
+Canonical: https://www.qqzhi.cc/.well-known/security.txt
+Contact: mailto:i@qqzhi.cc
+Encryption: https://github.com/Qiu-Quanzhi.gpg
+Expires: 2027-01-01T00:00:00Z
+Preferred-Languages: zh, en
