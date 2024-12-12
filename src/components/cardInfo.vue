@@ -18,6 +18,12 @@ defineProps<{
     <div class="wrapper flex-row content-center">
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div class="row flex-row">
+                <icon class="icon" name="location"></icon>
+                <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
+                    {{ info.loc }}
+                </a>
+            </div>
+            <div class="row flex-row">
                 <icon class="icon" name="time"></icon>
                 <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
                     {{ time.shortTime }}
@@ -28,12 +34,6 @@ defineProps<{
                 <icon class="icon" name="mail"></icon>
                 <a class="text" target="_blank" href="mailto:i@qqzhi.cc">
                     {{ info.email }}
-                </a>
-            </div>
-            <div class="row flex-row">
-                <icon class="icon" name="location"></icon>
-                <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
-                    {{ info.loc }}
                 </a>
             </div>
             <div class="row flex-row">
