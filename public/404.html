@@ -81,13 +81,13 @@
 
 <body>
 	<h1>404</h1>
-	<h2>呃唔， <br> 链接好像被弄丢了……</h2>
-	<p>如有疑问，请通过电子邮箱联系：<a href="mailto:i@qqzhi.cc" target="_blank" class="link">i@qqzhi.cc</a>。</p>
+	<h2>呃唔， <br> 页面好像走丢了……</h2>
+	<p>如有疑问，请联系：<a href="mailto:i@qqzhi.cc" target="_blank" class="link">i@qqzhi.cc</a>。</p>
 	<a href="https://www.qqzhi.cc/" id="btnHome">返回主站首页</a>
 	<footer>© 旅禾Tristan</footer>
 	<script>
 		window.onload = () => {
-			document.querySelector("footer").innerText = "© " + new Date().getFullYear() + " 旅禾Tristan"
+			document.querySelector("footer").innerText = "© " + new Date(new Date().toLocaleString([], { timeZone: "Asia/Shanghai" })).getFullYear() + " 旅禾Tristan"
 		}
 	</script>
 </body>
