@@ -4,11 +4,17 @@
 **[个人主页 Homepage](https://www.qqzhi.cc/)**
 
 本人是一名技术学习者、理论实践者，
-目前为高二学生，
+
+目前高二在读，
+
 热衷于探讨各类技术&学术话题，
+
 欢迎一起学习，共同进步！
 
 I'm a technical learner and a theoretical practitioner,
+
 currently studying in Guangdong, China,
+
 keening to discuss various academic topics.
+
 Welcome to make progress together!
