@@ -4,17 +4,11 @@
 **[个人主页 Homepage](https://www.qqzhi.cc/)**
 
 本人是一名技术学习者、理论实践者，
-
-I'm a technical learner and a theoretical practitioner,
-
-在读于信宜市信宜中学，
-
-currently studying at Xinyi Middle School in Guangdong, China,
-
-热衷于探讨各类学术话题，
-
-keening to discuss various academic topics.
-
+目前为高二学生，
+热衷于探讨各类技术&学术话题，
 欢迎一起学习，共同进步！
 
+I'm a technical learner and a theoretical practitioner,
+currently studying in Guangdong, China,
+keening to discuss various academic topics.
 Welcome to make progress together!
