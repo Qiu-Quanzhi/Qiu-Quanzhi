@@ -123,7 +123,7 @@ onMounted(async () => {
     <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
-      <div class="workList"><a href="https://blog.qqzhi.cc/" target="_blank" class="workLink" id="workLink_Blog">
+      <div class="workList"><a href="https://home.qqzhi.cc/" target="_blank" class="workLink" id="workLink_Blog">
           <div class="workLinkPic"></div>
           <div class="workLinkText">
             <p class="workLinkTitle">{{ t('parts.work.contents[0].title') }}</p>

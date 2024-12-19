@@ -19,7 +19,7 @@ export default {
             title:'Works Link',
             contents:[
                 {
-                    title: 'Tristan\'s Inn',
+                    title: 'Blog',
                     intro: 'Publish kinds of article',
                     cat: 'Blog'
                 },{
@@ -62,7 +62,7 @@ export default {
         contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
     },{
         title:'More Content',
-        contents: ["Home-YCG","Home-Zhihu","Home-QQ Music"]
+        contents: ["Home-Yuanchuang Guan","Home-Zhihu","Home-QQ Music"]
     }],
     texts:{
         background: 'Background',

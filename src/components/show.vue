@@ -13,7 +13,7 @@ fetch('/assets/data/works.json')
         bilibili_index.value = 0
     })
 const bilibili_index = ref(-1)
-const tab=ref('weixin')
+const tab=ref('blog')
 </script>
 <template>
     <view class="selection-box flex-row">
@@ -22,10 +22,10 @@ const tab=ref('weixin')
             <span v-show="tab=='bilibili'" class="underline2"></span>
             <a target="_blank" href="https://space.bilibili.com/1036651852" :class="['selection-id',tab=='bilibili'?'selected':'']">@旅禾Tristan<br><text>(点此进入主页)</text></a>
         </view>
-        <view @click="tab='weixin'" class="flex-col item-center">
-            <img alt="微信公众号" :class="['selection',tab=='weixin'?'selected':'']" :src="`assets/icons/Weixin.svg`"/>
-            <span v-show="tab=='weixin'" class="underline2"></span>
-            <a target="_blank" href="https://blog.qqzhi.cc/" :class="['selection-id',tab=='weixin'?'selected':'']">@旅禾Tristan<br><text>(未名岛 代展)</text></a>
+        <view @click="tab='blog'" class="flex-col item-center">
+            <img alt="旅禾小栈" :class="['selection',tab=='blog'?'selected':'']" :src="`assets/icons/blog.png`"/>
+            <span v-show="tab=='blog'" class="underline2"></span>
+            <a target="_blank" href="https://home.qqzhi.cc/" :class="['selection-id',tab=='blog'?'selected':'']">旅禾小栈<br><text>(点此进入)</text></a>
         </view>
         <view @click="tab='netease'" class="flex-col item-center">
             <img alt="网易云音乐" :class="['selection',tab=='netease'?'selected':'']" :src="`assets/icons/Netease.svg`"/>
@@ -46,7 +46,7 @@ const tab=ref('weixin')
             </view>
         </view>
     </view>
-    <view v-if="tab=='weixin'" class="show-box flex-row content-center" lang="zh-CN">
+    <view v-if="tab=='blog'" class="show-box flex-row content-center" lang="zh-CN">
         <blog class="blog viewer"></blog>
     </view>
     <view v-if="tab=='netease'" class="show-box flex-row content-center" lang="zh-CN">
