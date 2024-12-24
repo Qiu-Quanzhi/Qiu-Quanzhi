@@ -80,6 +80,7 @@ export default {
         mail: 'Email',
         Github: 'Github',
         X: 'X',
+        Luogu: 'Luogu',
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'

@@ -80,6 +80,7 @@ export default {
         mail: '电子邮箱',
         Github: 'Github',
         X: 'X',
+        Luogu: '洛谷',
         goto: '转到 ',
         footer: '页脚',
         scrolldown: '下一页'

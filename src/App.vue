@@ -11,11 +11,10 @@ import cardInfo from 'components/cardInfo.vue';
 const loaded = ref(false)
 const activated = ref(false)
 
-
-// let timezoneOffset = new Date()
-
 type socialMedia = { id: string, url: string, mode: string | undefined }
-const socialMediaList = ref<Array<socialMedia>>([])
+const socialMediaList = ref<Array<socialMedia>>([
+
+])
 fetch('/assets/data/socialMedias.json')
   .then((response) => response.json())
   .then((json: Array<socialMedia>) => {
