@@ -625,8 +625,7 @@ footer span {
   border-bottom: 1px solid transparent;
   color: #fff;
   font-size: 12px;
-  line-height: 20px;
-  cursor: pointer;
+  line-height: 30px
 }
 
 footer a:hover {
