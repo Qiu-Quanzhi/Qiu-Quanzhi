@@ -12,9 +12,8 @@ const loaded = ref(false)
 const activated = ref(false)
 
 type socialMedia = { id: string, url: string, mode: string | undefined }
-const socialMediaList = ref<Array<socialMedia>>([
-
-])
+const socialMediaList = ref<Array<socialMedia>>(info.socialMedias)
+/*
 fetch('/assets/data/socialMedias.json')
   .then((response) => response.json())
   .then((json: Array<socialMedia>) => {
@@ -22,8 +21,9 @@ fetch('/assets/data/socialMedias.json')
   }).catch((error) => {
     console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
   });
+*/
 const contactContent = ref([t('footer[1].contents[0]'), t('footer[1].contents[1]'), t('footer[1].contents[2]')])
-const contactList = ['2424742162', 'RyoineQ', 'i@qqzhi.cc']
+const contactList = [info.contact.QQ, info.contact.Weixin, info.email]
 const openLink = (event: MouseEvent) => {
   event.preventDefault()
   event.currentTarget instanceof HTMLAnchorElement && window.open(event.currentTarget.href, '', 'height=615,width=450,scrollbars=yes,status=yes')
@@ -49,13 +49,6 @@ onMounted(async () => {
     loaded.value = true
   }, 500);
   window.addEventListener('scroll', handleScroll);
-  try {
-    const response = await fetch('/assets/data/socialMedias.json');
-    const json = await response.json();
-    socialMediaList.value = json;
-  } catch (error) {
-    console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
-  }
 })
 </script>
 
