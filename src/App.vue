@@ -687,5 +687,9 @@ div ::-webkit-scrollbar-thumb:active {
   .media-box {
     transform: scale(.9)
   }
+
+  .scroll-down {
+        display: none;
+    }
 }
 </style>

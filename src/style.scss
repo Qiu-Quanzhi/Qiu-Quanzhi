@@ -169,8 +169,6 @@
     .card{
         opacity: 0.5;
     }
-
-    
 }
 
 * {
@@ -258,7 +256,7 @@ body,
 
 .scroll-down {
     position: absolute;
-    top: 50px;
+    top: 1%;
     left: calc(50% - 10px);
     border-right: 3px solid;
     border-top: 3px solid;

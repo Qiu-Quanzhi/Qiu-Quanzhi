@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import icon from "components/icon.vue";
 defineProps<{
     info: {
         loc: string,
@@ -15,29 +14,37 @@ defineProps<{
 }>()
 </script>
 <template>
-    <div class="wrapper flex-row content-center">
+    <div class="wrapper flex-row content-center" aria-hidden>
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div class="row flex-row">
-                <icon class="icon" name="location"></icon>
+                <div class="icon">
+                    <img src="/assets/icons/location.svg" height="22" width="22" />
+                </div>
                 <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
                     {{ info.loc }}
                 </a>
             </div>
             <div class="row flex-row">
-                <icon class="icon" name="time"></icon>
+                <div class="icon">
+                    <img src="/assets/icons/time.svg" height="22" width="22" />
+                </div>
                 <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
                     {{ time.shortTime }}
                     <span class="alpha-50">({{ time.timezone }})</span>
                 </a>
             </div>
             <div class="row flex-row">
-                <icon class="icon" name="mail"></icon>
+                <div class="icon">
+                    <img src="/assets/icons/email.svg" height="22" width="22" />
+                </div>
                 <a class="text" target="_blank" href="mailto:i@qqzhi.cc">
                     {{ info.email }}
                 </a>
             </div>
             <div class="row flex-row">
-                <icon class="icon" name="key"></icon>
+                <div class="icon">
+                    <img src="/assets/icons/key.svg" height="22" width="22" />
+                </div>
                 <a class="text monospace" target="_blank" v-html="info.GPGFingerprint" :href="info.GPGUrl"></a>
             </div>
         </div>
@@ -65,7 +72,6 @@ defineProps<{
 
 .row {
     margin: 5px 0;
-    opacity: 0.6;
 }
 
 .icon {
@@ -76,5 +82,6 @@ defineProps<{
     font-size: 15px;
     font-weight: 800;
     white-space: nowrap;
+    opacity: 0.6;
 }
 </style>
