@@ -100,7 +100,7 @@ onMounted(async () => {
     </view>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
       style="position: absolute;width: 100%;bottom: 150px;height: 20px;">
-      <span class="scroll-down"></span>
+      <span :class="['scroll-down', loaded ? 'loaded' : '']"></span>
     </a>
     <view :class="['bg', 'blanked', loaded ? 'loaded' : '']"></view>
     <view id="info" class="flex-col item-center block">

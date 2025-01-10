@@ -226,17 +226,8 @@ a{
 	--b-alpha-90: rgba(0, 0, 0, .9);
 }
 
-/* @font-face {
-	font-family: hywh;
-	src: url();
-} */
-
 span,p,h1,h2,h3,h4,h5,a {
-	font-family: Microsoft Yahei, PingFangSC-Regular;
-}
-
-ht {
-	font-family: 黑体;
+	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
 }
 
 .flex-rw {
