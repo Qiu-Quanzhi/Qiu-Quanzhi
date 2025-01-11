@@ -68,13 +68,9 @@ const tab=ref('blog')
     border-radius: 10px;
     background-color: var(--w-alpha-90);
 }
-.blog.viewer{
-    width: calc((100vw - 80px));
+.viewer{
+    width: calc(100vw - 80px);
     height: 80vh;
-}
-.netease.viewer{
-    width: calc((100vw - 80px) * 0.5);
-    height: calc(80vh * 0.5);
 }
 .selection{
     margin: 5px;
@@ -107,7 +103,7 @@ text{
     width: calc((100vw - 300px));
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 900px) {
     .show-box {
         flex-direction: column;
         align-items: center;
