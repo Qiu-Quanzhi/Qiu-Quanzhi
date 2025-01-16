@@ -3,7 +3,9 @@
 
 **#信息学竞赛 #OIer**
 
-**[个人主页 Homepage](https://www.qqzhi.cc/)**  **[GPG 指纹 Fingerprint 9A9D 4561 98CE 0D31 552F 9B3D 0398 A1CB FE77 BB60](https://github.com/Qiu-Quanzhi.gpg)**
+**[个人主页 Homepage](https://www.qqzhi.cc/)**
+
+**[\[GPG 指纹 Fingerprint\]: 9A9D 4561 98CE 0D31 552F 9B3D 0398 A1CB FE77 BB60](https://github.com/Qiu-Quanzhi.gpg)**
 
 本人是一名技术学习者、理论实践者，
 
