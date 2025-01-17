@@ -95,7 +95,6 @@ onMounted(async () => {
                 :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
         </view>
-        <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
       </view>
     </view>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
@@ -106,11 +105,16 @@ onMounted(async () => {
     <view id="info" class="flex-col item-center block">
       <h3>{{ t('parts.about.title') }}</h3>
       <span class="underline1"></span>
-      <p>{{ t('parts.about.contents[0]') }}</p>
-      <p>{{ t('parts.about.contents[1]') }}</p>
-      <p>{{ t('parts.about.contents[2]') }}</p>
-      <p>{{ t('parts.about.contents[3]') }}</p>
-      <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="highlight link">i@qqzhi.cc</a></p>
+      <div class="info-content flex-row item-center">
+        <div class="flex-col item-center">
+          <p>{{ t('parts.about.contents[0]') }}</p>
+          <p>{{ t('parts.about.contents[1]') }}</p>
+          <p>{{ t('parts.about.contents[2]') }}</p>
+          <p>{{ t('parts.about.contents[3]') }}</p>
+          <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="highlight link">i@qqzhi.cc</a></p>
+        </div>
+        <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
+      </div>
     </view>
     <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
@@ -449,7 +453,7 @@ text {
   margin-block-end: 0
 }
 
-.block>p {
+.block>p, .block#info p {
   font-size: 14px;
   margin-block-start: 0
 }
@@ -661,7 +665,12 @@ div ::-webkit-scrollbar-thumb:active {
   background-color: var(--theme-color)
 }
 
-@media (max-width: 660px) {
+@media (max-width: 800px) {
+
+  .info-content{
+    flex-direction: column;
+  }
+
   .info {
     position: static
   }

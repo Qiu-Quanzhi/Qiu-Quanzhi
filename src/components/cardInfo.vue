@@ -14,7 +14,7 @@ defineProps<{
 }>()
 </script>
 <template>
-    <div class="wrapper flex-row content-center" aria-hidden>
+    <div class="wrapper flex-col content-center" aria-hidden="true">
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div class="row flex-row">
                 <img class="icon" src="/assets/icons/location.svg" height="22" width="22" />
@@ -45,9 +45,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .wrapper {
-    width: 100%;
     opacity: 0.7;
-
     &:hover {
         opacity: unset;
     }
@@ -55,7 +53,7 @@ defineProps<{
 
 .card {
     transform: scale(0.8);
-    margin: -5px;
+    margin-left: 20px;
     position: absolute;
 
     &:hover {
@@ -76,5 +74,17 @@ defineProps<{
     font-weight: 800;
     white-space: nowrap;
     opacity: 0.6;
+}
+
+
+@media (max-width: 1000px) {
+    .wrapper{
+      align-items: center;
+    }
+
+    .card {
+        margin-left: 0;
+        position: unset;
+    }
 }
 </style>
