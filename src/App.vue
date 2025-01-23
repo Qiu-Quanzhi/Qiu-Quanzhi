@@ -234,12 +234,12 @@ onMounted(async () => {
 
 .blog.viewer {
   width: calc(100vw - 80px);
-  height: 80vh
+  height: 80dvh
 }
 
 .netease.viewer {
   width: calc((100vw - 80px)/2);
-  height: 40vh
+  height: 40dvh
 }
 
 .selection {
@@ -301,7 +301,7 @@ text {
     padding: 15px 5px 5px !important;
     margin-top: -5px;
     left: 0 !important;
-    max-height: 30vh;
+    max-height: 30dvh;
     height: unset !important;
     max-width: none !important
   }
@@ -411,7 +411,7 @@ text {
 
 #home {
   width: 100%;
-  height: 100vh
+  height: 100dvh
 }
 
 .block {
