@@ -414,12 +414,13 @@ text {
   height: 100vh
 }
 
-#info {
-  transition: margin-top 1s, transform .25s, backdrop-filter .25s, background-color .25s
+.block {
+  animation: 0.6s ease 1s 1 normal backwards running slide-in;
+  transition: transform .25s, backdrop-filter .25s, background-color .25s;
 }
 
-.loaded+#info {
-  margin-top: -25px
+#info {
+  margin-top: -40px
 }
 
 .block {

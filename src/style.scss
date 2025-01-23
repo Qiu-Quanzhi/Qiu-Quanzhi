@@ -132,7 +132,7 @@
         ---bg-w-s: rgb(245, 245, 245);
         ---bg-w-pure: white;
         ---bg-w-245: rgb(245, 245, 245);
-        ---txt-w: rgba(255,255,255,0.5);
+        ---txt-w: rgba(255, 255, 255, 0.5);
         ---txt-b: #4d4d4d;
         ---txt-b-tip: rgba(0, 0, 0, .8);
         ---b-alpha-5: rgba(0, 0, 0, .05);
@@ -162,11 +162,11 @@
         filter: brightness(.9)
     }
 
-    .bg{
+    .bg {
         filter: brightness(.51)
     }
 
-    .card{
+    .card {
         opacity: 0.5;
     }
 }
@@ -219,10 +219,12 @@ body,
     padding: 20px;
     border-radius: 10px;
     transition: transform .25s;
-    &.mini{
+
+    &.mini {
         padding: 10px;
         border-radius: 5px;
     }
+
     &:hover {
         transform: scale(1.05)
     }
@@ -250,11 +252,11 @@ body,
     justify-content: space-evenly
 }
 
-.monospace{
-    font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+.monospace {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.scroll-down.loaded{
+.scroll-down.loaded {
     transform: rotate(calc(360deg + 135deg)) scale(1);
 }
 
@@ -301,10 +303,10 @@ body,
 }
 
 .highlight {
-    color: var(--highlight-color)!important
+    color: var(--highlight-color) !important
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
 }
 
@@ -421,6 +423,17 @@ a.link:active {
     background-color: var(--b-alpha-20)
 }
 
-.alpha-50{
+.alpha-50 {
     opacity: 0.5;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) opacity 1
+    }
 }
