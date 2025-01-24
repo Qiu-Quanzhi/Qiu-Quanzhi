@@ -13,12 +13,12 @@
     "vue-i18n": "^10.0.5"
   },
   "devDependencies": {
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.10",
     "@vitejs/plugin-vue": "^5.2.1",
     "fast-glob": "^3.3.3",
-    "sass": "^1.83.1",
+    "sass": "^1.83.4",
     "typescript": "^5.7.3",
-    "vite": "^6.0.7",
+    "vite": "^6.0.11",
     "vue-tsc": "https://pkg.pr.new/vuejs/language-tools/vue-tsc@3fb59af"
   }
 }

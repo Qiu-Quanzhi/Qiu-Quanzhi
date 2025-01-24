@@ -56,13 +56,13 @@ export default {
     },
     footer:[{
         title:'友情链接',
-        contents: ["信宜中学OJ"]
+        contents: ["友链与鸣谢-旅禾小栈"]
     },{
         title:'与我联系',
         contents: ["联系-QQ","联系-微信","联系-邮箱"]
     },{
         title:'更多内容',
-        contents: ["主页-原创馆","主页-知乎","主页-QQ音乐"]
+        contents: ["主页-原创馆","主页-洛谷","主页-X"]
     }],
     texts:{
         background: '背景',
@@ -76,11 +76,10 @@ export default {
         Bilibili: '哔哩哔哩',
         Netease: '网易云音乐',
         LinkedIn: '领英',
-        Weixin: '微信公众号',
         mail: '电子邮箱',
         Github: 'Github',
         X: 'X',
-        Luogu: '洛谷',
+        sponsor: '赞助',
         goto: '转到 ',
         footer: '页脚',
         scrolldown: '下一页'

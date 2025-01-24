@@ -56,13 +56,13 @@ export default {
     },
     footer:[{
         title:'友情連結',
-        contents: ["信宜中學OJ"]
+        contents: ["友鏈與鳴謝-旅禾小棧"]
     },{
         title:'與我聯繫',
         contents: ["聯繫-QQ","聯繫-微信","聯繫-郵箱"]
     },{
         title:'更多內容',
-        contents: ["主頁-原創館","主頁-知乎","主頁-QQ音樂"]
+        contents: ["主頁-原創館","主頁-洛谷","主頁-X"]
     }],
     texts:{
         background: '背景',
@@ -80,7 +80,7 @@ export default {
         mail: '電子郵箱',
         Github: 'Github',
         X: 'X',
-        Luogu: '洛谷',
+        sponsor: '贊助',
         goto: '轉到 ',
         footer: '頁腳',
         scrolldown: '下一頁'

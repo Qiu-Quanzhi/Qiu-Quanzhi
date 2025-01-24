@@ -56,13 +56,13 @@ export default {
     },
     footer:[{
         title:'Links',
-        contents: ["XMS OJ"]
+        contents: ["Links-Blog"]
     },{
         title:'Contact Me',
         contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
     },{
         title:'More Content',
-        contents: ["Home-Yuanchuang Guan","Home-Zhihu","Home-QQ Music"]
+        contents: ["Home-Tencent YCG","Home-Luogu OJ","Home-X"]
     }],
     texts:{
         background: 'Background',
@@ -74,13 +74,13 @@ export default {
     aria: {
         avatar: 'An avatar',
         Bilibili: 'Bilibili',
-        Netease: 'Netease CloudMusic',
+        Netease: 'Netease Music',
         LinkedIn: 'LinkedIn',
         Weixin: 'WeChat Subscription',
         mail: 'Email',
         Github: 'Github',
         X: 'X',
-        Luogu: 'Luogu',
+        sponsor: 'Sponsor',
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'

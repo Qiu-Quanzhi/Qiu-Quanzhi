@@ -9,11 +9,9 @@ const info = {
     socialMedias: [
         { id: "mail", url: "mailto:i@qqzhi.cc" },
         { id: "Github", url: "https://github.com/Qiu-Quanzhi" },
-        { id: "LinkedIn", url: "https://www.linkedin.com/in/qqz/" },
         { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
-        { id: "X", url: "https://x.com/RyoineQ" },
-        { id: "Luogu", url: "https://www.luogu.com.cn/user/525682" },
-        { id: "Weixin", url: "https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951", mode: "embed" }
+        { id: "sponsor", url: "https://afdian.com/a/Ryoine" },
+        { id: "LinkedIn", url: "https://www.linkedin.com/in/qqz/" }
     ],
     contact: {
         QQ: "2424742162",

@@ -188,7 +188,7 @@ onMounted(async () => {
     </view>
     <footer data-nosnippet id="footer">
       <div>
-        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="http://xyzxoj.work/" target="_blank">{{
+        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="https://home.qqzhi.cc/links/" target="_blank">{{
           t('footer[0].contents[0]')
         }}</a>
       </div>
@@ -201,9 +201,9 @@ onMounted(async () => {
       <div>
         <p>{{ t('footer[2].title') }}</p>
         <a href="https://ycg.qq.com/person/works/2673519" target="_blank">{{ t('footer[2].contents[0]') }}</a><br>
-        <a href="https://www.zhihu.com/people/qian-xia-sheng-xin" target="_blank">{{ t('footer[2].contents[1]')
+        <a href="https://www.luogu.com.cn/user/525682" target="_blank">{{ t('footer[2].contents[1]')
           }}</a><br>
-        <a href="https://y.qq.com/n/ryqq/singer/0029evxu40hcqi" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
+        <a href="https://x.com/RyoineQ" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name') }}</p>
