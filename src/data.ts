@@ -7,14 +7,13 @@ const info = {
     GPGUrl: 'https://github.com/Qiu-Quanzhi.gpg',
     timeZone: "Asia/Shanghai",
     socialMedias: [
-        { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
-        { id: "Weixin", url: "https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951", mode: "embed" },
         { id: "mail", url: "mailto:i@qqzhi.cc" },
         { id: "Github", url: "https://github.com/Qiu-Quanzhi" },
         { id: "LinkedIn", url: "https://www.linkedin.com/in/qqz/" },
-        { id: "Netease", url: "https://music.163.com/#/artist?id=55151766" },
+        { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
         { id: "X", url: "https://x.com/RyoineQ" },
-        { id: "Luogu", url: "https://www.luogu.com.cn/user/525682" }
+        { id: "Luogu", url: "https://www.luogu.com.cn/user/525682" },
+        { id: "Weixin", url: "https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951", mode: "embed" }
     ],
     contact: {
         QQ: "2424742162",
