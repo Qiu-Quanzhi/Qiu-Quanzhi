@@ -62,7 +62,7 @@ export default {
         contents: ["联系-QQ","联系-微信","联系-邮箱"]
     },{
         title:'更多内容',
-        contents: ["主页-原创馆","主页-洛谷","主页-X"]
+        contents: ["主页-原创馆","主页-洛谷","主页-爱发电"]
     }],
     texts:{
         background: '背景',
@@ -79,7 +79,7 @@ export default {
         mail: '电子邮箱',
         Github: 'Github',
         X: 'X',
-        sponsor: '赞助',
+        blog: '博客',
         goto: '转到 ',
         footer: '页脚',
         scrolldown: '下一页'

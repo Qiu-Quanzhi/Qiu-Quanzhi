@@ -203,7 +203,7 @@ onMounted(async () => {
         <a href="https://ycg.qq.com/person/works/2673519" target="_blank">{{ t('footer[2].contents[0]') }}</a><br>
         <a href="https://www.luogu.com.cn/user/525682" target="_blank">{{ t('footer[2].contents[1]')
           }}</a><br>
-        <a href="https://x.com/RyoineQ" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
+        <a href="https://afdian.com/a/Ryoine" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name') }}</p>

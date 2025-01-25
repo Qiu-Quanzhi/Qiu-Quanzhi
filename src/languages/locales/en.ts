@@ -62,7 +62,7 @@ export default {
         contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
     },{
         title:'More Content',
-        contents: ["Home-Tencent YCG","Home-Luogu OJ","Home-X"]
+        contents: ["Home-Tencent YCG","Home-Luogu OJ","Home-Afdian"]
     }],
     texts:{
         background: 'Background',
@@ -80,7 +80,7 @@ export default {
         mail: 'Email',
         Github: 'Github',
         X: 'X',
-        sponsor: 'Sponsor',
+        blog: 'Blog',
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'

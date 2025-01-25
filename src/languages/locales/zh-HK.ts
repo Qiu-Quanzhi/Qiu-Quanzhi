@@ -62,7 +62,7 @@ export default {
         contents: ["聯繫-QQ","聯繫-微信","聯繫-郵箱"]
     },{
         title:'更多內容',
-        contents: ["主頁-原創館","主頁-洛谷","主頁-X"]
+        contents: ["主頁-原創館","主頁-洛谷","主頁-愛發電"]
     }],
     texts:{
         background: '背景',
@@ -80,7 +80,7 @@ export default {
         mail: '電子郵箱',
         Github: 'Github',
         X: 'X',
-        sponsor: '贊助',
+        blog: '博客',
         goto: '轉到 ',
         footer: '頁腳',
         scrolldown: '下一頁'

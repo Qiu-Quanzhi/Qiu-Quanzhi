@@ -8,9 +8,9 @@ const info = {
     timeZone: "Asia/Shanghai",
     socialMedias: [
         { id: "mail", url: "mailto:i@qqzhi.cc" },
+        { id: "blog", url: "https://home.qqzhi.cc" },
         { id: "Github", url: "https://github.com/Qiu-Quanzhi" },
         { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
-        { id: "sponsor", url: "https://afdian.com/a/Ryoine" },
         { id: "LinkedIn", url: "https://www.linkedin.com/in/qqz/" }
     ],
     contact: {
