@@ -20,7 +20,7 @@ const tab=ref('blog')
         <view @click="tab='bilibili'" class="flex-col item-center">
             <img alt="哔哩哔哩" :class="['selection',tab=='bilibili'?'selected':'']" :src="`assets/icons/Bilibili.svg`"/>
             <span v-show="tab=='bilibili'" class="underline2"></span>
-            <a target="_blank" href="https://space.bilibili.com/1036651852" :class="['selection-id',tab=='bilibili'?'selected':'']">@旅禾Tristan<br><text>(点此进入主页)</text></a>
+            <a target="_blank" href="https://space.bilibili.com/1036651852" :class="['selection-id',tab=='bilibili'?'selected':'']">@旅禾Ryoine<br><text>(点此进入主页)</text></a>
         </view>
         <view @click="tab='blog'" class="flex-col item-center">
             <img alt="旅禾小栈" :class="['selection',tab=='blog'?'selected':'']" :src="`assets/icons/blog.png`"/>
