@@ -20,7 +20,7 @@ export default {
             contents:[
                 {
                     title: '旅禾小栈',
-                    intro: '随缘更新，发布各类文章',
+                    intro: '分享学识，分装快乐！',
                     cat: '个人博客'
                 },{
                     title: '古国简展',
@@ -33,7 +33,7 @@ export default {
                 },{
                     title: '公众号频道',
                     intro: '浏览订阅文章作品',
-                    cat: '微信订阅号'
+                    cat: '微信公众号'
                 },
             ]
         },

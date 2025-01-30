@@ -19,8 +19,8 @@ export default {
             title:'Works Link',
             contents:[
                 {
-                    title: 'Blog',
-                    intro: 'Publish kinds of article',
+                    title: 'Ryoine Inn',
+                    intro: 'Wisdom to Share, Joy to Unpack',
                     cat: 'Blog'
                 },{
                     title: 'Exhibition of the Acient',
@@ -31,9 +31,9 @@ export default {
                     intro: 'Watch video works online',
                     cat: 'Bilibili'
                 },{
-                    title: 'Subscription Channel',
-                    intro: 'Browse the released articles',
-                    cat: 'Subscription Account'
+                    title: 'WeChat Channel',
+                    intro: 'Browse the released contents',
+                    cat: 'WeChat Official Account'
                 },
             ]
         },

@@ -20,7 +20,7 @@ export default {
             contents:[
                 {
                     title: '旅禾小棧',
-                    intro: '隨緣更新，發佈各類文章與文檔',
+                    intro: '分享學識，分裝快樂！',
                     cat: '個人博客'
                 },{
                     title: '古國簡展',
@@ -33,7 +33,7 @@ export default {
                 },{
                     title: '公眾號頻道',
                     intro: '流覽訂閱文章作品',
-                    cat: '微信訂閱號'
+                    cat: '微信公眾號'
                 },
             ]
         },
