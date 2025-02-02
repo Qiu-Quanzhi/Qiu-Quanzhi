@@ -8,8 +8,8 @@ const info = {
     timeZone: "Asia/Shanghai",
     socialMedias: [
         { id: "mail", url: "mailto:i@qqzhi.cc", info: "i@qqzhi.cc" },
-        { id: "Weixin", url: "/WX.png", mode: "embed", info: "Qiu-Qz" },
-        { id: "QQ", url: "/QQ.png", mode: "embed", info: "2766468782" },
+        { id: "Weixin", url: "/WX.pdf", mode: "embed", info: "Qiu-Qz" },
+        { id: "QQ", url: "/QQ.pdf", mode: "embed", info: "2766468782" },
         { id: "blog", url: "https://home.qqzhi.cc" },
         { id: "Github", url: "https://github.com/Qiu-Quanzhi" },
         { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
