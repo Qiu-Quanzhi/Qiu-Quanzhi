@@ -28,14 +28,24 @@ const openLink = (event: MouseEvent) => {
   event.preventDefault()
   event.currentTarget instanceof HTMLAnchorElement && window.open(event.currentTarget.href, '', 'height=615,width=450,scrollbars=yes,status=yes')
 }
+const copyInfo = (info: string,id: string) => {
+  alert(t('texts.copy.try',{title:t(`info.${id}`)}));
+  navigator.clipboard.writeText(info)
+    .then(() => {
+      alert(t('texts.copy.success',{title:t(`info.${id}`)}));
+    })
+    .catch(() => {
+      alert(t('texts.copy.fail',{title:t(`info.${id}`)}));
+    });
+}
 const copyContact = (idx: number) => {
   navigator.clipboard.writeText(contactList[idx])
-    .then(() => {
-      console.log('[内容已复制到剪贴板 Content copied to clipboard]');
-    })
-    .catch((error) => {
-      console.error('[复制内容时出错 Error on copying content]', error);
-    });
+    // .then(() => {
+    //   alert(t('texts.copy.success'));
+    // })
+    // .catch(() => {
+    //   alert(t('texts.copy.fail'));
+    // });
   contactContent.value[idx] = t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
 }
 const handleScroll = () => {
@@ -90,7 +100,7 @@ onMounted(async () => {
             </view>
           </view>
           <view class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" @click=" item.mode && openLink($event)" :href="item.url">
+            <a v-for="item in socialMediaList" target="_blank" @click="item.info && copyInfo(item.info,item.id) ||  item.mode && openLink($event)" :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
                 :src="`assets/icons/${item.id}.svg`" /></a>
           </view>

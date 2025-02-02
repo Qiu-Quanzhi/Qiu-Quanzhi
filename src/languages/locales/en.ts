@@ -66,6 +66,11 @@ export default {
     }],
     texts:{
         background: 'Background',
+        copy: {
+            sucess: 'Copied {title} to clipboard',
+            fail: 'Failed to copy {title}',
+            try: 'Trying to copy {title}',
+        },
         copied: 'Copied',
         id: 'ID',
         address: 'ADD',
@@ -76,7 +81,8 @@ export default {
         Bilibili: 'Bilibili',
         Netease: 'Netease Music',
         LinkedIn: 'LinkedIn',
-        Weixin: 'WeChat Subscription',
+        Weixin: 'WeChat',
+        QQ: 'QQ',
         mail: 'Email',
         Github: 'Github',
         X: 'X',
@@ -84,5 +90,10 @@ export default {
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'
+    },
+    info: {
+        Weixin: 'WeChat ID',
+        QQ: 'QQ ID',
+        mail: 'Email Address',
     }
 }

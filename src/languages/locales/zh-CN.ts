@@ -66,16 +66,23 @@ export default {
     }],
     texts:{
         background: '背景',
+        copy: {
+            success: '已复制 {title} 到剪贴板',
+            fail: '无法复制 {title}',
+            try: '将尝试复制 {title}'
+        },
         copied: '已尝试复制',
         id: '号码',
         address: '地址',
         clickToLoad: '点击加载'
     },
     aria: {
-        avatar: '一幅头像',
+        avatar: '头像',
         Bilibili: '哔哩哔哩',
         Netease: '网易云音乐',
         LinkedIn: '领英',
+        Weixin: '微信',
+        QQ: 'QQ',
         mail: '电子邮箱',
         Github: 'Github',
         X: 'X',
@@ -83,5 +90,10 @@ export default {
         goto: '转到 ',
         footer: '页脚',
         scrolldown: '下一页'
+    },
+    info: {
+        Weixin: '微信号',
+        QQ: 'QQ号',
+        mail: '电子邮箱地址',
     }
 }
