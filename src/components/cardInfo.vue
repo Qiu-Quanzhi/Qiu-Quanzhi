@@ -2,7 +2,7 @@
 defineProps<{
     info: {
         loc: string,
-        email: string,
+        birthday: string,
         GPGFingerprint: String,
         GPGUrl: string
     },
@@ -30,9 +30,9 @@ defineProps<{
                 </a>
             </div>
             <div class="row flex-row">
-                <img class="icon" src="/assets/icons/email.svg" height="22" width="22">
-                <a class="text" target="_blank" href="mailto:i@qqzhi.cc">
-                    {{ info.email }}
+                <img class="icon" src="/assets/icons/birthday.svg" height="22" width="22">
+                <a class="text" target="_blank" href="https://home.qqzhi.cc/about/">
+                    {{ info.birthday }}
                 </a>
             </div>
             <div class="row flex-row">

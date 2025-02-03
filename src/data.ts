@@ -2,6 +2,7 @@ const info = {
     lang: 'zh-CN',
     nickName: '旅禾Ryoine',
     email: 'i@qqzhi.cc',
+    birthday: '2008-03-09',
     loc: 'Maoming, Guangdong, China',
     GPGFingerprint: '9A9D 4561 98CE 0D31 552F<br>9B3D 0398 A1CB FE77 BB60',
     GPGUrl: 'https://github.com/Qiu-Quanzhi.gpg',

@@ -139,7 +139,7 @@ onMounted(async () => {
           <p>{{ t('parts.about.contents[1]') }}</p>
           <p>{{ t('parts.about.contents[2]') }}</p>
           <p>{{ t('parts.about.contents[3]') }}</p>
-          <p>{{ t('parts.about.contents[4]') }}<a href="mailto:i@qqzhi.cc" class="highlight link">i@qqzhi.cc</a></p>
+          <p>{{ t('parts.about.contents[4]') }}<a :href="`mailto:${info.email}`" class="highlight link">{{ info.email }}</a></p>
         </div>
         <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
       </div>
