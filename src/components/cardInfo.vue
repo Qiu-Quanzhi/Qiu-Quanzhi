@@ -31,7 +31,7 @@ defineProps<{
             </div>
             <div class="row flex-row">
                 <img class="icon" src="/assets/icons/birthday.svg" height="22" width="22">
-                <a class="text" target="_blank" href="https://home.qqzhi.cc/about/">
+                <a class="text" target="_blank" href="https://en.wikipedia.org/wiki/Longtaitou_Festival">
                     {{ info.birthday }}
                 </a>
             </div>
