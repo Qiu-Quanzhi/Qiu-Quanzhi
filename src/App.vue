@@ -25,7 +25,7 @@ fetch('/assets/data/socialMedias.json')
 const contactContent = ref([t('footer[1].contents[0]'), t('footer[1].contents[1]'), t('footer[1].contents[2]')])
 const contactList = [info.contact.QQ, info.contact.Weixin, info.email]
 const openLink = (target: MouseEvent | HTMLAnchorElement) => {
-  let url=""
+  let url: string
   if (target instanceof MouseEvent) {
     target.preventDefault()
     url = (target.currentTarget as HTMLAnchorElement).href
@@ -44,7 +44,6 @@ const copyInfo = (item: socialMedia ,event: MouseEvent) => {
     .catch(() => {
       alert(t('texts.copy.fail',{title:t(`info.${item.id}`)}));
     }).finally(() => {
-      console.log('copy done')
       if (item.mode === 'embed')
         openLink(target)
       else
