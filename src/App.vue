@@ -83,11 +83,11 @@ onMounted(async () => {
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
-      <a href="/zh-cn" aria-label="切换至简体中文" @click="changeLang('zh-cn',$event)" :class="[t('lang') == 'zh-CN' ? 'current' : '']" lang="zh-cn">简</a>
+      <a href="/zh-cn" aria-label="切换至简体中文" @click="changeLang('zh-cn',$event)" :class="[t('lang') == 'zh-CN' ? 'current' : '']" hreflang="zh-cn" lang="zh-cn">简</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/zh-hk" aria-label="切換至繁體中文" @click="changeLang('zh-hk',$event)" :class="[t('lang') == 'zh-HK' ? 'current' : '']" lang="zh-hk">繁</a>
+      <a href="/zh-hk" aria-label="切換至繁體中文" @click="changeLang('zh-hk',$event)" :class="[t('lang') == 'zh-HK' ? 'current' : '']" hreflang="zh-hk" lang="zh-hk">繁</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/en" aria-label="Switch to English" @click="changeLang('en',$event)" :class="[t('lang') == 'en' ? 'current' : '']" lang="en-us">EN</a>
+      <a href="/en" aria-label="Switch to English" @click="changeLang('en',$event)" :class="[t('lang') == 'en' ? 'current' : '']" hreflang="en" lang="en">EN</a>
     </div>
     <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#about"></a>
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
