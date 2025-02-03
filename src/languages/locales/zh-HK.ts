@@ -32,7 +32,7 @@ export default {
                     cat: '嗶哩嗶哩'
                 },{
                     title: '公眾號頻道',
-                    intro: '流覽訂閱文章作品',
+                    intro: '瀏覽訂閱文章作品',
                     cat: '微信公眾號'
                 },
             ]
