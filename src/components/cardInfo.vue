@@ -17,26 +17,26 @@ defineProps<{
     <div class="wrapper flex-col content-center" aria-hidden="true">
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div class="row flex-row">
-                <img class="icon" src="/assets/icons/location.svg" height="22" width="22" />
+                <img class="icon" src="/assets/icons/location.svg" height="22" width="22">
                 <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
                     {{ info.loc }}
                 </a>
             </div>
             <div class="row flex-row">
-                <img class="icon" src="/assets/icons/time.svg" height="22" width="22" />
+                <img class="icon" src="/assets/icons/time.svg" height="22" width="22">
                 <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
                     {{ time.shortTime }}
                     <span class="alpha-50">({{ time.timezone }})</span>
                 </a>
             </div>
             <div class="row flex-row">
-                <img class="icon" src="/assets/icons/email.svg" height="22" width="22" />
+                <img class="icon" src="/assets/icons/email.svg" height="22" width="22">
                 <a class="text" target="_blank" href="mailto:i@qqzhi.cc">
                     {{ info.email }}
                 </a>
             </div>
             <div class="row flex-row">
-                <img class="icon" src="/assets/icons/key.svg" height="22" width="22" />
+                <img class="icon" src="/assets/icons/key.svg" height="22" width="22">
                 <a class="text monospace" target="_blank" v-html="info.GPGFingerprint" :href="info.GPGUrl"></a>
             </div>
         </div>

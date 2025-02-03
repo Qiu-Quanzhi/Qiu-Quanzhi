@@ -1,5 +1,7 @@
 export default {
     lang: 'en',
+    title: '旅禾Ryoine - 邱泉智QIU Quanzhi',
+    href: '/en',
     name: '邱泉智',
     nameHTML: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
     tags: ['00s','Creator','Tech','Student'],

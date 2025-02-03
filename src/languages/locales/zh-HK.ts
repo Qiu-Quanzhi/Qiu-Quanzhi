@@ -1,5 +1,7 @@
 export default {
     lang: 'zh-HK',
+    title: '旅禾Ryoine - 邱泉智Yau Chuen Chi',
+    href: '/zh-hk',
     name: '邱泉智',
     nameHTML: '邱泉智<rp>(</rp><rt>Yau Chuen Chi</rt><rp>)</rp>',
     tags: ['00後','知識','技術','學生'],

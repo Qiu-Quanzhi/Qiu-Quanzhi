@@ -24,7 +24,9 @@
     "types": ["node"],
     "paths": {
       "@/*":["src/*"]
-    }
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["@/**/*.ts", "@/**/*.tsx", "@/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

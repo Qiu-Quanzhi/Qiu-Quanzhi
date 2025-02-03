@@ -1,5 +1,9 @@
+import { title } from "process";
+
 export default {
     lang: 'zh-CN',
+    title: '旅禾Ryoine - 邱泉智',
+    href: '/zh-cn',
     name: '邱泉智',
     nameHTML: '邱泉智',
     tags: ['00后','知识','技术','学生'],

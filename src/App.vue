@@ -3,7 +3,7 @@ import { info, time } from '@/data'
 
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 import show from 'components/show.vue';
 import cardInfo from 'components/cardInfo.vue';
@@ -60,7 +60,19 @@ const handleScroll = () => {
   }
 };
 
+const changeLang = (lang: string,event?: MouseEvent) => {
+  locale.value = lang
+  if (event){
+    event.preventDefault()
+    localStorage.setItem('lang', t('href').replace('/',''))
+  }
+  document.documentElement.lang = t('lang')
+  document.title = t('title')
+  history.replaceState(null, '', t('href'))
+}
+
 onMounted(async () => {
+  location.pathname !== t('href') && changeLang(t('href').replace('/',''))
   setTimeout(() => {
     loaded.value = true
   }, 500);
@@ -71,11 +83,11 @@ onMounted(async () => {
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
-      <a href="/" aria-label="切换至简体中文" :class="[t('lang') == 'zh-CN' ? 'current' : '']" lang="zh-cn">简</a>
+      <a href="/zh-cn" aria-label="切换至简体中文" @click="changeLang('zh-cn',$event)" :class="[t('lang') == 'zh-CN' ? 'current' : '']" lang="zh-cn">简</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/zh-hk" aria-label="切換至繁體中文" :class="[t('lang') == 'zh-HK' ? 'current' : '']" lang="zh-hk">繁</a>
+      <a href="/zh-hk" aria-label="切換至繁體中文" @click="changeLang('zh-hk',$event)" :class="[t('lang') == 'zh-HK' ? 'current' : '']" lang="zh-hk">繁</a>
       <i class="s_line" aria-hidden="true">|</i>
-      <a href="/en" aria-label="Switch to English" :class="[t('lang') == 'en' ? 'current' : '']" lang="en-us">EN</a>
+      <a href="/en" aria-label="Switch to English" @click="changeLang('en',$event)" :class="[t('lang') == 'en' ? 'current' : '']" lang="en-us">EN</a>
     </div>
     <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#about"></a>
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
@@ -85,7 +97,7 @@ onMounted(async () => {
       <view class="info">
         <view :class="['card', 'blanked', loaded ? 'loaded' : '']">
           <view class="flex-row item-center">
-            <img aria-hidden="true" class="info-logo" src="/assets/logo.webp" />
+            <img aria-hidden="true" class="info-logo" src="/assets/logo.webp">
             <view class="flex-col">
               <view class="flex-row item-center">
                 <h2>
@@ -108,7 +120,7 @@ onMounted(async () => {
           <view class="flex-row content-evenly media-box">
             <a v-for="item in socialMediaList" target="_blank" @click="copyInfo(item,$event)" :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
-                :src="`assets/icons/${item.id}.svg`" /></a>
+                :src="`assets/icons/${item.id}.svg`"></a>
           </view>
         </view>
       </view>
@@ -223,7 +235,7 @@ onMounted(async () => {
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name') }}</p>
-        <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br />
+        <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br>
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>

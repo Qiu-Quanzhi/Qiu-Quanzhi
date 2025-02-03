@@ -1,11 +1,20 @@
 import { createI18n } from 'vue-i18n'
 import langs from '@/languages/index'
-let locale=location.pathname.replace("/","").replace(".html","").replace("index","").toLowerCase()||'zh-cn'
+
+let locale=location.pathname.toLowerCase().replace("/","").replace(".html","").replace("index","")||localStorage.getItem('lang')||navigator.language.toLowerCase()
+let lang: string = locale
+if (locale.startsWith("zh")){
+    lang = "zh-cn"
+    if (locale == "zh-hk" || locale == "zh-mo" || locale == "zh-tw")
+        lang = "zh-hk"
+}
+else
+    lang="en"
 
 const i18n=createI18n({
-    fallbackLocale: 'zh-cn',
+    fallbackLocale: 'en',
     globalInjection: true,
-    locale: locale,
+    locale: lang,
     messages: langs,
     legacy: false
 })
