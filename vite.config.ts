@@ -12,8 +12,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         "index": resolve(__dirname, 'index.html'),
-        "en": resolve(__dirname, 'en.html'),
+        "zh-cn": resolve(__dirname, 'zh-cn.html'),
         "zh-hk": resolve(__dirname, 'zh-hk.html'),
+        "en": resolve(__dirname, 'en.html'),
       },
     },
 
