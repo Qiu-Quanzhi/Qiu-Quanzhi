@@ -68,8 +68,7 @@ export default {
         background: '背景',
         copy: {
             sucess: '已複製 {title} 到剪貼板',
-            fail: '無法複製 {title}',
-            try: '嘗試複製 {title}',
+            fail: '無法複製 {title}'
         },
         copied: '已嘗試複製',
         id: '號碼',

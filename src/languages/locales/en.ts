@@ -68,8 +68,7 @@ export default {
         background: 'Background',
         copy: {
             sucess: 'Copied {title} to clipboard',
-            fail: 'Failed to copy {title}',
-            try: 'Trying to copy {title}',
+            fail: 'Failed to copy {title}'
         },
         copied: 'Copied',
         id: 'ID',

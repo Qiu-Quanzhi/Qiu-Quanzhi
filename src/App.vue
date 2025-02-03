@@ -11,7 +11,7 @@ import cardInfo from 'components/cardInfo.vue';
 const loaded = ref(false)
 const activated = ref(false)
 
-type socialMedia = { id: string, url: string, mode: string | undefined }
+type socialMedia = { id: string, url: string, mode: string | undefined, info: string | undefined }
 const socialMediaList = ref<Array<socialMedia>>(info.socialMedias)
 /*
 fetch('/assets/data/socialMedias.json')
@@ -24,28 +24,35 @@ fetch('/assets/data/socialMedias.json')
 */
 const contactContent = ref([t('footer[1].contents[0]'), t('footer[1].contents[1]'), t('footer[1].contents[2]')])
 const contactList = [info.contact.QQ, info.contact.Weixin, info.email]
-const openLink = (event: MouseEvent) => {
-  event.preventDefault()
-  event.currentTarget instanceof HTMLAnchorElement && window.open(event.currentTarget.href, '', 'height=615,width=450,scrollbars=yes,status=yes')
+const openLink = (target: MouseEvent | HTMLAnchorElement) => {
+  let url=""
+  if (target instanceof MouseEvent) {
+    target.preventDefault()
+    url = (target.currentTarget as HTMLAnchorElement).href
+  }else
+    url = target.href
+  window.open(url, '', 'height=615,width=450,scrollbars=yes,status=yes')
 }
-const copyInfo = (info: string,id: string) => {
-  alert(t('texts.copy.try',{title:t(`info.${id}`)}));
-  navigator.clipboard.writeText(info)
+const copyInfo = (item: socialMedia ,event: MouseEvent) => {
+  if (item.info === undefined) return
+  event.preventDefault()
+  let target = event.currentTarget as HTMLAnchorElement
+  navigator.clipboard.writeText(item.info)
     .then(() => {
-      alert(t('texts.copy.success',{title:t(`info.${id}`)}));
+      alert(t('texts.copy.success',{title:t(`info.${item.id}`)}));
     })
     .catch(() => {
-      alert(t('texts.copy.fail',{title:t(`info.${id}`)}));
+      alert(t('texts.copy.fail',{title:t(`info.${item.id}`)}));
+    }).finally(() => {
+      console.log('copy done')
+      if (item.mode === 'embed')
+        openLink(target)
+      else
+        window.open(item.url, '_blank')
     });
 }
 const copyContact = (idx: number) => {
   navigator.clipboard.writeText(contactList[idx])
-    // .then(() => {
-    //   alert(t('texts.copy.success'));
-    // })
-    // .catch(() => {
-    //   alert(t('texts.copy.fail'));
-    // });
   contactContent.value[idx] = t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
 }
 const handleScroll = () => {
@@ -100,7 +107,7 @@ onMounted(async () => {
             </view>
           </view>
           <view class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" @click="item.info && copyInfo(item.info,item.id) ||  item.mode && openLink($event)" :href="item.url">
+            <a v-for="item in socialMediaList" target="_blank" @click="copyInfo(item,$event)" :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
                 :src="`assets/icons/${item.id}.svg`" /></a>
           </view>
