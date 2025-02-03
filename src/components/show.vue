@@ -70,7 +70,7 @@ const tab=ref('blog')
 }
 .viewer{
     width: calc(100vw - 80px);
-    height: 80dvh;
+    height: 80vh;
 }
 .selection{
     margin: 5px;
@@ -125,7 +125,7 @@ text{
         padding-top: 15px !important;
         margin-top: -5px;
         left: 0 !important;
-        max-height: 30dvh;
+        max-height: 30vh;
         height: unset !important;
         max-width: none !important;
     }
