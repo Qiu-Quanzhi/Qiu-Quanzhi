@@ -456,8 +456,7 @@ text {
   -webkit-backdrop-filter: var(--filter-glass-1);
   backdrop-filter: var(--filter-glass-1);
   width: calc(100% - 40px);
-  padding-top: 20px;
-  padding-bottom: 50px;
+  padding: 20px .5em 50px;
   text-align: center;
   transition: .25s;
   border-radius: 10px
