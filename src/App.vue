@@ -69,6 +69,16 @@ const changeLang = (lang: string,event?: MouseEvent) => {
   document.documentElement.lang = t('lang')
   document.title = t('title')
   history.replaceState(null, '', t('href'))
+
+  var canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (canonicalLink) {
+    canonicalLink.setAttribute('href', location.href);
+  } else {
+    var newLink = document.createElement('link');
+    newLink.setAttribute('rel', 'canonical');
+    newLink.setAttribute('href', location.href);
+    document.head.appendChild(newLink);
+  }
 }
 
 onMounted(async () => {
