@@ -15,8 +15,7 @@ const i18n=createI18n({
     fallbackLocale: 'en',
     globalInjection: true,
     locale: lang,
-    messages: langs,
-    legacy: false
+    messages: langs
 })
 
 export default i18n

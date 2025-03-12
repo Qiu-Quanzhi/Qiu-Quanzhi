@@ -10,15 +10,15 @@
   },
   "dependencies": {
     "vue": "^3.5.13",
-    "vue-i18n": "^10.0.5"
+    "vue-i18n": "^11.1.2"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4",
+    "@types/node": "^22.13.10",
     "@vitejs/plugin-vue": "^5.2.1",
     "fast-glob": "^3.3.3",
-    "sass": "^1.85.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1",
     "vue-tsc": "https://pkg.pr.new/vuejs/language-tools/vue-tsc@3fb59af"
   }
 }
