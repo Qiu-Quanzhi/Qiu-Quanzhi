@@ -69,7 +69,7 @@ export default {
     texts:{
         background: '背景',
         copy: {
-            sucess: '已複製 {title} 到剪貼板',
+            success: '已複製 {title} 到剪貼板',
             fail: '無法複製 {title}'
         },
         copied: '已嘗試複製',

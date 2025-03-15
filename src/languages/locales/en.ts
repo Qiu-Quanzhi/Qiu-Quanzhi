@@ -69,7 +69,7 @@ export default {
     texts:{
         background: 'Background',
         copy: {
-            sucess: 'Copied {title} to clipboard',
+            success: 'Copied {title} to clipboard',
             fail: 'Failed to copy {title}'
         },
         copied: 'Copied',
