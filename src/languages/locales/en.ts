@@ -22,7 +22,7 @@ export default {
             contents:[
                 {
                     title: 'Ryoine Inn',
-                    intro: 'Wisdom to Share, Joy to Unpack! More projects are listed on this site.',
+                    intro: 'Wisdom to Share, Joy to Unpack',
                     cat: 'Blog'
                 },{
                     title: 'Exhibition of the Acient',
