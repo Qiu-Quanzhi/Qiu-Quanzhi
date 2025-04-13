@@ -24,7 +24,7 @@ export default {
             contents:[
                 {
                     title: '旅禾小栈',
-                    intro: '分享学识，分装快乐！本人参与的项目列于此站友链处',
+                    intro: '分享学识，分装快乐',
                     cat: '个人博客'
                 },{
                     title: '古国简展',
