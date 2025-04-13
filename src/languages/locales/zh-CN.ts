@@ -28,7 +28,7 @@ export default {
                     cat: '个人博客'
                 },{
                     title: '古国简展',
-                    intro: '早期作品，历史类信息项目',
+                    intro: '初中古早作品，历史类信息项目',
                     cat: '网页应用'
                 },{
                     title: '小电视频道',

@@ -1,9 +1,9 @@
 export default {
     lang: 'zh-HK',
-    title: '旅禾Ryoine - 邱泉智Yau Chuen Chi',
+    title: '旅禾Ryoine - 邱泉智QIU Quanzhi',
     href: '/zh-hk',
     name: '邱泉智',
-    nameHTML: '邱泉智<rp>(</rp><rt>Yau Chuen Chi</rt><rp>)</rp>',
+    nameHTML: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
     tags: ['00後','知識','技術','學生'],
     slogan: '永不熄滅的理想之焰，足可抵擋凜冬的風霜刀劍',
     parts:{
@@ -26,7 +26,7 @@ export default {
                     cat: '個人博客'
                 },{
                     title: '古國簡展',
-                    intro: '早期作品，歷史類信息專案',
+                    intro: '初中古早作品，歷史類信息專案',
                     cat: '網頁應用'
                 },{
                     title: '小電視頻道',
