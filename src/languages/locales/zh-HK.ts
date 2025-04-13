@@ -22,7 +22,7 @@ export default {
             contents:[
                 {
                     title: '旅禾小棧',
-                    intro: '分享學識，分裝快樂！',
+                    intro: '分享學識，分裝快樂！本人參與貢獻的項目列於此站友鏈處',
                     cat: '個人博客'
                 },{
                     title: '古國簡展',
