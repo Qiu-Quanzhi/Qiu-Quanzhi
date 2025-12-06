@@ -22,7 +22,6 @@ fetch('/assets/data/socialMedias.json')
     console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
   });
 */
-const contactContent = ref([t('footer[1].contents[0]'), t('footer[1].contents[1]'), t('footer[1].contents[2]')])
 const contactList = [info.contact.QQ, info.contact.Weixin, info.email]
 const openLink = (target: MouseEvent | HTMLAnchorElement) => {
   let url: string
@@ -52,7 +51,12 @@ const copyInfo = (item: socialMedia ,event: MouseEvent) => {
 }
 const copyContact = (idx: number) => {
   navigator.clipboard.writeText(contactList[idx])
-  contactContent.value[idx] = t(`footer[1].contents[${idx}]`) + ' (' + t('texts.copied') + ')'
+    .then(() => {
+      alert(t('texts.copy.success',{title:t(`footer[1].contents[${idx}]`)}));
+    })
+    .catch(() => {
+      alert(t('texts.copy.fail',{title:t(`footer[1].contents[${idx}]`)}));
+    })
 }
 const handleScroll = () => {
   if (window.scrollY > 0) {
@@ -222,9 +226,9 @@ onMounted(async () => {
       </div>
       <div>
         <p>{{ t('footer[1].title') }}</p>
-        <a @click="copyContact(0)" id="QQ" target="_blank">{{ contactContent[0] }}</a><br>
-        <a @click="copyContact(1)" id="Weixin" target="_blank">{{ contactContent[1] }}</a><br>
-        <a @click="copyContact(2)" id="Mail" target="_blank">{{ contactContent[2] }}</a><br>
+        <a @click="copyContact(0)" id="QQ" target="_blank">{{ t('footer[1].contents[0]') }}</a><br>
+        <a @click="copyContact(1)" id="Weixin" target="_blank">{{ t('footer[1].contents[1]') }}</a><br>
+        <a @click="copyContact(2)" id="Mail" target="_blank">{{ t('footer[1].contents[2]') }}</a><br>
       </div>
       <div>
         <p>{{ t('footer[2].title') }}</p>
