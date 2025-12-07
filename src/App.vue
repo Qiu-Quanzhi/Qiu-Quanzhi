@@ -22,7 +22,6 @@ fetch('/assets/data/socialMedias.json')
     console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
   });
 */
-const contactList = [info.contact.QQ, info.contact.Weixin, info.email]
 const openLink = (target: MouseEvent | HTMLAnchorElement) => {
   let url: string
   if (target instanceof MouseEvent) {
@@ -49,13 +48,13 @@ const copyInfo = (item: socialMedia ,event: MouseEvent) => {
         window.open(item.url, '_blank')
     });
 }
-const copyContact = (idx: number) => {
-  navigator.clipboard.writeText(contactList[idx])
+const copyContact = (id: string) => {
+  navigator.clipboard.writeText(info.contact[id])
     .then(() => {
-      alert(t('texts.copy.success',{title:t(`footer[1].contents[${idx}]`)}));
+      alert(t('texts.copy.success',{title:t(`info.${id}`)}));
     })
     .catch(() => {
-      alert(t('texts.copy.fail',{title:t(`footer[1].contents[${idx}]`)}));
+      alert(t('texts.copy.fail',{title:t(`info.${id}`)}));
     })
 }
 const handleScroll = () => {
