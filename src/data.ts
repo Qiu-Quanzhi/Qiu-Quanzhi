@@ -18,7 +18,8 @@ const info = {
     ],
     contact: {
         QQ: "2766468782",
-        Weixin: "Qiu-Qz"
+        Weixin: "Qiu-Qz",
+        mail: "i@qqzhi.cc"
     }
 }
 
