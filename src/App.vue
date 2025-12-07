@@ -225,9 +225,9 @@ onMounted(async () => {
       </div>
       <div>
         <p>{{ t('footer[1].title') }}</p>
-        <a @click="copyContact(0)" id="QQ" target="_blank">{{ t('footer[1].contents[0]') }}</a><br>
-        <a @click="copyContact(1)" id="Weixin" target="_blank">{{ t('footer[1].contents[1]') }}</a><br>
-        <a @click="copyContact(2)" id="Mail" target="_blank">{{ t('footer[1].contents[2]') }}</a><br>
+        <a @click="copyContact('QQ')" target="_blank">{{ t('footer[1].contents[0]') }}</a><br>
+        <a @click="copyContact('Weixin')" target="_blank">{{ t('footer[1].contents[1]') }}</a><br>
+        <a @click="copyContact('mail')" target="_blank">{{ t('footer[1].contents[2]') }}</a><br>
       </div>
       <div>
         <p>{{ t('footer[2].title') }}</p>
