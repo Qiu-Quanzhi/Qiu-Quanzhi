@@ -11,37 +11,30 @@ interface CardTimeData {
     timezone: string;
 }
 
-defineProps<{
+const props = defineProps<{
     info: CardInfoData;
     time: CardTimeData;
     loaded: boolean;
 }>()
+
+const cardRows = [
+    { icon: 'location.svg', href: `https://time.is/${props.info.loc}`, text: props.info.loc, type: 'text' as const },
+    { icon: 'time.svg', href: `https://time.is/${props.info.loc}`, text: props.time.shortTime, timezone: props.time.timezone, type: 'time' as const },
+    { icon: 'birthday.svg', href: 'https://en.wikipedia.org/wiki/Longtaitou_Festival', text: props.info.birthday, type: 'text' as const },
+    { icon: 'key.svg', href: props.info.GPGUrl, fingerprint: props.info.GPGFingerprint, type: 'fingerprint' as const },
+]
 </script>
 <template>
     <div class="wrapper flex-col content-center" aria-hidden="true">
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
-            <div class="row flex-row">
-                <img class="icon" src="/assets/icons/location.svg" height="22" width="22">
-                <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
-                    {{ info.loc }}
+            <div v-for="row in cardRows" :key="row.icon" class="row flex-row">
+                <img class="icon" :src="`/assets/icons/${row.icon}`" height="22" width="22">
+                <a v-if="row.type === 'time'" class="text" target="_blank" :href="row.href">
+                    {{ row.text }}
+                    <span class="alpha-50">({{ row.timezone }})</span>
                 </a>
-            </div>
-            <div class="row flex-row">
-                <img class="icon" src="/assets/icons/time.svg" height="22" width="22">
-                <a class="text" target="_blank" :href="`https://time.is/${info.loc}`">
-                    {{ time.shortTime }}
-                    <span class="alpha-50">({{ time.timezone }})</span>
-                </a>
-            </div>
-            <div class="row flex-row">
-                <img class="icon" src="/assets/icons/birthday.svg" height="22" width="22">
-                <a class="text" target="_blank" href="https://en.wikipedia.org/wiki/Longtaitou_Festival">
-                    {{ info.birthday }}
-                </a>
-            </div>
-            <div class="row flex-row">
-                <img class="icon" src="/assets/icons/key.svg" height="22" width="22">
-                <a class="text monospace" target="_blank" v-html="info.GPGFingerprint" :href="info.GPGUrl"></a>
+                <a v-else-if="row.type === 'fingerprint'" class="text monospace" target="_blank" v-html="row.fingerprint" :href="row.href"></a>
+                <a v-else class="text" target="_blank" :href="row.href">{{ row.text }}</a>
             </div>
         </div>
     </div>
