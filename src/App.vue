@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { info, time } from '@/data'
+import { info, time, workLinkData, logEntries, footerLinkData } from '@/data'
 
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-const { t, locale } = useI18n();
+const { t, tm, locale } = useI18n();
 
 import show from '@/components/show.vue';
 import cardInfo from '@/components/cardInfo.vue';
@@ -72,21 +72,38 @@ onMounted(async () => {
   }, 500);
   window.addEventListener('scroll', handleScroll);
 })
+
+const langOptions = [
+  { code: 'zh-cn', href: '/zh-cn', aria: '切换至简体中文', hreflang: 'zh-cn', lang: 'zh-cn', label: '简', displayLocale: 'zh-CN' },
+  { code: 'zh-hk', href: '/zh-hk', aria: '切換至繁體中文', hreflang: 'zh-hk', lang: 'zh-hk', label: '繁', displayLocale: 'zh-HK' },
+  { code: 'en', href: '/en', aria: 'Switch to English', hreflang: 'en', lang: 'en', label: 'EN', displayLocale: 'en' },
+]
+
+const navAnchors = [
+  { href: '#info', labelKey: 'parts.about.title' },
+  { href: '#work', labelKey: 'parts.work.title' },
+  { href: '#log', labelKey: 'parts.log.title' },
+  { href: '#footer', labelKey: 'aria.footer' },
+]
+
+const tagList = computed(() => tm('tags') as unknown as string[])
+const aboutContents = computed(() => tm('parts.about.contents') as unknown as string[])
+const workContents = computed(() => tm('parts.work.contents') as unknown as Array<{ title: string, intro: string, cat: string }>)
+
+const handleWorkClick = (index: number, event: MouseEvent) => {
+  if (workLinkData[index]?.embed) openLink(event)
+}
 </script>
 
 <template>
   <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
-      <a href="/zh-cn" aria-label="切换至简体中文" @click="changeLang('zh-cn',$event)" :class="[t('lang') == 'zh-CN' ? 'current' : '']" hreflang="zh-cn" lang="zh-cn">简</a>
-      <i class="s_line" aria-hidden="true">|</i>
-      <a href="/zh-hk" aria-label="切換至繁體中文" @click="changeLang('zh-hk',$event)" :class="[t('lang') == 'zh-HK' ? 'current' : '']" hreflang="zh-hk" lang="zh-hk">繁</a>
-      <i class="s_line" aria-hidden="true">|</i>
-      <a href="/en" aria-label="Switch to English" @click="changeLang('en',$event)" :class="[t('lang') == 'en' ? 'current' : '']" hreflang="en" lang="en">EN</a>
+      <template v-for="(opt, index) in langOptions" :key="opt.code">
+        <i v-if="index > 0" class="s_line" aria-hidden="true">|</i>
+        <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)" :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{ opt.label }}</a>
+      </template>
     </div>
-    <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#info"></a>
-    <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
-    <a :aria-label="t('aria.goto') + t('parts.log.title')" href="#log"></a>
-    <a :aria-label="t('aria.goto') + t('aria.footer')" href="#footer"></a>
+    <a v-for="anchor in navAnchors" :key="anchor.href" :aria-label="t('aria.goto') + t(anchor.labelKey)" :href="anchor.href"></a>
     <view id="home" class="flex-col item-center content-center">
       <view class="info">
         <view :class="['card', 'blanked', loaded ? 'loaded' : '']">
@@ -104,10 +121,7 @@ onMounted(async () => {
                   </ruby>
                 </h2>
                 <view class="tag-box">
-                  <span>{{ t('tags[0]') }}</span>
-                  <span>{{ t('tags[1]') }}</span>
-                  <span>{{ t('tags[2]') }}</span>
-                  <span>{{ t('tags[3]') }}</span>
+                  <span v-for="(tag, index) in tagList" :key="index">{{ tag }}</span>
                 </view>
               </view>
               <span>{{ t('slogan') }}</span>
@@ -131,11 +145,9 @@ onMounted(async () => {
       <span class="underline1"></span>
       <div class="info-content flex-row item-center">
         <div class="flex-col item-center">
-          <p>{{ t('parts.about.contents[0]') }}</p>
-          <p>{{ t('parts.about.contents[1]') }}</p>
-          <p>{{ t('parts.about.contents[2]') }}</p>
-          <p>{{ t('parts.about.contents[3]') }}</p>
-          <p>{{ t('parts.about.contents[4]') }}<a :href="`mailto:${info.email}`" class="highlight link">{{ info.email }}</a></p>
+          <p v-for="(content, index) in aboutContents" :key="index">
+            {{ content }}<a v-if="index === aboutContents.length - 1" :href="`mailto:${info.email}`" class="highlight link">{{ info.email }}</a>
+          </p>
         </div>
         <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
       </div>
@@ -143,37 +155,19 @@ onMounted(async () => {
     <view data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
-      <div class="workList"><a href="https://home.qqzhi.cc/" target="_blank" class="workLink" id="workLink_Blog">
+      <div class="workList">
+        <a v-for="(work, index) in workContents" :key="index"
+           :href="workLinkData[index]?.href" target="_blank" class="workLink"
+           :id="workLinkData[index]?.id"
+           @click="handleWorkClick(index, $event)">
           <div class="workLinkPic"></div>
           <div class="workLinkText">
-            <p class="workLinkTitle">{{ t('parts.work.contents[0].title') }}</p>
-            <p class="workLinkIntro">{{ t('parts.work.contents[0].intro') }}</p>
-            <p class="workLinkCat">{{ t('parts.work.contents[0].cat') }}</p>
+            <p class="workLinkTitle">{{ work.title }}</p>
+            <p class="workLinkIntro">{{ work.intro }}</p>
+            <p class="workLinkCat">{{ work.cat }}</p>
           </div>
-        </a><a href="https://www.qqzhi.cc/works/HistoryMap/" target="_blank" class="workLink" id="workLink_History">
-          <div class="workLinkPic"></div>
-          <div class="workLinkText">
-            <p class="workLinkTitle">{{ t('parts.work.contents[1].title') }}</p>
-            <p class="workLinkIntro">{{ t('parts.work.contents[1].intro') }}</p>
-            <p class="workLinkCat">{{ t('parts.work.contents[1].cat') }}</p>
-          </div>
-        </a><a href="https://space.bilibili.com/1036651852/" target="_blank" class="workLink" id="workLink_Bilibili">
-          <div class="workLinkPic"></div>
-          <div class="workLinkText">
-            <p class="workLinkTitle">{{ t('parts.work.contents[2].title') }}</p>
-            <p class="workLinkIntro">{{ t('parts.work.contents[2].intro') }}</p>
-            <p class="workLinkCat">{{ t('parts.work.contents[2].cat') }}</p>
-          </div>
-        </a><a @click="openLink"
-          href="https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951"
-          target="_blank" class="workLink" id="workLink_Article">
-          <div class="workLinkPic"></div>
-          <div class="workLinkText">
-            <p class="workLinkTitle">{{ t('parts.work.contents[3].title') }}</p>
-            <p class="workLinkIntro">{{ t('parts.work.contents[3].intro') }}</p>
-            <p class="workLinkCat">{{ t('parts.work.contents[3].cat') }}</p>
-          </div>
-        </a></div>
+        </a>
+      </div>
     </view>
     <view data-nosnippet id="show" class="flex-col item-center block">
       <h3>{{ t('parts.show.title') }}</h3>
@@ -187,47 +181,29 @@ onMounted(async () => {
       <p class="tip" aria-hidden="true">{{ t('parts.log.tip') }}</p>
       <div class="logBoxOuter">
         <div id="logBox">
-          <div>
-            <p class="logText1">2022.8.16</p>
-            <p class="logText2">{{ t('parts.log.contents[2]') }}「<span class="highlight">QQzhi.cc</span>」</p>
-          </div>
-          <div>
-            <p class="logText1">2022.8.17</p>
-            <p class="logText2">{{ t('parts.log.contents[3]') }}</p>
-          </div>
-          <div>
-            <p class="logText1">2023.7.18</p>
-            <p class="logText2">{{ t('parts.log.contents[4]') }}</p>
-          </div>
-          <div>
-            <p class="logText1">2023.7.19</p>
-            <p class="logText2">{{ t('parts.log.contents[5]') }}</p>
-          </div>
-          <div>
-            <p class="logText3">{{ t('parts.log.contents[0]') }}</p>
-            <p class="logText3">{{ t('parts.log.contents[1]') }}</p>
+          <div v-for="(entry, index) in logEntries" :key="index">
+            <template v-if="entry.kind === 'entry'">
+              <p class="logText1">{{ entry.date }}</p>
+              <p class="logText2">
+                {{ t(`parts.log.contents.${entry.contentKey}`) }}<template v-if="entry.highlight">{{ entry.highlight.prefix }}<span class="highlight">{{ entry.highlight.text }}</span>{{ entry.highlight.suffix }}</template>
+              </p>
+            </template>
+            <template v-else>
+              <p class="logText3">{{ t(`parts.log.contents.${entry.contentKeys[0]}`) }}</p>
+              <p class="logText3">{{ t(`parts.log.contents.${entry.contentKeys[1]}`) }}</p>
+            </template>
           </div>
         </div>
       </div>
     </view>
     <footer data-nosnippet id="footer">
-      <div>
-        <p>{{ t('footer[0].title') }}</p><a rel="nofollow" href="https://home.qqzhi.cc/links/" target="_blank">{{
-          t('footer[0].contents[0]')
-        }}</a>
-      </div>
-      <div>
-        <p>{{ t('footer[1].title') }}</p>
-        <a @click="copyContact('QQ')" target="_blank">{{ t('footer[1].contents[0]') }}</a><br>
-        <a @click="copyContact('Weixin')" target="_blank">{{ t('footer[1].contents[1]') }}</a><br>
-        <a @click="copyContact('mail')" target="_blank">{{ t('footer[1].contents[2]') }}</a><br>
-      </div>
-      <div>
-        <p>{{ t('footer[2].title') }}</p>
-        <a href="https://space.bilibili.com/1036651852" target="_blank">{{ t('footer[2].contents[0]') }}</a><br>
-        <a href="https://www.zhihu.com/people/Ryoine" target="_blank">{{ t('footer[2].contents[1]') }}</a><br>
-        <a href="https://afdian.com/a/Ryoine" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
-
+      <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
+        <p>{{ t(`footer[${colIdx}].title`) }}</p>
+        <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
+          <a v-if="link.type === 'link'" :href="link.href" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <a v-else @click="copyContact(link.contact)" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <br>
+        </template>
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>

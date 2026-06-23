@@ -53,14 +53,14 @@ export default {
         log: {
             title: '小棧事記',
             tip: '左右滑動來查看',
-            contents: [
-                "未完",
-                "待續……",
-                "啟用網域",
-                "全站啟用HTTPS",
-                "網站改版",
-                "支援多語言"
-            ],
+            contents: {
+                toBeContinued_0: "未完",
+                toBeContinued_1: "待續……",
+                domainCreated: "啟用網域",
+                httpsEnabled: "全站啟用HTTPS",
+                siteRedesigned: "網站改版",
+                multiLanguage: "支援多語言"
+            },
         }
     },
     footer:[{

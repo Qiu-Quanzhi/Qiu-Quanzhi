@@ -53,14 +53,14 @@ export default {
         log: {
             title: '小栈事记',
             tip: '左右滑动来查看',
-            contents: [
-                "未完",
-                "待续……",
-                "启用域名",
-                "全站HTTPS",
-                "网站改版",
-                "支持多语言"
-            ],
+            contents: {
+                toBeContinued_0: "未完",
+                toBeContinued_1: "待续……",
+                domainCreated: "启用域名",
+                httpsEnabled: "全站HTTPS",
+                siteRedesigned: "网站改版",
+                multiLanguage: "支持多语言"
+            },
         }
     },
     footer:[{

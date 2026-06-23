@@ -53,14 +53,14 @@ export default {
         log: {
             title: 'Website Memorabilia',
             tip: 'Swipe to view',
-            contents: [
-                "TO BE",
-                "CONTINUED...",
-                "Enable domain name",
-                "Site-wide HTTPS enabled",
-                "Website Revision",
-                "Initial i18n"
-            ],
+            contents: {
+                toBeContinued_0: "TO BE",
+                toBeContinued_1: "CONTINUED...",
+                domainCreated: "Enable domain name",
+                httpsEnabled: "Site-wide HTTPS enabled",
+                siteRedesigned: "Website Revision",
+                multiLanguage: "Initial i18n"
+            },
         }
     },
     footer:[{
