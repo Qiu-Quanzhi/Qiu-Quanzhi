@@ -34,29 +34,29 @@ const tabComponents: Record<string, any> = { bilibili, blog, netease }
 const currentTabComponent = computed(() => tabComponents[tab.value])
 </script>
 <template>
-    <view class="selection-box flex-row">
-        <view v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" class="flex-col item-center">
+    <div class="selection-box flex-row">
+        <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" class="flex-col item-center">
             <img :alt="t(tabItem.ariaKey)" :class="['selection', tab == tabItem.id ? 'selected' : '']" :src="tabItem.icon"/>
             <span v-show="tab == tabItem.id" class="underline2"></span>
             <a target="_blank" :href="tabItem.href" :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text>({{ t(tabItem.enterKey) }})</text></a>
-        </view>
-    </view>
-    <view v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
-        <view class="media">
+        </div>
+    </div>
+    <div v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
+        <div class="media">
             <bilibili class="player" v-if="bilibili_index != -1" :aid="list.bilibili_list[bilibili_index].aid"
                 :bvid="list.bilibili_list[bilibili_index].bvid" :cid="list.bilibili_list[bilibili_index].cid"></bilibili>
-        </view>
-        <view class="list flex-col">
+        </div>
+        <div class="list flex-col">
 
-            <view @click="bilibili_index = index" :class="['list-item', index == bilibili_index ? 'selected' : '']"
+            <div @click="bilibili_index = index" :class="['list-item', index == bilibili_index ? 'selected' : '']"
                 v-for="(item, index) in list.bilibili_list">
                 <span>{{ item.title }}</span>
-            </view>
-        </view>
-    </view>
-    <view v-else class="show-box flex-row content-center" lang="zh-CN">
+            </div>
+        </div>
+    </div>
+    <div v-else class="show-box flex-row content-center" lang="zh-CN">
         <component :is="currentTabComponent" class="viewer" :class="tab"></component>
-    </view>
+    </div>
 </template>
 <style scoped>
 .selection-box{

@@ -96,7 +96,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 </script>
 
 <template>
-  <view class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
+  <div class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="index > 0" class="s_line" aria-hidden="true">|</i>
@@ -104,13 +104,13 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       </template>
     </div>
     <a v-for="anchor in navAnchors" :key="anchor.href" :aria-label="t('aria.goto') + t(anchor.labelKey)" :href="anchor.href"></a>
-    <view id="home" class="flex-col item-center content-center">
-      <view class="info">
-        <view :class="['card', 'blanked', loaded ? 'loaded' : '']">
-          <view class="flex-row item-center">
+    <div id="home" class="flex-col item-center content-center">
+      <div class="info">
+        <div :class="['card', 'blanked', loaded ? 'loaded' : '']">
+          <div class="flex-row item-center">
             <img aria-hidden="true" class="info-logo" src="/assets/logo.webp">
-            <view class="flex-col">
-              <view class="flex-row item-center">
+            <div class="flex-col">
+              <div class="flex-row item-center">
                 <h2>
                   <ruby style="ruby-position: under;">
                     <ruby style="ruby-position: over;">
@@ -120,27 +120,27 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
                     <rt lang="zh-cn">({{ info.nickName }})</rt>
                   </ruby>
                 </h2>
-                <view class="tag-box">
+                <div class="tag-box">
                   <span v-for="(tag, index) in tagList" :key="index">{{ tag }}</span>
-                </view>
-              </view>
+                </div>
+              </div>
               <span>{{ t('slogan') }}</span>
-            </view>
-          </view>
-          <view class="flex-row content-evenly media-box">
+            </div>
+          </div>
+          <div class="flex-row content-evenly media-box">
             <a v-for="item in socialMediaList" target="_blank" @click="copyInfo(item,$event)" :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
                 :src="`assets/icons/${item.id}.svg`"></a>
-          </view>
-        </view>
-      </view>
-    </view>
+          </div>
+        </div>
+      </div>
+    </div>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
       style="position: absolute;width: 100%;bottom: 150px;height: 20px;">
       <span :class="['scroll-down', loaded ? 'loaded' : '']"></span>
     </a>
-    <view :class="['bg', 'blanked', loaded ? 'loaded' : '']"></view>
-    <view id="info" class="flex-col item-center block">
+    <div :class="['bg', 'blanked', loaded ? 'loaded' : '']"></div>
+    <div id="info" class="flex-col item-center block">
       <h3>{{ t('parts.about.title') }}</h3>
       <span class="underline1"></span>
       <div class="info-content flex-row item-center">
@@ -151,8 +151,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         </div>
         <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
       </div>
-    </view>
-    <view data-nosnippet id="work" class="flex-col item-center block">
+    </div>
+    <div data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
       <div class="workList">
@@ -168,15 +168,15 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
           </div>
         </a>
       </div>
-    </view>
-    <view data-nosnippet id="show" class="flex-col item-center block">
+    </div>
+    <div data-nosnippet id="show" class="flex-col item-center block">
       <h3>{{ t('parts.show.title') }}</h3>
       <span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.show.tip') }}</p>
       <show v-if="activated"></show>
       <span v-else class="pointer" @click="() => { activated = true }">{{ t('texts.clickToLoad') }}</span>
-    </view>
-    <view data-nosnippet id="log" class="flex-col item-center block">
+    </div>
+    <div data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.log.tip') }}</p>
       <div class="logBoxOuter">
@@ -195,7 +195,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
           </div>
         </div>
       </div>
-    </view>
+    </div>
     <footer data-nosnippet id="footer">
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
         <p>{{ t(`footer[${colIdx}].title`) }}</p>
@@ -211,7 +211,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
     </footer>
-  </view>
+  </div>
 </template>
 
 <style scoped>
@@ -310,7 +310,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   align-items: center;
 }
 
-.info>view {
+.info>div {
   margin: 7.5px;
 }
 
