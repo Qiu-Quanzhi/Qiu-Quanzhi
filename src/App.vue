@@ -99,7 +99,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   <div class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
-        <i v-if="index > 0" class="s_line" aria-hidden="true">|</i>
+        <i v-if="index > 0" class="s-line" aria-hidden="true">|</i>
         <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)" :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{ opt.label }}</a>
       </template>
     </div>
@@ -155,16 +155,16 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     <div data-nosnippet id="work" class="flex-col item-center block">
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
-      <div class="workList">
+      <div class="work-list">
         <a v-for="(work, index) in workContents" :key="index"
-           :href="workLinkData[index]?.href" target="_blank" class="workLink"
+           :href="workLinkData[index]?.href" target="_blank" class="work-link"
            :id="workLinkData[index]?.id"
            @click="handleWorkClick(index, $event)">
-          <div class="workLinkPic"></div>
-          <div class="workLinkText">
-            <p class="workLinkTitle">{{ work.title }}</p>
-            <p class="workLinkIntro">{{ work.intro }}</p>
-            <p class="workLinkCat">{{ work.cat }}</p>
+          <div class="work-link-pic" :style="{ backgroundImage: `url(${workLinkData[index]?.pic})` }"></div>
+          <div class="work-link-text">
+            <p class="work-link-title">{{ work.title }}</p>
+            <p class="work-link-intro">{{ work.intro }}</p>
+            <p class="work-link-cat">{{ work.cat }}</p>
           </div>
         </a>
       </div>
@@ -179,18 +179,18 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     <div data-nosnippet id="log" class="flex-col item-center block">
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
       <p class="tip" aria-hidden="true">{{ t('parts.log.tip') }}</p>
-      <div class="logBoxOuter">
-        <div id="logBox">
+      <div class="log-box-outer">
+        <div class="log-box">
           <div v-for="(entry, index) in logEntries" :key="index">
             <template v-if="entry.kind === 'entry'">
-              <p class="logText1">{{ entry.date }}</p>
-              <p class="logText2">
+              <p class="log-text-1">{{ entry.date }}</p>
+              <p class="log-text-2">
                 {{ t(`parts.log.contents.${entry.contentKey}`) }}<template v-if="entry.highlight">{{ entry.highlight.prefix }}<span class="highlight">{{ entry.highlight.text }}</span>{{ entry.highlight.suffix }}</template>
               </p>
             </template>
             <template v-else>
-              <p class="logText3">{{ t(`parts.log.contents.${entry.contentKeys[0]}`) }}</p>
-              <p class="logText3">{{ t(`parts.log.contents.${entry.contentKeys[1]}`) }}</p>
+              <p class="log-text-3">{{ t(`parts.log.contents.${entry.contentKeys[0]}`) }}</p>
+              <p class="log-text-3">{{ t(`parts.log.contents.${entry.contentKeys[1]}`) }}</p>
             </template>
           </div>
         </div>
@@ -243,7 +243,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   cursor: pointer
 }
 
-.lang-area .s_line {
+.lang-area .s-line {
   display: inline-block;
   font-size: 12px;
   margin: 0 5px;
@@ -387,52 +387,52 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   color: var(--b-alpha-60)
 }
 
-.logBoxOuter {
+.log-box-outer {
   margin-top: 10px;
   margin-bottom: 30px;
   width: 70%;
   overflow: hidden
 }
 
-.logBoxOuter * {
+.log-box-outer * {
   transition: .25s
 }
 
-#logBox {
+.log-box {
   white-space: nowrap;
   overflow-y: hidden;
   overflow-x: auto
 }
 
-#logBox::-webkit-scrollbar {
+.log-box::-webkit-scrollbar {
   height: 5px
 }
 
-#logBox div {
+.log-box div {
   display: inline-block;
   padding: 0 30px;
   text-align: left;
   vertical-align: top
 }
 
-.logText1,
-.logText3 {
+.log-text-1,
+.log-text-3 {
   font-size: 18px;
   line-height: 3px;
   font-weight: 500
 }
 
-.logText1 {
+.log-text-1 {
   color: var(--txt-b-pure)
 }
 
-.logText2 {
+.log-text-2 {
   color: var(--b-alpha-80);
   font-size: small;
   line-height: 5px
 }
 
-.logText3 {
+.log-text-3 {
   color: var(--b-alpha-60)
 }
 

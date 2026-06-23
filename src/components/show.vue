@@ -62,13 +62,6 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 .selection-box{
     margin: 10px;
 }
-.media-tip{
-    margin-top: 5px;
-    margin-left: 5px;
-    z-index: 20;
-    position: absolute;
-    color: var(--w-alpha-90-fixed);
-}
 .viewer{
     border-radius: 10px;
     background-color: var(--w-alpha-90);

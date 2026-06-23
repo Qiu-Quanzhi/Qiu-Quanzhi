@@ -36,10 +36,10 @@ const time = {
 
 // --- Work links: paired with locale content (parts.work.contents) by index ---
 const workLinkData = [
-  { href: 'https://home.qqzhi.cc/',                             id: 'workLink_Blog',     embed: false },
-  { href: 'https://www.qqzhi.cc/works/HistoryMap/',             id: 'workLink_History',  embed: false },
-  { href: 'https://space.bilibili.com/1036651852/',              id: 'workLink_Bilibili', embed: false },
-  { href: 'https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951', id: 'workLink_Article', embed: true },
+  { href: 'https://home.qqzhi.cc/',                             id: 'work-link-blog',     embed: false, pic: '/assets/works/blog.webp' },
+  { href: 'https://www.qqzhi.cc/works/HistoryMap/',             id: 'work-link-history',  embed: false, pic: '/assets/works/history.webp' },
+  { href: 'https://space.bilibili.com/1036651852/',              id: 'work-link-bilibili', embed: false, pic: '/assets/works/bilibili.webp' },
+  { href: 'https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951', id: 'work-link-article', embed: true,  pic: '/assets/works/weixin.webp' },
 ]
 
 // --- Log entries: each maps a date to a descriptive key in parts.log.contents ---

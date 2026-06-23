@@ -248,13 +248,13 @@ body,
     border-color: var(--theme-color)
 }
 
-.workList {
+.work-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center
 }
 
-.workLink {
+.work-link {
     width: 250px;
     height: 235px;
     margin: 0 15px 30px;
@@ -277,18 +277,18 @@ body,
     cursor: pointer;
 }
 
-.workLink:hover {
+.work-link:hover {
     -webkit-box-shadow: var(--b-alpha-20) 0 10px 30px;
     -moz-box-shadow: var(--b-alpha-20) 0 10px 30px;
     box-shadow: var(--b-alpha-30) 0 10px 30px;
     transform: scale(1.05)
 }
 
-.workLink * {
+.work-link * {
     transition: .25s
 }
 
-.workLinkPic {
+.work-link-pic {
     height: 140px;
     background-color: var(--b-alpha-5);
     background-repeat: no-repeat;
@@ -296,27 +296,12 @@ body,
     background-position: center
 }
 
-#workLink_Bilibili .workLinkPic {
-    background-image: url(/assets/works/bilibili.webp)
-}
 
-#workLink_Article .workLinkPic {
-    background-image: url(/assets/works/weixin.webp)
-}
-
-#workLink_History .workLinkPic {
-    background-image: url(/assets/works/history.webp)
-}
-
-#workLink_Blog .workLinkPic {
-    background-image: url(/assets/works/blog.webp)
-}
-
-.workLinkText {
+.work-link-text {
     padding: 10px 20px
 }
 
-.workLinkTitle {
+.work-link-title {
     margin: 5px 0 0;
     color: var(--txt-b);
     font-size: 15px;
@@ -324,7 +309,7 @@ body,
     font-weight: 700
 }
 
-.workLinkIntro {
+.work-link-intro {
     margin: 1px 0 0;
     color: var(--txt-b);
     font-size: small;
@@ -333,7 +318,7 @@ body,
     text-overflow: ellipsis
 }
 
-.workLinkCat {
+.work-link-cat {
     margin: 5px 0 0;
     font-size: 11px;
     color: var(--b-alpha-70)
