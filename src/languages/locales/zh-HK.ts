@@ -2,8 +2,10 @@ export default {
     lang: 'zh-HK',
     title: '旅禾Ryoine - 邱泉智QIU Quanzhi',
     href: '/zh-hk',
-    name: '邱泉智',
-    nameHTML: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
+    name: {
+        full: '邱泉智',
+        pinyin: 'Qiu Quanzhi'
+    },
     tags: ['00後','知識','技術','學生'],
     slogan: '永不熄滅的理想之焰，足可抵擋凜冬的風霜刀劍',
     parts:{
@@ -41,7 +43,12 @@ export default {
         },
         show: {
             title: '作品簡展',
-            tip: '下面僅提供簡中內容'
+            tip: '下面僅提供簡中內容',
+            tabs: {
+                bilibili: { name: '旅禾Ryoine', enter: '點此進入主頁' },
+                blog: { name: '旅禾小棧', enter: '點此進入' },
+                netease: { name: '旅禾', enter: '點此進入主頁' }
+            }
         },
         log: {
             title: '小棧事記',
@@ -64,7 +71,7 @@ export default {
         contents: ["聯繫-QQ","聯繫-微信","聯繫-郵箱"]
     },{
         title:'更多內容',
-        contents: ["主頁-原創館","主頁-洛谷","主頁-愛發電"]
+        contents: ["主頁-嗶哩嗶哩","主頁-知乎","主頁-愛發電"]
     }],
     texts:{
         background: '背景',
@@ -72,7 +79,6 @@ export default {
             success: '已複製 {title} 到剪貼板',
             fail: '無法複製 {title}'
         },
-        copied: '已嘗試複製',
         id: '號碼',
         address: '地址',
         clickToLoad: '點擊載入'
@@ -95,6 +101,6 @@ export default {
     info: {
         Weixin: '微信號',
         QQ: 'QQ號',
-        email: '電子郵箱地址'
+        mail: '電子郵箱地址'
     }
 }

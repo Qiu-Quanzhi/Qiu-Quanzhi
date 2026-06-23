@@ -9,22 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "vue-i18n": "^11.1.3"
+    "vue": "^3.5.38",
+    "vue-i18n": "^11.4.6"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.20.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "fast-glob": "^3.3.3",
-    "sass": "^1.86.3",
+    "sass": "^1.101.0",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vue-tsc": "https://pkg.pr.new/vuejs/language-tools/vue-tsc@3fb59af"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild"
-    ]
+    "vite": "^6.4.3",
+    "vue-tsc": "^2.2.12"
   }
 }

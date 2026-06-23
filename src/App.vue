@@ -5,23 +5,14 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 
-import show from 'components/show.vue';
-import cardInfo from 'components/cardInfo.vue';
+import show from '@/components/show.vue';
+import cardInfo from '@/components/cardInfo.vue';
 
 const loaded = ref(false)
 const activated = ref(false)
 
-type socialMedia = { id: string, url: string, mode: string | undefined, info: string | undefined }
+type socialMedia = { id: string, url: string, mode?: string, info?: string }
 const socialMediaList = ref<Array<socialMedia>>(info.socialMedias)
-/*
-fetch('/assets/data/socialMedias.json')
-  .then((response) => response.json())
-  .then((json: Array<socialMedia>) => {
-    socialMediaList.value = json
-  }).catch((error) => {
-    console.error('[获取社交媒体列表错误/Error on fetching social media list]', error);
-  });
-*/
 const openLink = (target: MouseEvent | HTMLAnchorElement) => {
   let url: string
   if (target instanceof MouseEvent) {
@@ -48,7 +39,7 @@ const copyInfo = (item: socialMedia ,event: MouseEvent) => {
         window.open(item.url, '_blank')
     });
 }
-const copyContact = (id: string) => {
+const copyContact = (id: keyof typeof info.contact) => {
   navigator.clipboard.writeText(info.contact[id])
     .then(() => {
       alert(t('texts.copy.success',{title:t(`info.${id}`)}));
@@ -67,7 +58,7 @@ const changeLang = (lang: string,event?: MouseEvent) => {
   locale.value = lang
   if (event){
     event.preventDefault()
-    localStorage.setItem('lang', t('href').replace('/',''))
+    localStorage.setItem('lang', t('href').replace(/^\//, ''))
   }
   document.documentElement.lang = t('lang')
   document.title = t('title')
@@ -75,7 +66,7 @@ const changeLang = (lang: string,event?: MouseEvent) => {
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', location.href)
 }
 onMounted(async () => {
-  location.pathname !== t('href') && changeLang(t('href').replace('/',''))
+  location.pathname !== t('href') && changeLang(t('href').replace(/^\//, ''))
   setTimeout(() => {
     loaded.value = true
   }, 500);
@@ -92,7 +83,7 @@ onMounted(async () => {
       <i class="s_line" aria-hidden="true">|</i>
       <a href="/en" aria-label="Switch to English" @click="changeLang('en',$event)" :class="[t('lang') == 'en' ? 'current' : '']" hreflang="en" lang="en">EN</a>
     </div>
-    <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#about"></a>
+    <a :aria-label="t('aria.goto') + t('parts.about.title')" href="#info"></a>
     <a :aria-label="t('aria.goto') + t('parts.work.title')" href="#work"></a>
     <a :aria-label="t('aria.goto') + t('parts.log.title')" href="#log"></a>
     <a :aria-label="t('aria.goto') + t('aria.footer')" href="#footer"></a>
@@ -105,7 +96,9 @@ onMounted(async () => {
               <view class="flex-row item-center">
                 <h2>
                   <ruby style="ruby-position: under;">
-                    <ruby style="ruby-position: over;" v-html="t('nameHTML')">
+                    <ruby style="ruby-position: over;">
+                      {{ t('name.full') }}
+                      <rp>(</rp><rt>{{ t("name.pinyin") }}</rt><rp>)</rp>
                     </ruby>
                     <rt lang="zh-cn">({{ info.nickName }})</rt>
                   </ruby>
@@ -231,13 +224,13 @@ onMounted(async () => {
       </div>
       <div>
         <p>{{ t('footer[2].title') }}</p>
-        <a href="https://ycg.qq.com/person/works/2673519" target="_blank">{{ t('footer[2].contents[0]') }}</a><br>
-        <a href="https://www.luogu.com.cn/user/525682" target="_blank">{{ t('footer[2].contents[1]')
-          }}</a><br>
+        <a href="https://space.bilibili.com/1036651852" target="_blank">{{ t('footer[2].contents[0]') }}</a><br>
+        <a href="https://www.zhihu.com/people/Ryoine" target="_blank">{{ t('footer[2].contents[1]') }}</a><br>
         <a href="https://afdian.com/a/Ryoine" target="_blank">{{ t('footer[2].contents[2]') }}</a><br>
+
       </div>
       <div>
-        <p>© {{ time.year }} {{ t('name') }}</p>
+        <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br>
         <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
       </div>
@@ -246,162 +239,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.selection-box {
-  margin: 10px
-}
-
-.media-tip {
-  margin-top: 5px;
-  margin-left: 5px;
-  z-index: 20;
-  position: absolute;
-  color: var(---w-alpha-90)
-}
-
-.viewer {
-  border-radius: 10px;
-  background-color: var(--w-alpha-90)
-}
-
-.blog.viewer {
-  width: calc(100vw - 80px);
-  height: 80vh
-}
-
-.netease.viewer {
-  width: calc((100vw - 80px)/2);
-  height: 40vh
-}
-
-.selection {
-  margin: 5px;
-  width: 50px;
-  height: 50px;
-  opacity: .7;
-  cursor: pointer
-}
-
-.selection:hover {
-  transform: scale(1.05)
-}
-
-.selection.selected {
-  opacity: 1;
-  transform: scale(1.05)
-}
-
-.selection-id {
-  color: var(--txt-b);
-  pointer-events: none;
-  font-weight: 600;
-  opacity: 0
-}
-
-.selection-id.selected {
-  pointer-events: all;
-  opacity: 1
-}
-
-text {
-  color: var(--theme-color)
-}
-
-.show-box {
-  width: calc(100vw - 80px)
-}
-
-@media screen and (max-width: 660px) {
-  .show-box {
-    flex-direction: column;
-    align-items: center
-  }
-
-  .player {
-    width: calc(100vw - 80px) !important;
-    height: calc((100vw - 80px)*.5625) !important;
-    border-bottom-left-radius: 0 !important;
-    border-top-left-radius: 5px !important;
-    border-top-right-radius: 5px
-  }
-
-  .list {
-    width: calc(100vw - 90px) !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 5px !important;
-    border-bottom-left-radius: 5px;
-    padding: 15px 5px 5px !important;
-    margin-top: -5px;
-    left: 0 !important;
-    max-height: 30vh;
-    height: unset !important;
-    max-width: none !important
-  }
-
-  .lang-area a {
-    font-size: 20px !important;
-  }
-
-  .lang-area i {
-    font-size: 16px !important;
-  }
-
-  footer {
-    line-height: 2em;
-  }
-
-  footer a {
-    font-size: 15px !important
-  }
-}
-
-.player {
-  width: calc((100vw - 80px)/2);
-  height: calc((100vw - 80px)*.28125);
-  z-index: 10;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background: url(/assets/icons/Bilibili.svg) no-repeat center;
-  background-size: 10%;
-  background-color: var(--b-alpha-90)
-}
-
-.list {
-  position: relative;
-  background-color: var(--b-alpha-10);
-  height: calc((100vw - 80px)*.28125 - 10px);
-  padding: 5px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-width: 30vw
-}
-
-.list-item {
-  margin: 3px 10px;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer
-}
-
-.list-item:hover {
-  transform: scale(1.05)
-}
-
-.list-item.selected {
-  background-color: var(--w-alpha-90)
-}
-
-.list-item>span {
-  margin: 1px 0 0;
-  color: var(--txt-b);
-  font-size: medium;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block
-}
-
 .lang-area {
   z-index: 100;
   -webkit-user-select: none;
@@ -631,7 +468,7 @@ footer {
 
 footer:hover {
   transition: backdrop-filter .1s;
-  background-color: var(---b-alpha-30);
+  background-color: var(--b-alpha-30-fixed);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
   backdrop-filter: blur(30px) saturate(180%)
 }
@@ -694,6 +531,24 @@ div ::-webkit-scrollbar-thumb:hover {
 
 div ::-webkit-scrollbar-thumb:active {
   background-color: var(--theme-color)
+}
+
+@media screen and (max-width: 660px) {
+  .lang-area a {
+    font-size: 20px !important;
+  }
+
+  .lang-area i {
+    font-size: 16px !important;
+  }
+
+  footer {
+    line-height: 2em;
+  }
+
+  footer a {
+    font-size: 15px !important;
+  }
 }
 
 @media (max-width: 800px) {

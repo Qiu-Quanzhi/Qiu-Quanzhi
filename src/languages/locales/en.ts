@@ -2,8 +2,10 @@ export default {
     lang: 'en',
     title: '旅禾Ryoine - 邱泉智QIU Quanzhi',
     href: '/en',
-    name: '邱泉智',
-    nameHTML: '邱泉智<rp>(</rp><rt>QIU Quanzhi</rt><rp>)</rp>',
+    name: {
+        full: '邱泉智',
+        pinyin: 'Qiu Quanzhi'
+    },
     tags: ['00s','Creator','Tech','Student'],
     slogan: 'Ideal that never goes is enough to withstand the odds.',
     parts:{
@@ -41,7 +43,12 @@ export default {
         },
         show: {
             title: 'Works Exhibition',
-            tip: 'Only Chinese Simplified content is available below'
+            tip: 'Only Chinese Simplified content is available below',
+            tabs: {
+                bilibili: { name: '旅禾Ryoine', enter: 'Visit homepage' },
+                blog: { name: '旅禾小栈', enter: 'Enter' },
+                netease: { name: '旅禾', enter: 'Visit homepage' }
+            }
         },
         log: {
             title: 'Website Memorabilia',
@@ -64,7 +71,7 @@ export default {
         contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
     },{
         title:'More Content',
-        contents: ["Home-Tencent YCG","Home-Luogu OJ","Home-Afdian"]
+        contents: ["Home-Bilibili","Home-Zhihu","Home-Afdian"]
     }],
     texts:{
         background: 'Background',
@@ -72,7 +79,6 @@ export default {
             success: 'Copied {title} to clipboard',
             fail: 'Failed to copy {title}'
         },
-        copied: 'Copied',
         id: 'ID',
         address: 'ADD',
         clickToLoad: 'Click to load'

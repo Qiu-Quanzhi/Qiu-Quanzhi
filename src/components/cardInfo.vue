@@ -1,16 +1,20 @@
 <script setup lang="ts">
+interface CardInfoData {
+    loc: string;
+    birthday: string;
+    GPGFingerprint: string;
+    GPGUrl: string;
+}
+
+interface CardTimeData {
+    shortTime: string;
+    timezone: string;
+}
+
 defineProps<{
-    info: {
-        loc: string,
-        birthday: string,
-        GPGFingerprint: String,
-        GPGUrl: string
-    },
-    time: {
-        shortTime: string,
-        timezone: string
-    },
-    loaded: boolean
+    info: CardInfoData;
+    time: CardTimeData;
+    loaded: boolean;
 }>()
 </script>
 <template>

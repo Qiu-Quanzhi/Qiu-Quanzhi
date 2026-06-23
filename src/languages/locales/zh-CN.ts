@@ -1,11 +1,11 @@
-import { title } from "process";
-
 export default {
     lang: 'zh-CN',
     title: '旅禾Ryoine - 邱泉智',
     href: '/zh-cn',
-    name: '邱泉智',
-    nameHTML: '邱泉智',
+    name: {
+        full: '邱泉智',
+        pinyin: 'Qiu Quanzhi'
+    },
     tags: ['00后','知识','技术','学生'],
     slogan: '永不熄灭的理想之焰，足可抵挡凛冬的风霜刀剑',
     parts:{
@@ -43,7 +43,12 @@ export default {
         },
         show: {
             title: '作品简展',
-            tip: '下面仅提供简中内容'
+            tip: '下面仅提供简中内容',
+            tabs: {
+                bilibili: { name: '旅禾Ryoine', enter: '点此进入主页' },
+                blog: { name: '旅禾小栈', enter: '点此进入' },
+                netease: { name: '旅禾', enter: '点此进入主页' }
+            }
         },
         log: {
             title: '小栈事记',
@@ -66,7 +71,7 @@ export default {
         contents: ["联系-QQ","联系-微信","联系-邮箱"]
     },{
         title:'更多内容',
-        contents: ["主页-原创馆","主页-洛谷","主页-爱发电"]
+        contents: ["主页-哔哩哔哩","主页-知乎","主页-爱发电"]
     }],
     texts:{
         background: '背景',
@@ -74,7 +79,6 @@ export default {
             success: '已复制 {title} 到剪贴板',
             fail: '无法复制 {title}'
         },
-        copied: '已尝试复制',
         id: '号码',
         address: '地址',
         clickToLoad: '点击加载'
