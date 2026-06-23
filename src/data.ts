@@ -82,11 +82,19 @@ const footerLinkData = [
   },
 ]
 
+// --- Show tabs: works exhibition section ---
+const showTabs = [
+  { id: 'bilibili', icon: 'assets/icons/Bilibili.svg', href: 'https://space.bilibili.com/1036651852', ariaKey: 'aria.Bilibili', nameKey: 'parts.show.tabs.bilibili.name', enterKey: 'parts.show.tabs.bilibili.enter' },
+  { id: 'blog', icon: 'assets/icons/blog.png', href: 'https://home.qqzhi.cc/', ariaKey: 'aria.blog', nameKey: 'parts.show.tabs.blog.name', enterKey: 'parts.show.tabs.blog.enter' },
+  { id: 'netease', icon: 'assets/icons/Netease.svg', href: 'https://music.163.com/#/artist?id=55151766', ariaKey: 'aria.Netease', nameKey: 'parts.show.tabs.netease.name', enterKey: 'parts.show.tabs.netease.enter' },
+]
+
 export {
     info,
     time,
     workLinkData,
     logEntries,
     footerLinkData,
+    showTabs,
 }
 export type { LogEntry }

@@ -2,32 +2,33 @@
 import blog from './show/blog.vue'
 import bilibili from './show/bilibili.vue'
 import netease from './show/netease.vue'
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { showTabs } from '@/data'
 const { t } = useI18n();
 type BilibiliItem = { aid?: number, bvid?: string, cid?: number, title: string }
+
 const list = ref<{ bilibili_list: Array<BilibiliItem> }>({ bilibili_list: [] })
-fetch('/assets/data/works.json')
-    .then((response) => {
-        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-        return response.json();
-    })
-    .then((json: { bilibili_list: Array<BilibiliItem> }) => {
-        list.value = json;
-        bilibili_index.value = 0;
-    })
-    .catch((error) => {
-        console.error('Failed to load works data:', error);
-        list.value = { bilibili_list: [] };
-    })
 const bilibili_index = ref(-1)
 const tab = ref('blog')
+const loading = ref(false)
+const error = ref(false)
 
-const showTabs = [
-    { id: 'bilibili', icon: 'assets/icons/Bilibili.svg', href: 'https://space.bilibili.com/1036651852', ariaKey: 'aria.Bilibili', nameKey: 'parts.show.tabs.bilibili.name', enterKey: 'parts.show.tabs.bilibili.enter' },
-    { id: 'blog', icon: 'assets/icons/blog.png', href: 'https://home.qqzhi.cc/', ariaKey: 'aria.blog', nameKey: 'parts.show.tabs.blog.name', enterKey: 'parts.show.tabs.blog.enter' },
-    { id: 'netease', icon: 'assets/icons/Netease.svg', href: 'https://music.163.com/#/artist?id=55151766', ariaKey: 'aria.Netease', nameKey: 'parts.show.tabs.netease.name', enterKey: 'parts.show.tabs.netease.enter' },
-]
+onMounted(async () => {
+  loading.value = true
+  try {
+    const response = await fetch('/assets/data/bilibili-videos.json')
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    const json: { bilibili_list: Array<BilibiliItem> } = await response.json()
+    list.value = json
+    bilibili_index.value = json.bilibili_list.length > 0 ? 0 : -1
+  } catch (e) {
+    console.error('Failed to load works data:', e)
+    error.value = true
+  } finally {
+    loading.value = false
+  }
+})
 
 const tabComponents: Record<string, any> = { bilibili, blog, netease }
 const currentTabComponent = computed(() => tabComponents[tab.value])
