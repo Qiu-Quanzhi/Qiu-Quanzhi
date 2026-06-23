@@ -4,7 +4,7 @@ export default {
     href: '/zh-cn',
     name: {
         full: '邱泉智',
-        pinyin: 'Qiu Quanzhi'
+        pinyin: ''
     },
     tags: ['00后','知识','技术','学生'],
     slogan: '永不熄灭的理想之焰，足可抵挡凛冬的风霜刀剑',
