@@ -1,95 +1,190 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>页面未找到 - 404</title>
-	<link rel="icon" href="https://www.qqzhi.cc/favicon.ico">
-	<style>
-		html {
-			height: 100%;
-		}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>页面未找到·404 - 旅禾Ryoine</title>
+  <link rel="icon" href="https://www.qqzhi.cc/favicon.ico">
 
-		body {
-			text-align: center;
-			max-width: 100%;
-			overflow: hidden;
-			font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
-			cursor: default;
-			-webkit-user-select: none;
-			user-select: none;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-		h1 {
-			margin: 150px 0 0 0;
-			color: #66ccff;
-			font-size: 135px;
-			line-height: 110px;
-		}
+    :root {
+      --c-primary: #66ccff;
+      --c-primary-active: #4db8e6;
+      --c-text: rgba(0, 0, 0, 0.85);
+      --c-text-secondary: rgba(0, 0, 0, 0.55);
+      --c-bg: #f0f4f8;
+      --c-card-bg: rgba(255, 255, 255, 0.75);
+      --c-card-border: rgba(255, 255, 255, 0.5);
+      --c-shadow: rgba(0, 0, 0, 0.08);
+      --backdrop: blur(16px) saturate(140%);
+    }
 
-		h2 {
-			font-size: 20px;
-		}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: rgba(255, 255, 255, 0.9);
+        --c-text-secondary: rgba(255, 255, 255, 0.5);
+        --c-bg: #1a1d22;
+        --c-card-bg: rgba(255, 255, 255, 0.06);
+        --c-card-border: rgba(255, 255, 255, 0.08);
+        --c-shadow: rgba(0, 0, 0, 0.3);
+      }
+    }
 
-		p {
-			color: rgba(0, 0, 0, .6);
-			font-size: small;
-		}
+    html {
+      height: 100%;
+    }
 
-		.link {
-			color: #66ccff;
-			text-decoration: none;
-			transition: .25s;
-		}
+    body {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--c-bg);
+      color: var(--c-text);
+      padding: 24px;
+    }
 
-		.link:hover,
-		#btnHome:hover {
-			opacity: .8;
-		}
+    /* ── 装饰性背景圆 ── */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-		.link:active {
-			filter: brightness(.8);
-		}
+    body::before {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--c-primary), transparent 70%);
+      top: -200px;
+      left: -150px;
+    }
 
-		#btnHome {
-			display: inline-block;
-			margin-top: 20px;
-			padding: 8px 30px;
-			background-color: #66ccff;
-			border-radius: 3px;
-			color: white;
-			font-size: 14px;
-			text-decoration: none;
-			transition: .25s;
-		}
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--c-primary), transparent 70%);
+      bottom: -150px;
+      right: -100px;
+    }
 
-		#btnHome:active {
-			opacity: .6;
-		}
+    /* ── 卡片容器 ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 40px;
+      background: var(--c-card-bg);
+      border: 1px solid var(--c-card-border);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px var(--c-shadow);
+      backdrop-filter: var(--backdrop);
+      -webkit-backdrop-filter: var(--backdrop);
+    }
 
-		footer {
-			position: fixed;
-			bottom: 50px;
-			color: rgba(0, 0, 0, .6);
-			font-size: small;
-		}
-	</style>
+    /* ── 状态码 ── */
+    .code {
+      font-size: clamp(80px, 18vw, 135px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--c-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── 标题 ── */
+    .title {
+      margin-top: 8px;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 500;
+      color: var(--c-text);
+    }
+
+    /* ── 描述 ── */
+    .desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--c-text-secondary);
+    }
+
+    .desc a {
+      color: var(--c-primary);
+      text-decoration: none;
+    }
+
+    .desc a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── 按钮 ── */
+    .btn-home {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 10px 32px;
+      background: var(--c-primary);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-home:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .btn-home:active {
+      opacity: 0.65;
+      transform: translateY(0);
+    }
+
+    /* ── 页脚 ── */
+    .footer {
+      position: fixed;
+      bottom: 40px;
+      font-size: 13px;
+      color: var(--c-text-secondary);
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body>
-	<h1>404</h1>
-	<h2>呃唔， <br> 页面好像走丢了……</h2>
-	<p>如有疑问，请联系：<a href="mailto:i@qqzhi.cc" target="_blank" class="link">i@qqzhi.cc</a>。</p>
-	<a href="https://www.qqzhi.cc/" id="btnHome">返回主站首页</a>
-	<footer>© 旅禾Ryoine</footer>
-	<script>
-		window.onload = () => {
-			document.querySelector("footer").innerText = "© " + new Date(new Date().toLocaleString([], { timeZone: "Asia/Shanghai" })).getFullYear() + " 旅禾Ryoine"
-		}
-	</script>
-</body>
+  <div class="card">
+    <div class="code">404</div>
+    <div class="title">页面好像走丢了……</div>
+    <p class="desc">
+      如有疑问请联系
+      <a href="mailto:i@qqzhi.cc" target="_blank" rel="noopener">i@qqzhi.cc</a>
+    </p>
+    <a href="https://www.qqzhi.cc/" class="btn-home" rel="noreferrer">返回主站首页</a>
+  </div>
 
+  <footer class="footer">© 旅禾Ryoine</footer>
+
+  <script>
+    (function () {
+      var y = new Date().toLocaleString([], { timeZone: "Asia/Shanghai" });
+      document.querySelector(".footer").textContent =
+        "© " + new Date(y).getFullYear() + " 旅禾Ryoine";
+    })();
+  </script>
+</body>
 </html>
