@@ -201,7 +201,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         <p>{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
           <a v-if="link.type === 'link'" :href="link.href" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
-          <a v-else @click="copyContact(link.contact)" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <a v-else href="" @click="copyContact(link.contact)" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
           <br>
         </template>
       </div>
