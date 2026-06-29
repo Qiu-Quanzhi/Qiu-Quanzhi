@@ -160,7 +160,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
            :href="workLinkData[index]?.href" target="_blank" class="work-link"
            :id="workLinkData[index]?.id"
            @click="handleWorkClick(index, $event)">
-          <div class="work-link-pic" :style="{ backgroundImage: `url(${workLinkData[index]?.pic})` }"></div>
+          <img loading="lazy" class="work-link-pic" :src="workLinkData[index]?.pic" alt="" />
           <div class="work-link-text">
             <p class="work-link-title">{{ work.title }}</p>
             <p class="work-link-intro">{{ work.intro }}</p>
