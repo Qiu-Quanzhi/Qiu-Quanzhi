@@ -6,6 +6,9 @@ on:
      - main
   workflow_dispatch:   # 允许手动触发，方便首次测试
 
+permissions:
+  contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
