@@ -1,0 +1,41 @@
+name: 定时构建并部署到自有服务器
+
+on:
+  push:
+   branches:
+     - main
+  workflow_dispatch:   # 允许手动触发，方便首次测试
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取 main 分支最新代码
+        uses: actions/checkout@v7.0.0
+        with:
+          ref: main
+
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v6.0.9
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          cache: 'pnpm'
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 构建静态文件
+        run: pnpm build
+
+      - name: 部署 dist 到自有服务器
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avz --delete"           # 同步并删除服务器上多余文件
+          SOURCE: "dist/"                 # 要上传的目录，注意末尾 /
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT || '22' }}
+          TARGET: "/var/www/你的网站目录"  # 服务器上目标路径，改成实际路径
