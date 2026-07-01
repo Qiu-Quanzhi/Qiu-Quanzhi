@@ -1,4 +1,6 @@
 allowBuilds:
   '@parcel/watcher': true
+minimumReleaseAgeExclude:
+  - vite@8.1.2
 onlyBuiltDependencies:
   - "@parcel/watcher"
