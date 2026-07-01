@@ -13,7 +13,6 @@ export default {
             title:'About Me',
             contents:[
                 'I am a technical learner and a theoretical practitioner,',
-                'Currently studying at Xinyi Middle School in Guangdong, China,',
                 'Keening to discuss various academic topics.',
                 'Welcome to make progress together!',
                 'Contact Email: '
