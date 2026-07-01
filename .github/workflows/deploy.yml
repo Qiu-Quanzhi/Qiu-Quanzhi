@@ -33,9 +33,9 @@ jobs:
         uses: easingthemes/ssh-deploy@v4
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avz --delete"           # 同步并删除服务器上多余文件
-          SOURCE: "dist/"                 # 要上传的目录，注意末尾 /
+          ARGS: "-avz --delete"
+          SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT || '22' }}
-          TARGET: "/var/www/你的网站目录"  # 服务器上目标路径，改成实际路径
+          TARGET: "/var/www/www.qqzhi.cc"
