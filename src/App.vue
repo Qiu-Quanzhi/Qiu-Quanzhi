@@ -99,7 +99,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   <div class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
-        <i v-if="index > 0" class="s-line" aria-hidden="true">|</i>
+        <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
         <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)" :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{ opt.label }}</a>
       </template>
     </div>
@@ -208,7 +208,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br>
-        <a target="__blank" href="https://icp.gov.moe/?keyword=20232486">萌ICP备20232486号</a>
+        <a target="__blank" href="https://beian.miit.gov.cn/">粤ICP备XXXXXXXXXX号-X</a>
       </div>
     </footer>
   </div>
