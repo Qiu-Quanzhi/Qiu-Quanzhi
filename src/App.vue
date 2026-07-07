@@ -208,7 +208,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br>
-        <a href="https://beian.miit.gov.cn/" target="__blank">粤ICP备2026090856号</a>
+        <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2026090856号</a>
       </div>
     </footer>
   </div>
