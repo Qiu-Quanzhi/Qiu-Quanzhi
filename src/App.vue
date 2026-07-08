@@ -61,7 +61,7 @@ const changeLang = (lang: string,event?: MouseEvent) => {
     localStorage.setItem('lang', t('href').replace(/^\//, ''))
   }
   document.documentElement.lang = t('lang')
-  document.title = t('title')
+  document.querySelector("#title")!.textContent = document.title = t('title')
   history.replaceState(null, '', t('href'))
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', location.href)
 }
