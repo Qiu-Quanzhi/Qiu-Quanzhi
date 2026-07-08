@@ -13,6 +13,7 @@ export default {
             title:'About Me',
             contents:[
                 'I am a technical learner and a theoretical practitioner,',
+                'Currently studying in Guangdong, China,',
                 'Keening to discuss various academic topics.',
                 'Welcome to make progress together!',
                 'Contact Email: '
@@ -63,14 +64,14 @@ export default {
         }
     },
     footer:[{
-        title:'Links',
-        contents: ["Links-Blog"]
+        title:'Friend Links',
+        contents: ["Blog - Links"]
     },{
         title:'Contact Me',
-        contents: ["Contact-QQ","Contact-WeChat","Contact-Email"]
+        contents: ["Contact - QQ","Contact - WeChat","Contact - Email"]
     },{
         title:'More Content',
-        contents: ["Home-Bilibili","Home-Zhihu","Home-Afdian"]
+        contents: ["Home - Bilibili","Home - Zhihu","Home - Afdian"]
     }],
     texts:{
         background: 'Background',
