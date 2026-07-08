@@ -1,6 +1,6 @@
 export default {
     lang: 'zh-CN',
-    title: '旅禾Ryoine - 邱泉智',
+    title: '旅禾Ryoine - 邱泉智 · 旅禾小站',
     href: '/zh-cn',
     name: {
         full: '邱泉智',

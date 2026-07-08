@@ -1,6 +1,6 @@
 export default {
     lang: 'en',
-    title: '旅禾Ryoine - 邱泉智QIU Quanzhi',
+    title: '旅禾Ryoine - 邱泉智QIU Quanzhi · 旅禾小站',
     href: '/en',
     name: {
         full: '邱泉智',
