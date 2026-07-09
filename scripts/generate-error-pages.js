@@ -13,7 +13,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 
@@ -238,7 +238,11 @@ const TEMPLATE = `<!DOCTYPE html>
     <a href="https://__DOMAIN__/" class="btn-home" rel="noreferrer">__BTN__</a>
   </div>
 
-  <footer class="footer">&copy; __YEAR__ __AUTHOR__</footer>
+  <footer class="footer">&copy; <span class="copyright-year">__YEAR__</span> __AUTHOR__</footer>
+
+  <script>
+    (function(){var y=new Date().getFullYear();var e=document.querySelector('.copyright-year');if(e){e.textContent=y;}})();
+  </script>
 </body>
 </html>`;
 
