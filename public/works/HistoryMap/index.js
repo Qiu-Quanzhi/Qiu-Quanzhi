@@ -17,6 +17,6 @@ function enter() {
 	document.getElementById("sidebar-mask").setAttribute("class", "sidebar mask")
 	document.getElementById("sidebar").setAttribute("class", "sidebar")
 	setTimeout(function() {
-		window.location.href = "https://app.qqzhi.cc/HistoryMap"
+		window.location.href = "https://Qiu-Quanzhi.github.io/HistoryMap/"
 	}, 400)
 }
