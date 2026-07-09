@@ -64,9 +64,12 @@ main.ts
 - SCSS nesting is used (e.g., `.card { &.mini { ... } }`) — requires the `sass` dependency.
 - Path aliases configured in both `vite.config.ts` and `tsconfig.json`: `@` → `src/`, `components` → `src/components/`.
 
-### Deploy (Vercel)
+### Deploy (自建 Nginx)
 
-`vercel.json` sets `"cleanUrls": true` and adds `Access-Control-Allow-Origin: *` on all routes. The site is served as a static build. A `public/404.html` exists for custom 404 handling.
+项目部署在自建服务器上，使用 Nginx 托管静态文件。
+- 构建产物 `dist/` 部署到 Nginx 静态文件目录。
+- `public/error.html` 统一承接所有错误页面，由 Nginx `error_page` 指令通过 query string 传入状态码。
+- CORS、`cleanUrls` 等逻辑需在 Nginx 配置中实现。
 
 ### Path aliases
 

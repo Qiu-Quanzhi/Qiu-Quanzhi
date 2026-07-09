@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex">
+  <title>出错了 | 旅禾Ryoine - 邱泉智QIU Quanzhi · 旅禾小站</title>
+  <link rel="icon" href="https://www.qqzhi.cc/favicon.ico">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --c-primary: #66ccff;
+      --c-primary-active: #4db8e6;
+      --c-text: rgba(0, 0, 0, 0.85);
+      --c-text-secondary: rgba(0, 0, 0, 0.55);
+      --c-bg: #f0f4f8;
+      --c-card-bg: rgba(255, 255, 255, 0.75);
+      --c-card-border: rgba(255, 255, 255, 0.5);
+      --c-shadow: rgba(0, 0, 0, 0.08);
+      --backdrop: blur(16px) saturate(140%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: rgba(255, 255, 255, 0.9);
+        --c-text-secondary: rgba(255, 255, 255, 0.5);
+        --c-bg: #1a1d22;
+        --c-card-bg: rgba(255, 255, 255, 0.06);
+        --c-card-border: rgba(255, 255, 255, 0.08);
+        --c-shadow: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--c-bg);
+      color: var(--c-text);
+      padding: 24px;
+    }
+
+    /* ── 装饰性背景圆 ── */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--c-primary), transparent 70%);
+      top: -200px;
+      left: -150px;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--c-primary), transparent 70%);
+      bottom: -150px;
+      right: -100px;
+    }
+
+    /* ── 卡片容器 ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 40px;
+      background: var(--c-card-bg);
+      border: 1px solid var(--c-card-border);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px var(--c-shadow);
+      backdrop-filter: var(--backdrop);
+      -webkit-backdrop-filter: var(--backdrop);
+    }
+
+    /* ── 状态码 ── */
+    .code {
+      font-size: clamp(80px, 18vw, 135px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--c-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── 标题 ── */
+    .title {
+      margin-top: 8px;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 500;
+      color: var(--c-text);
+    }
+
+    /* ── 描述 ── */
+    .desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--c-text-secondary);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .desc a {
+      color: var(--c-primary);
+      text-decoration: none;
+    }
+
+    .desc a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── 按钮 ── */
+    .btn-home {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 10px 32px;
+      background: var(--c-primary);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-home:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .btn-home:active {
+      opacity: 0.65;
+      transform: translateY(0);
+    }
+
+    /* ── 页脚 ── */
+    .footer {
+      position: fixed;
+      bottom: 40px;
+      font-size: 13px;
+      color: var(--c-text-secondary);
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="code" id="code">500</div>
+    <div class="title" id="title">服务器出了点问题</div>
+    <p class="desc" id="desc">
+      如有疑问请联系
+      <a href="mailto:i@qqzhi.cc" target="_blank" rel="noopener">i@qqzhi.cc</a>
+    </p>
+    <a href="https://www.qqzhi.cc/" class="btn-home" rel="noreferrer" id="btn-home">返回主站首页</a>
+  </div>
+
+  <footer class="footer">© 旅禾Ryoine</footer>
+
+  <script>
+    (function () {
+      // ── 语言检测 ──
+      function getLang() {
+        var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (nav.startsWith('zh-tw') || nav.startsWith('zh-hk') || nav.startsWith('zh-mo')) return 'zh-HK';
+        if (nav.startsWith('zh')) return 'zh-CN';
+        return 'en';
+      }
+      var lang = getLang();
+
+      // ── 错误码 → 标题/描述 映射 ──
+      var errors = {
+        // 4xx 客户端错误
+        '400': {
+          'zh-CN': { title: '请求有误', desc: '服务器无法理解当前请求，请检查后重试。' },
+          'zh-HK': { title: '請求有誤', desc: '伺服器無法理解當前請求，請檢查後重試。' },
+          'en':    { title: 'Bad Request', desc: 'The server cannot understand this request. Please check and try again.' },
+        },
+        '401': {
+          'zh-CN': { title: '需要登录', desc: '此页面需要登录才能访问。' },
+          'zh-HK': { title: '需要登錄', desc: '此頁面需要登錄才能訪問。' },
+          'en':    { title: 'Unauthorized', desc: 'You need to log in to access this page.' },
+        },
+        '403': {
+          'zh-CN': { title: '禁止访问', desc: '你没有权限查看此页面。' },
+          'zh-HK': { title: '禁止訪問', desc: '你沒有權限查看此頁面。' },
+          'en':    { title: 'Forbidden', desc: 'You don\'t have permission to view this page.' },
+        },
+        '404': {
+          'zh-CN': { title: '页面好像走丢了……', desc: '你访问的页面不存在或已被移除。' },
+          'zh-HK': { title: '頁面好像走丟了……', desc: '你訪問的頁面不存在或已被移除。' },
+          'en':    { title: 'Page Not Found', desc: 'The page you\'re looking for doesn\'t exist or has been moved.' },
+        },
+        '405': {
+          'zh-CN': { title: '方法不被允许', desc: '该请求方法不被服务器支持。' },
+          'zh-HK': { title: '方法不被允許', desc: '該請求方法不被伺服器支持。' },
+          'en':    { title: 'Method Not Allowed', desc: 'This request method is not supported by the server.' },
+        },
+        '408': {
+          'zh-CN': { title: '请求超时', desc: '服务器等待请求超时，请检查网络后重试。' },
+          'zh-HK': { title: '請求超時', desc: '伺服器等待請求超時，請檢查網絡後重試。' },
+          'en':    { title: 'Request Timeout', desc: 'The server timed out waiting for the request. Please check your network and try again.' },
+        },
+        '410': {
+          'zh-CN': { title: '内容已消失', desc: '此页面已被永久移除。' },
+          'zh-HK': { title: '內容已消失', desc: '此頁面已被永久移除。' },
+          'en':    { title: 'Gone', desc: 'This page has been permanently removed.' },
+        },
+        '429': {
+          'zh-CN': { title: '请求太频繁', desc: '你发送了太多请求，请稍后再试。' },
+          'zh-HK': { title: '請求太頻繁', desc: '你發送了太多請求，請稍後再試。' },
+          'en':    { title: 'Too Many Requests', desc: 'You\'ve sent too many requests. Please try again later.' },
+        },
+        // 5xx 服务端错误
+        '500': {
+          'zh-CN': { title: '服务器出了点问题', desc: '服务器内部发生错误，请稍后再试。' },
+          'zh-HK': { title: '伺服器出了點問題', desc: '伺服器內部發生錯誤，請稍後再試。' },
+          'en':    { title: 'Internal Server Error', desc: 'Something went wrong on our end. Please try again later.' },
+        },
+        '502': {
+          'zh-CN': { title: '网关错误', desc: '上游服务器返回了无效响应，请稍后再试。' },
+          'zh-HK': { title: '網關錯誤', desc: '上游伺服器返回了無效響應，請稍後再試。' },
+          'en':    { title: 'Bad Gateway', desc: 'The upstream server returned an invalid response. Please try again later.' },
+        },
+        '503': {
+          'zh-CN': { title: '服务暂时不可用', desc: '服务器正在维护或暂时过载，请稍后再试。' },
+          'zh-HK': { title: '服務暫時不可用', desc: '伺服器正在維護或暫時過載，請稍後再試。' },
+          'en':    { title: 'Service Unavailable', desc: 'The server is temporarily down for maintenance or overloaded. Please try again later.' },
+        },
+        '504': {
+          'zh-CN': { title: '网关超时', desc: '上游服务器未及时响应，请稍后再试。' },
+          'zh-HK': { title: '網關超時', desc: '上游伺服器未及時響應，請稍後再試。' },
+          'en':    { title: 'Gateway Timeout', desc: 'The upstream server didn\'t respond in time. Please try again later.' },
+        },
+      };
+
+      // ── 默认错误 ──
+      var defaults = {
+        'zh-CN': { title: '出了点问题', desc: '发生了未知错误，请稍后再试。' },
+        'zh-HK': { title: '出了點問題', desc: '發生了未知錯誤，請稍後再試。' },
+        'en':    { title: 'Something Went Wrong', desc: 'An unknown error occurred. Please try again later.' },
+      };
+
+      // ── 从 URL 获取错误码 ──
+      function getCode() {
+        // 优先取 ?code= 查询参数
+        var params = new URLSearchParams(window.location.search);
+        var c = params.get('code');
+        if (c) return c;
+
+        // 其次尝试从 pathname 解析，如 /error/500
+        var path = window.location.pathname.replace(/\/+$/, '');
+        var seg = path.split('/').pop();
+        if (/^\d{3}$/.test(seg)) return seg;
+
+        // 默认 500
+        return '500';
+      }
+
+      var code = getCode();
+      var info = (errors[code] && errors[code][lang]) || defaults[lang];
+
+      // ── 更新 DOM ──
+      document.getElementById('code').textContent = code;
+      document.getElementById('title').textContent = info.title;
+
+      var descEl = document.getElementById('desc');
+      descEl.innerHTML = info.desc + '<br><br>如有疑问请联系 <a href="mailto:i@qqzhi.cc" target="_blank" rel="noopener">i@qqzhi.cc</a>';
+
+      var btnEl = document.getElementById('btn-home');
+      var btnText = {
+        'zh-CN': '返回主站首页',
+        'zh-HK': '返回主站首頁',
+        'en': 'Back to Homepage',
+      };
+      btnEl.textContent = btnText[lang] || btnText['zh-CN'];
+
+      // ── 设置 html lang 属性 ──
+      document.documentElement.lang = lang;
+
+      // ── 更新 title ──
+      document.title = code + ' | ' + info.title + ' - 旅禾Ryoine';
+
+      // ── 页脚年份 ──
+      var y = new Date().toLocaleString([], { timeZone: 'Asia/Shanghai' });
+      document.querySelector('.footer').textContent =
+        '© ' + new Date(y).getFullYear() + ' 旅禾Ryoine';
+    })();
+  </script>
+</body>
+</html>
