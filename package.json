@@ -6,7 +6,7 @@
   "packageManager": "pnpm@11.9.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build && node scripts/generate-error-pages.js",
+    "build": "vue-tsc && vite build && node scripts/generate-error-pages.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
