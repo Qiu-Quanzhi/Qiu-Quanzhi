@@ -68,8 +68,7 @@ main.ts
 
 项目部署在自建服务器上，使用 Nginx 托管静态文件。
 - 构建产物 `dist/` 部署到 Nginx 静态文件目录。
-- `public/error.html` 统一承接所有错误页面，由 Nginx `error_page` 指令通过 query string 传入状态码。
-- CORS、`cleanUrls` 等逻辑需在 Nginx 配置中实现。
+- `public/error.html` 为错误页模板，build 时 `scripts/generate-error-pages.js` 将其中的 `__CODE__` 替换为各状态码，生成 `dist/e/{code}.html`。Nginx 通过 `error_page` 直接映射，无需 `sub_filter` 等额外模块。
 
 ### Path aliases
 
