@@ -1,5 +1,4 @@
 function show() {
-	let that = this
 	setTimeout(function() {
 		document.getElementById("cover").setAttribute("class", "cover loaded")
 	}, 100)
@@ -11,8 +10,8 @@ function show() {
 	}, 1000)
 }
 
-function enter() {
-	event.stopPropagation();
+function enter(e) {
+	e.stopPropagation();
 	document.getElementById("cover").setAttribute("class", "cover entered")
 	document.getElementById("sidebar-mask").setAttribute("class", "sidebar mask")
 	document.getElementById("sidebar").setAttribute("class", "sidebar")
@@ -20,3 +19,6 @@ function enter() {
 		window.location.href = "https://Qiu-Quanzhi.github.io/HistoryMap/"
 	}, 400)
 }
+
+window.addEventListener('load', show);
+document.getElementById('enter-btn').addEventListener('click', enter);

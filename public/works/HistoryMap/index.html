@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="index.css">
 		<link rel="canonical" href="https://www.qqzhi.cc/works/HistoryMap/">
 	</head>
-	<body onload="show()">
+	<body>
 		<script src="index.js"></script>
 		<div class="root">
 			<div class="app">
@@ -20,7 +20,7 @@
 				<div id="sidebar" class="sidebar">
 					<div class="gp">
 						<h1 class="title">古国简展</h1>
-						<span class="enter" onclick="enter()">点击进入</span>
+						<span class="enter" id="enter-btn">点击进入</span>
 					</div>
 					<span class="copyright">© 2022&nbsp;<a href="/" target="_blank" class="main">邱泉智</a></span>
 				</div>
@@ -32,7 +32,7 @@
 					<p>在这里，我们收录各个古代国家的时空事件、地理信息，</p>
 					<p>并在地图图像上将其展现出来。</p>
 					<p>本项目为早期作品，现已停止维护。</p>
-					<div style="margin-bottom: 10px;">
+					<div class="link-row">
 						<span>&#62;</span>
 						<a target="_blank" href="https://Qiu-Quanzhi.github.io/HistoryMap/" class="inline">网页应用入口</a>
 						<span>&#60;</span>

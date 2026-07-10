@@ -96,7 +96,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 </script>
 
 <template>
-  <div class="flex-col item-center" style="width: 100%;" :lang="t('lang')">
+  <div class="flex-col item-center app-container" :lang="t('lang')">
     <div class="lang-area" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
@@ -112,8 +112,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             <div class="flex-col">
               <div class="flex-row item-center">
                 <h2>
-                  <ruby style="ruby-position: under;">
-                    <ruby style="ruby-position: over;">
+                  <ruby class="ruby-under">
+                    <ruby class="ruby-over">
                       {{ t('name.full') }}
                       <rp>(</rp><rt>{{ t("name.pinyin") }}</rt><rp>)</rp>
                     </ruby>
@@ -135,8 +135,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         </div>
       </div>
     </div>
-    <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center"
-      style="position: absolute;width: 100%;bottom: 150px;height: 20px;">
+    <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center scroll-link">
       <span :class="['scroll-down', loaded ? 'loaded' : '']"></span>
     </a>
     <div :class="['bg', 'blanked', loaded ? 'loaded' : '']"></div>
@@ -215,6 +214,25 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 </template>
 
 <style scoped>
+.app-container {
+  width: 100%;
+}
+
+.ruby-under {
+  ruby-position: under;
+}
+
+.ruby-over {
+  ruby-position: over;
+}
+
+.scroll-link {
+  position: absolute;
+  width: 100%;
+  bottom: 150px;
+  height: 20px;
+}
+
 .lang-area {
   z-index: 100;
   -webkit-user-select: none;
