@@ -14,11 +14,9 @@ body {
 	cursor: pointer;
 	transition: .25s;
 	color: rgba(0, 0, 0, .6);
-	font-weight: 800;
 }
 
 .main {
-	font-weight: 100;
 	color: rgba(0, 0, 0, .5);
 	margin-left: 5px;
 	transition: .25s;
@@ -36,7 +34,6 @@ body {
 	color: var(--txt-w-pure);
 	transition: .25s;
 	font-size: larger;
-	font-weight: 500;
 	cursor: pointer;
 }
 
@@ -76,10 +73,8 @@ body {
 }
 
 *{
-	color: #484848
-}
-
-h1 {
+	color: #484848;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif;
 	font-weight: 800;
 }
 
@@ -133,7 +128,6 @@ a{
 	width: 100%;
 	background-color: #FFFFFFD0;
 	transition: 0.5s;
-	font-weight: 500;
 }
 .cover {
 	z-index: -100;
@@ -232,7 +226,6 @@ a{
 }
 
 span,p,h1,h2,h3,h4,h5,a {
-	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
 }
 
 .flex-rw {
