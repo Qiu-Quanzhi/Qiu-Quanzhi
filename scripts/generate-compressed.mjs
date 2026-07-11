@@ -3,20 +3,35 @@
  * 遍历 dist/ 目录，为可压缩的静态文件生成 .gz (gzip) 和 .br (brotli) 副本，
  * 配合 Nginx gzip_static / brotli_static 模块使用。
  *
+ * 优先读取 build.config.json，CLI 参数可覆盖配置文件中的值
  * 用法: node scripts/generate-compressed.mjs [--dir <目录>] [--threshold <字节>]
  *
  * @author 邱泉智 QIU Quanzhi (旅禾Ryoine)
  */
 
-import { readFileSync, writeFileSync, unlinkSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, unlinkSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, extname, relative } from 'node:path';
 import { gzipSync, brotliCompressSync, constants } from 'node:zlib';
 
 const VERSION = '1.0.0';
 
-// ── CLI 参数 ──
+// ── 读取配置文件 ──
+function loadConfig() {
+  const configPath = resolve(process.cwd(), 'build.config.json');
+  if (existsSync(configPath)) {
+    try { return JSON.parse(readFileSync(configPath, 'utf-8')); }
+    catch { /* 解析失败则忽略 */ }
+  }
+  return {};
+}
+
+// ── 解析 CLI 参数（覆盖配置文件） ──
 function parseArgs(argv) {
-  const args = { dir: 'dist', threshold: 150 };
+  const config = loadConfig();
+  const args = {
+    dir: config.out || 'dist',
+    threshold: config.threshold || 150,
+  };
   for (let i = 2; i < argv.length; i++) {
     if ((argv[i] === '--dir' || argv[i] === '-d') && argv[i + 1]) { args.dir = argv[++i]; continue; }
     if ((argv[i] === '--threshold' || argv[i] === '-t') && argv[i + 1]) { args.threshold = parseInt(argv[++i], 10); continue; }
