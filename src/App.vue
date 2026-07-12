@@ -206,7 +206,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>
-        <span>{{ t('texts.background') }}: Frozen in Time - Lunanella</span><br>
+        <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
         <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2026090856号</a>
       </div>
     </footer>
@@ -540,7 +540,7 @@ div ::-webkit-scrollbar-thumb:active {
     line-height: 2em;
   }
 
-  footer a {
+  footer a, footer span {
     font-size: 15px !important;
   }
 }
@@ -578,7 +578,7 @@ div ::-webkit-scrollbar-thumb:active {
   }
 
   .scroll-down {
-        display: none;
-    }
+      display: none;
+  }
 }
 </style>
