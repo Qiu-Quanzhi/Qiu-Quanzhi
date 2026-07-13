@@ -473,7 +473,7 @@ footer:hover {
 footer div {
   flex: 1 0 0;
   text-align: left;
-  padding: 0 20px;
+  padding: 0 50px;
   margin-top: 10px
 }
 
@@ -547,7 +547,7 @@ div ::-webkit-scrollbar-thumb:active {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
   .info-content{
     flex-direction: column;
@@ -581,6 +581,10 @@ div ::-webkit-scrollbar-thumb:active {
 
   .scroll-down {
       display: none;
+  }
+
+  footer div {
+    padding: 0 20px;
   }
 }
 </style>
