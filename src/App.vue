@@ -211,7 +211,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">粤ICP备2026090856号</a><br>
-        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank" rel="noopener nofollow">粤公网安备44098302441277号</a>
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank" rel="noopener nofollow"><img aria-hidden="true" class="police-emblem-icon" loading="lazy" src="/assets/icons/police-emblem.avif">粤公网安备44098302441277号</a>
       </div>
     </footer>
   </div>
@@ -510,6 +510,20 @@ footer button {
   transition: 0.25s;
 }
 
+.police-emblem-icon {
+  opacity: .65;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(calc(-100% - 7px), -50%);
+  height: 1.2em;
+  width: auto;
+}
+
+footer:hover .police-emblem-icon {
+  opacity: 1;
+}
+
 footer a:hover,
 footer button:hover {
   border-color: var(--theme-color);
@@ -551,7 +565,7 @@ div ::-webkit-scrollbar-thumb:active {
     line-height: 2em;
   }
 
-  footer a, footer span {
+  footer a, footer span, footer button {
     font-size: 15px !important;
   }
 }
