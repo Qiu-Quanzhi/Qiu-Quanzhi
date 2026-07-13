@@ -3,6 +3,7 @@ import { info, time, workLinkData, logEntries, footerLinkData } from '@/data'
 
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { loadLocale, prefetchOtherLocales } from '@/i18n';
 const { t, tm, locale } = useI18n();
 
 import cardInfo from '@/components/cardInfo.vue';
@@ -54,12 +55,13 @@ const handleScroll = () => {
   }
 };
 
-const changeLang = (lang: string,event?: MouseEvent) => {
-  locale.value = lang
+const changeLang = async (lang: string, event?: MouseEvent) => {
   if (event){
     event.preventDefault()
     localStorage.setItem('lang', t('href').replace(/^\//, ''))
   }
+  await loadLocale(lang)
+  locale.value = lang
   document.documentElement.lang = t('lang')
   document.querySelector("#title")!.textContent = document.title = t('title')
   history.replaceState(null, '', t('href'))
@@ -69,6 +71,7 @@ onMounted(async () => {
   location.pathname !== t('href') && changeLang(t('href').replace(/^\//, ''))
   setTimeout(() => {
     loaded.value = true
+    prefetchOtherLocales()
   }, 500);
   window.addEventListener('scroll', handleScroll);
 })
