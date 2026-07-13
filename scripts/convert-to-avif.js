@@ -16,7 +16,7 @@ const PUBLIC_DIR = join(__dirname, '..', 'public');
 
 // Quality levels to try (descending). First one that beats the original wins.
 const QUALITY_LEVELS = [45, 35, 25];
-const EFFORT = 7; // 0-9, higher = better compression but slower
+const EFFORT = 9; // 0-9, higher = better compression but slower
 
 const kept = [];   // { file, avif, origKB, avifKB, pct }
 const skipped = []; // { file, origKB, reason }

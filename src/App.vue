@@ -525,7 +525,7 @@ footer button {
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translate(calc(-100% - 7px), -50%);
+  transform: translate(calc(-100% - 5px), -50%);
   height: 1.2em;
   width: auto;
 }
