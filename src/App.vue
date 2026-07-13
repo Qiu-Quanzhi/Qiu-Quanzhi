@@ -210,7 +210,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2026090856号</a>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">粤ICP备2026090856号</a><br>
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank" rel="noopener nofollow">粤公网安备44098302441277号</a>
       </div>
     </footer>
   </div>
