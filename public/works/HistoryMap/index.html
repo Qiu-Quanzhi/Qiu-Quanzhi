@@ -45,6 +45,7 @@
             --b-alpha-70: rgba(0, 0, 0, .7);
             --b-alpha-80: rgba(0, 0, 0, .8);
             --b-alpha-90: rgba(0, 0, 0, .9);
+            --filter-glass-1: blur(20px) saturate(180%);
         }
 
         /* ==========================================
@@ -145,9 +146,8 @@
         /* Sidebar mask — translucent white overlay behind sidebar text */
         .sidebar.mask {
             justify-content: flex-start;
-            filter: saturate(150%);
             background-size: 150% 150%;
-            background-color: #FFF;
+            background-color: var(--w-alpha-80);
         }
 
         .sidebar.mask.loaded {
@@ -212,6 +212,7 @@
             justify-content: flex-start;
             width: 100%;
             background-color: var(--w-alpha-80);
+            backdrop-filter: var(--filter-glass-1);
             transition: 0.5s;
         }
 
@@ -234,7 +235,7 @@
         }
 
         .link-row {
-			opacity: 0.6;
+			opacity: 0.8;
             margin-bottom: 10px;
         }
 
