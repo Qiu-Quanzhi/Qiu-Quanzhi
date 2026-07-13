@@ -75,8 +75,6 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --theme-color: #66ccff;
-        --theme-color-active: #66ccffDE;
         --highlight-color: #66ccff;
         --b-alpha-5: rgba(255, 255, 255, .05);
         --b-alpha-10: rgba(255, 255, 255, .1);
@@ -111,10 +109,6 @@
         --w-alpha-75: rgba(0, 0, 0, .75);
         --w-alpha-80: rgba(0, 0, 0, .8);
         --w-alpha-90: rgba(0, 0, 0, .9);
-        --radius: 12px;
-        --radius-half: calc(var(--radius) / 2);
-        --filter-glass-1: blur(20px) saturate(180%);
-        --filter-glass-2: blur(40px) saturate(180%);
     }
 
     .media-box {
@@ -125,10 +119,6 @@
         filter: brightness(2)
     }
 
-    html {
-        filter: brightness(.9)
-    }
-
     .bg {
         filter: brightness(.51)
     }
@@ -136,10 +126,6 @@
     .card {
         opacity: 0.5;
     }
-}
-
-* {
-    transition: transform .2s, background-color .2s
 }
 
 body {
@@ -344,7 +330,7 @@ body,
 }
 
 a {
-    color: var(--txt-black);
+    color: var(--txt-b);
     outline: 0;
     text-decoration: none;
     transition: .25s;

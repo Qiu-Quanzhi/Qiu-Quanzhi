@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { info, time, workLinkData, logEntries, footerLinkData } from '@/data'
 
-import { computed, onMounted, ref } from 'vue';
+import { computed, defineAsyncComponent, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t, tm, locale } = useI18n();
 
-import show from '@/components/show.vue';
 import cardInfo from '@/components/cardInfo.vue';
+const show = defineAsyncComponent(() => import('@/components/show.vue'));
 
 const loaded = ref(false)
 const activated = ref(false)
@@ -128,7 +128,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             </div>
           </div>
           <div class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" @click="copyInfo(item,$event)" :href="item.url">
+            <a v-for="item in socialMediaList" target="_blank" rel="noopener" @click="copyInfo(item,$event)" :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
                 :src="`assets/icons/${item.id}.svg`"></a>
           </div>
@@ -156,7 +156,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <span class="underline1"></span>
       <div class="work-list">
         <a v-for="(work, index) in workContents" :key="index"
-           :href="workLinkData[index]?.href" target="_blank" class="work-link"
+           :href="workLinkData[index]?.href" target="_blank" rel="noopener" class="work-link"
            :id="workLinkData[index]?.id"
            @click="handleWorkClick(index, $event)">
           <img loading="lazy" class="work-link-pic" :src="workLinkData[index]?.pic" alt="" />
@@ -199,15 +199,15 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
         <p>{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
-          <a v-if="link.type === 'link'" :href="link.href" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
-          <a v-else href="" @click="copyContact(link.contact)" target="_blank">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <a v-else href="" @click="copyContact(link.contact)" target="_blank" rel="noopener">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
           <br>
         </template>
       </div>
       <div>
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
-        <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2026090856号</a>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2026090856号</a>
       </div>
     </footer>
   </div>
@@ -258,7 +258,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   font-size: 16px;
   color: #fff;
   opacity: .7;
-  cursor: pointer
+  cursor: pointer;
+  transition: transform .2s, opacity .2s
 }
 
 .lang-area .s-line {
@@ -460,11 +461,11 @@ footer {
   justify-content: center;
   margin: 50px;
   padding: 20px 20px 30px;
-  border-radius: 10px
+  border-radius: 10px;
+  transition: backdrop-filter .1s
 }
 
 footer:hover {
-  transition: backdrop-filter .1s;
   background-color: var(--b-alpha-30-fixed);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
   backdrop-filter: blur(30px) saturate(180%)
@@ -505,13 +506,6 @@ footer a:active {
   border-color: var(--theme-color-active);
   color: var(--theme-color-active)
 }
-
-#copyright p {
-  font-family: Microsoft Yahei Light;
-  font-size: 12px;
-  font-weight: initial
-}
-
 div ::-webkit-scrollbar {
   width: 5px
 }
