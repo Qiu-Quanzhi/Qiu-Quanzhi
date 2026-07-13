@@ -16,6 +16,18 @@ const error = ref(false)
 
 onMounted(async () => {
   loading.value = true
+  const link1 = document.createElement('link');
+  link1.rel = 'preconnect';
+  link1.href = 'https://player.bilibili.com';
+  link1.crossOrigin = 'use-credentials';
+  document.head.appendChild(link1);
+
+  const link2 = document.createElement('link');
+  link2.rel = 'preconnect';
+  link2.href = 'https://music.163.com';
+  link2.crossOrigin = 'use-credentials';
+  document.head.appendChild(link2);
+  
   try {
     const response = await fetch('/assets/data/bilibili-videos.json')
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
