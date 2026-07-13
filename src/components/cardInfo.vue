@@ -28,7 +28,7 @@ const cardRows = [
     <div class="wrapper flex-col content-center">
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div v-for="row in cardRows" :key="row.icon" class="row flex-row">
-                <img aria-hidden="true"  class="icon" :src="`/assets/icons/${row.icon}`" height="22" width="22">
+                <img aria-hidden="true"  class="icon" loading="lazy" :src="`/assets/icons/${row.icon}`" height="22" width="22">
                 <a v-if="row.type === 'time'" class="text" target="_blank" :href="row.href">
                     {{ row.text }}
                     <span class="alpha-50">({{ row.timezone }})</span>

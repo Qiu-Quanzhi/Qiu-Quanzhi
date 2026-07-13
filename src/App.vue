@@ -108,7 +108,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div class="info">
         <div :class="['card', 'blanked', loaded ? 'loaded' : '']">
           <div class="flex-row item-center">
-            <img aria-hidden="true" class="info-logo" src="/assets/logo.webp">
+            <img aria-hidden="true" class="info-logo" loading="lazy" src="/assets/logo.webp">
             <div class="flex-col">
               <div class="flex-row item-center">
                 <h2>
