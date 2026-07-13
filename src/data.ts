@@ -9,8 +9,8 @@ const info = {
     timeZone: "Asia/Shanghai",
     socialMedias: [
         { id: "mail", url: "mailto:i@qqzhi.cc", info: "i@qqzhi.cc" },
-        { id: "Weixin", url: "/assets/qrcodes/WX.png", mode: "embed", info: "Qiu-Qz" },
-        { id: "QQ", url: "/assets/qrcodes/QQ.png", mode: "embed", info: "2766468782" },
+        { id: "Weixin", url: "/assets/qrcodes/WX.avif", mode: "embed", info: "Qiu-Qz" },
+        { id: "QQ", url: "/assets/qrcodes/QQ.avif", mode: "embed", info: "2766468782" },
         { id: "blog", url: "https://home.qqzhi.cc" },
         { id: "Github", url: "https://github.com/Qiu-Quanzhi" },
         { id: "Bilibili",url: "https://space.bilibili.com/1036651852" },
@@ -36,10 +36,10 @@ const time = {
 
 // --- Work links: paired with locale content (parts.work.contents) by index ---
 const workLinkData = [
-  { href: 'https://home.qqzhi.cc/',                             id: 'work-link-blog',     embed: false, pic: '/assets/works/blog.webp' },
-  { href: 'https://www.qqzhi.cc/works/HistoryMap/',             id: 'work-link-history',  embed: false, pic: '/assets/works/history.webp' },
-  { href: 'https://space.bilibili.com/1036651852/',              id: 'work-link-bilibili', embed: false, pic: '/assets/works/bilibili.webp' },
-  { href: 'https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951', id: 'work-link-article', embed: true,  pic: '/assets/works/weixin.webp' },
+  { href: 'https://home.qqzhi.cc/',                             id: 'work-link-blog',     embed: false, pic: '/assets/works/blog.avif' },
+  { href: 'https://www.qqzhi.cc/works/HistoryMap/',             id: 'work-link-history',  embed: false, pic: '/assets/works/history.avif' },
+  { href: 'https://space.bilibili.com/1036651852/',              id: 'work-link-bilibili', embed: false, pic: '/assets/works/bilibili.avif' },
+  { href: 'https://mp.weixin.qq.com/mp/homepage?__biz=Mzg3MDY2MzM3MA==&hid=1&sn=c08c5cacb8a243ed154c5696e9f69951', id: 'work-link-article', embed: true,  pic: '/assets/works/weixin.avif' },
 ]
 
 // --- Log entries: each maps a date to a descriptive key in parts.log.contents ---
@@ -85,7 +85,7 @@ const footerLinkData = [
 // --- Show tabs: works exhibition section ---
 const showTabs = [
   { id: 'bilibili', icon: 'assets/icons/Bilibili.svg', href: 'https://space.bilibili.com/1036651852', ariaKey: 'aria.Bilibili', nameKey: 'parts.show.tabs.bilibili.name', enterKey: 'parts.show.tabs.bilibili.enter' },
-  { id: 'blog', icon: 'assets/icons/blog.png', href: 'https://home.qqzhi.cc/', ariaKey: 'aria.blog', nameKey: 'parts.show.tabs.blog.name', enterKey: 'parts.show.tabs.blog.enter' },
+  { id: 'blog', icon: 'assets/icons/blog.avif', href: 'https://home.qqzhi.cc/', ariaKey: 'aria.blog', nameKey: 'parts.show.tabs.blog.name', enterKey: 'parts.show.tabs.blog.enter' },
   { id: 'netease', icon: 'assets/icons/Netease.svg', href: 'https://music.163.com/#/artist?id=55151766', ariaKey: 'aria.Netease', nameKey: 'parts.show.tabs.netease.name', enterKey: 'parts.show.tabs.netease.enter' },
 ]
 
