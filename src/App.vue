@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { info, time, workLinkData, logEntries, footerLinkData } from '@/data'
 
-import { computed, defineAsyncComponent, onMounted, ref } from 'vue';
+import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { loadLocale, prefetchOtherLocales } from '@/i18n';
 const { t, tm, locale } = useI18n();
@@ -69,9 +69,13 @@ const changeLang = async (lang: string, event?: MouseEvent) => {
 }
 onMounted(async () => {
   location.pathname !== t('href') && changeLang(t('href').replace(/^\//, ''))
-  setTimeout(() => {
-    loaded.value = true
-  }, 500)
+  // Wait for initial paint before triggering entrance animations
+  await nextTick()
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      loaded.value = true
+    })
+  })
   // Prefetch other locales only when the browser is idle, after initial render
   if (!(navigator as any).connection?.saveData) {
     const runPrefetch = () => prefetchOtherLocales()
@@ -290,7 +294,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .block {
-  animation: 0.6s ease 1s 1 normal backwards running slide-in;
+  animation: 0.6s ease 0.4s 1 normal backwards running slide-in;
   transition: transform .25s, backdrop-filter .25s, background-color .25s;
 }
 
