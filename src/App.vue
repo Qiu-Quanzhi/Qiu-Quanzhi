@@ -56,10 +56,8 @@ const handleScroll = () => {
 };
 
 const changeLang = async (lang: string, event?: MouseEvent) => {
-  if (event){
-    event.preventDefault()
-    localStorage.setItem('lang', t('href').replace(/^\//, ''))
-  }
+  event?.preventDefault()
+  localStorage.setItem('lang', lang)
   await loadLocale(lang)
   locale.value = lang
   document.documentElement.lang = t('lang')
