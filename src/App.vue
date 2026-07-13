@@ -200,7 +200,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         <p>{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
           <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
-          <a v-else href="" @click="copyContact(link.contact)" target="_blank" rel="noopener">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <button v-else @click="copyContact(link.contact)">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
           <br>
         </template>
       </div>
@@ -488,7 +488,8 @@ footer p {
 }
 
 footer a,
-footer span {
+footer span,
+footer button {
   position: relative;
   border-bottom: 1px solid transparent;
   color: #fff;
@@ -496,13 +497,23 @@ footer span {
   line-height: 30px;
   white-space: nowrap
 }
+footer button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.25s;
+}
 
-footer a:hover {
+footer a:hover,
+footer button:hover {
   border-color: var(--theme-color);
   color: var(--theme-color)
 }
 
-footer a:active {
+footer a:active,
+footer button:active {
   border-color: var(--theme-color-active);
   color: var(--theme-color-active)
 }
