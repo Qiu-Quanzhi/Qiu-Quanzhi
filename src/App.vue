@@ -455,6 +455,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 50px;
   padding: 20px 20px 30px;
   border-radius: 10px
@@ -468,11 +471,9 @@ footer:hover {
 }
 
 footer div {
-  display: inline-block;
-  position: relative;
+  flex: 1 0 0;
   text-align: left;
-  vertical-align: top;
-  padding: 0 50px;
+  padding: 0 20px;
   margin-top: 10px
 }
 
@@ -491,7 +492,8 @@ footer span {
   border-bottom: 1px solid transparent;
   color: #fff;
   font-size: 12px;
-  line-height: 30px
+  line-height: 30px;
+  white-space: nowrap
 }
 
 footer a:hover {
