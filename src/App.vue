@@ -71,8 +71,16 @@ onMounted(async () => {
   location.pathname !== t('href') && changeLang(t('href').replace(/^\//, ''))
   setTimeout(() => {
     loaded.value = true
-    prefetchOtherLocales()
-  }, 500);
+  }, 500)
+  // Prefetch other locales only when the browser is idle, after initial render
+  if (!(navigator as any).connection?.saveData) {
+    const runPrefetch = () => prefetchOtherLocales()
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runPrefetch, { timeout: 3000 })
+    } else {
+      setTimeout(runPrefetch, 2000)
+    }
+  }
   window.addEventListener('scroll', handleScroll);
 })
 
