@@ -45,9 +45,9 @@ export default {
             title: 'Works Exhibition',
             tip: 'Only Chinese Simplified content is available below',
             tabs: {
-                bilibili: { name: '旅禾Ryoine', enter: 'Visit homepage' },
-                blog: { name: '旅禾小栈', enter: 'Enter' },
-                netease: { name: '旅禾', enter: 'Visit homepage' }
+                bilibili: { name: '旅禾Ryoine', enter: 'Click to Visit' },
+                blog: { name: '旅禾小栈', enter: 'Click to Visit' },
+                netease: { name: '旅禾', enter: 'Click to Visit' }
             }
         },
         log: {

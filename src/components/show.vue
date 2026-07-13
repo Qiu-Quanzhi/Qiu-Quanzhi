@@ -38,7 +38,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
         <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" role="tab" :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id" @keydown.space.prevent="tab = tabItem.id" class="flex-col item-center">
             <img :alt="t(tabItem.ariaKey)" :class="['selection', tab == tabItem.id ? 'selected' : '']" loading="lazy" :src="tabItem.icon"/>
             <span v-show="tab == tabItem.id" class="underline2"></span>
-            <a target="_blank" rel="noopener" :href="tabItem.href" :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text>({{ t(tabItem.enterKey) }})</text></a>
+            <a target="_blank" rel="noopener" :href="tabItem.href" :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text>> {{ t(tabItem.enterKey) }} <</text></a>
         </div>
     </div>
     <div v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
