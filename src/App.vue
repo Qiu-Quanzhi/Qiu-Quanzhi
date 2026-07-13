@@ -129,7 +129,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
           </div>
           <div class="flex-row content-evenly media-box">
             <a v-for="item in socialMediaList" target="_blank" @click="copyInfo(item,$event)" :href="item.url">
-              <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25"
+              <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
                 :src="`assets/icons/${item.id}.svg`"></a>
           </div>
         </div>
