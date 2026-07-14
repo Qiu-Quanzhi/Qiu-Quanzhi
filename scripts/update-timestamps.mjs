@@ -37,10 +37,14 @@ function buildDate(offsetHours = 8) {
 }
 
 const dateStr = buildDate();
-// 完整的 ISO 时间戳用于 JSON-LD
-const isoStr = dateArg
-  ? `${dateArg}T00:00:00+08:00`
-  : new Date(new Date().getTime() + 8 * 3600 * 1000).toISOString().replace('Z', '+08:00');
+// 完整的 ISO 时间戳用于 JSON-LD（精度到小时，避免分钟/秒导致源码频繁变更）
+const isoStr = (() => {
+  if (dateArg) return `${dateArg}T00:00:00+08:00`;
+  const d = new Date(new Date().getTime() + 8 * 3600 * 1000);
+  const datePart = d.toISOString().split('T')[0];
+  const hour = String(d.getUTCHours()).padStart(2, '0');
+  return `${datePart}T${hour}:00:00+08:00`;
+})();
 
 // ── 需要处理的文件 ──
 const htmlFiles = [
