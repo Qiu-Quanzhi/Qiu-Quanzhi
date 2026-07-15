@@ -108,6 +108,7 @@
 
 html {
     scrollbar-color: var(--overlay-10) transparent;
+    scroll-behavior: smooth;
 }
 
 body {
