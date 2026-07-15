@@ -42,8 +42,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
                 :src="tabItem.icon" />
             <span v-show="tab == tabItem.id" class="underline2"></span>
             <a target="_blank" rel="noopener" :href="tabItem.href"
-                :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text> > {{
-                    t(tabItem.enterKey) }} < </text></a>
+                :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
         </div>
     </div>
     <div v-if="tab == 'bilibili'" class="show-box flex-row content-center" lang="zh-CN">
@@ -116,8 +115,68 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     opacity: 1;
 }
 
-text {
+.enter-text {
     color: var(--theme-color);
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+}
+
+.enter-text::before,
+.enter-text::after {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--theme-color);
+    opacity: 0.4;
+}
+
+.enter-text::before {
+    content: '>';
+    margin-right: 0.35em;
+    animation: bracketLeft 2s ease-in-out infinite;
+}
+
+.enter-text::after {
+    content: '<';
+    margin-left: 0.35em;
+    animation: bracketRight 2s ease-in-out infinite;
+}
+
+.selection-id.selected .enter-text {
+    animation: textShimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes bracketLeft {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.4;
+    }
+    40%, 60% {
+        transform: translateX(-5px);
+        opacity: 1;
+    }
+}
+
+@keyframes bracketRight {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.4;
+    }
+    40%, 60% {
+        transform: translateX(5px);
+        opacity: 1;
+    }
+}
+
+@keyframes textShimmer {
+    0%, 100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+    50% {
+        filter: brightness(1.4);
+        transform: scale(1.03);
+    }
 }
 
 .show-box {
