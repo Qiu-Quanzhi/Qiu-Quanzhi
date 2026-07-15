@@ -208,8 +208,8 @@ body,
         transform: scale(var(--hover-scale))
     }
 
-    &.blanked {
-        transition: transform var(--transition-slow), opacity 1s;
+    &.loaded {
+        animation: card-entrance var(--transition-slow) ease;
     }
 }
 
@@ -244,7 +244,7 @@ body,
 .blanked {
     transform: scale(var(--hover-scale));
     opacity: 0;
-    transition: opacity 1s;
+    transition: transform var(--transition-base), opacity var(--transition-slow);
 }
 
 .bg.blanked {
@@ -373,4 +373,9 @@ a.link {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+@keyframes card-entrance {
+    from { transform: scale(var(--hover-scale)); }
+    to   { transform: scale(1); }
 }
