@@ -269,11 +269,15 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
     &.current {
       opacity: 1;
+      font-weight: var(--weight-bold);
       transform: scale(1.1);
       cursor: default
     }
 
-    &:hover { transform: scale(1.1) }
+    &:hover {
+      font-weight: var(--weight-bold);
+      transform: scale(1.1) 
+    }
   }
 
   & .s-line {

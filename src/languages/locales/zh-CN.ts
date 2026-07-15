@@ -45,7 +45,7 @@ export default {
             title: '作品简展',
             tip: '下面仅提供简中内容',
             tabs: {
-                bilibili: { name: '旅禾Ryoine', enter: '点此进入主页' },
+                bilibili: { name: '旅禾Ryoine@哔哩哔哩', enter: '点此进入主页' },
                 blog: { name: '旅禾小栈', enter: '点此进入' },
                 netease: { name: '旅禾', enter: '点此进入主页' }
             }

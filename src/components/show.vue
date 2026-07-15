@@ -114,7 +114,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
         opacity: 1;
 
         & .enter-text {
-            animation: textShimmer 2.5s ease-in-out infinite;
+            animation: textShimmer 2s ease-in-out infinite;
         }
     }
 }
