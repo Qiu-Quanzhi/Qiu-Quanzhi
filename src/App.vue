@@ -19,20 +19,20 @@ const openLink = (target: MouseEvent | HTMLAnchorElement) => {
   if (target instanceof MouseEvent) {
     target.preventDefault()
     url = (target.currentTarget as HTMLAnchorElement).href
-  }else
+  } else
     url = target.href
   window.open(url, '', 'height=615,width=450,scrollbars=yes,status=yes')
 }
-const copyInfo = (item: socialMedia ,event: MouseEvent) => {
+const copyInfo = (item: socialMedia, event: MouseEvent) => {
   if (item.info === undefined) return
   event.preventDefault()
   let target = event.currentTarget as HTMLAnchorElement
   navigator.clipboard.writeText(item.info)
     .then(() => {
-      alert(t('texts.copy.success',{title:t(`info.${item.id}`)}));
+      alert(t('texts.copy.success', { title: t(`info.${item.id}`) }));
     })
     .catch(() => {
-      alert(t('texts.copy.fail',{title:t(`info.${item.id}`)}));
+      alert(t('texts.copy.fail', { title: t(`info.${item.id}`) }));
     }).finally(() => {
       if (item.mode === 'embed')
         openLink(target)
@@ -43,10 +43,10 @@ const copyInfo = (item: socialMedia ,event: MouseEvent) => {
 const copyContact = (id: keyof typeof info.contact) => {
   navigator.clipboard.writeText(info.contact[id])
     .then(() => {
-      alert(t('texts.copy.success',{title:t(`info.${id}`)}));
+      alert(t('texts.copy.success', { title: t(`info.${id}`) }));
     })
     .catch(() => {
-      alert(t('texts.copy.fail',{title:t(`info.${id}`)}));
+      alert(t('texts.copy.fail', { title: t(`info.${id}`) }));
     })
 }
 const handleScroll = () => {
@@ -113,10 +113,13 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     <div class="lang-area" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
-        <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)" :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{ opt.label }}</a>
+        <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)"
+          :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{
+            opt.label }}</a>
       </template>
     </div>
-    <a v-for="anchor in navAnchors" :key="anchor.href" :aria-label="t('aria.goto') + t(anchor.labelKey)" :href="anchor.href"></a>
+    <a v-for="anchor in navAnchors" :key="anchor.href" :aria-label="t('aria.goto') + t(anchor.labelKey)"
+      :href="anchor.href"></a>
     <div id="home" class="flex-col item-center content-center">
       <div class="info">
         <div :class="['card', 'blanked', loaded ? 'loaded' : '']">
@@ -128,7 +131,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
                   <ruby class="ruby-under">
                     <ruby class="ruby-over">
                       {{ t('name.full') }}
-                      <rp>(</rp><rt>{{ t("name.pinyin") }}</rt><rp>)</rp>
+                      <rp>(</rp>
+                      <rt>{{ t("name.pinyin") }}</rt>
+                      <rp>)</rp>
                     </ruby>
                     <rt lang="zh-cn">({{ info.nickName }})</rt>
                   </ruby>
@@ -141,7 +146,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             </div>
           </div>
           <div class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" rel="noopener" @click="copyInfo(item,$event)" :href="item.url">
+            <a v-for="item in socialMediaList" target="_blank" rel="noopener" @click="copyInfo(item, $event)"
+              :href="item.url">
               <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
                 :src="`assets/icons/${item.id}.svg`"></a>
           </div>
@@ -158,7 +164,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div class="info-content flex-row item-center">
         <div class="flex-col item-center">
           <p v-for="(content, index) in aboutContents" :key="index">
-            {{ content }}<a v-if="index === aboutContents.length - 1" :href="`mailto:${info.email}`" class="highlight link">{{ info.email }}</a>
+            {{ content }}<a v-if="index === aboutContents.length - 1" :href="`mailto:${info.email}`"
+              class="highlight link">{{ info.email }}</a>
           </p>
         </div>
         <cardInfo :info="info" :time="time" :loaded="loaded"></cardInfo>
@@ -168,10 +175,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <h3>{{ t('parts.work.title') }}</h3>
       <span class="underline1"></span>
       <div class="work-list">
-        <a v-for="(work, index) in workContents" :key="index"
-           :href="workLinkData[index]?.href" target="_blank" rel="noopener" class="work-link"
-           :id="workLinkData[index]?.id"
-           @click="handleWorkClick(index, $event)">
+        <a v-for="(work, index) in workContents" :key="index" :href="workLinkData[index]?.href" target="_blank"
+          rel="noopener" class="work-link" :id="workLinkData[index]?.id" @click="handleWorkClick(index, $event)">
           <img loading="lazy" class="work-link-pic" :src="workLinkData[index]?.pic" alt="" />
           <div class="work-link-text">
             <p class="work-link-title">{{ work.title }}</p>
@@ -197,7 +202,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             <template v-if="entry.kind === 'entry'">
               <p class="log-text-1">{{ entry.date }}</p>
               <p class="log-text-2">
-                {{ t(`parts.log.contents.${entry.contentKey}`) }}<template v-if="entry.highlight">{{ entry.highlight.prefix }}<span class="highlight">{{ entry.highlight.text }}</span>{{ entry.highlight.suffix }}</template>
+                {{ t(`parts.log.contents.${entry.contentKey}`) }}<template v-if="entry.highlight">{{
+                  entry.highlight.prefix }}<span class="highlight">{{ entry.highlight.text }}</span>{{
+                    entry.highlight.suffix }}</template>
               </p>
             </template>
             <template v-else>
@@ -212,7 +219,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
         <p>{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
-          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
+          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener">{{
+            t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
           <button v-else @click="copyContact(link.contact)">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
           <br>
         </template>
@@ -221,7 +229,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         <p>© {{ time.year }} {{ t('name.full') }}</p>
         <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">粤ICP备2026090856号</a><br>
-        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank" rel="noopener nofollow"><img aria-hidden="true" class="police-emblem-icon" loading="lazy" src="/assets/icons/police-emblem.avif">粤公网安备44098302441277号</a>
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank"
+          rel="noopener nofollow"><img aria-hidden="true" class="police-emblem-icon" loading="lazy"
+            src="/assets/icons/police-emblem.avif">粤公网安备44098302441277号</a>
       </div>
     </footer>
   </div>
@@ -330,7 +340,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   margin-block-end: 0
 }
 
-.block>p, .block#info p {
+.block>p,
+.block#info p {
   font-size: 14px;
   margin-block-start: 0
 }
@@ -400,7 +411,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   opacity: .8;
   transition: .2s;
   cursor: pointer;
-  transform: scale(1)
+  transform: scale(1);
+  border-width: 0
 }
 
 .media-box img:hover {
@@ -409,7 +421,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   border-color: var(--theme-color);
   margin: -5px 0 -7px;
   border-style: solid;
-  border-width: 0;
   border-bottom-width: 2px;
   padding: 5px 0
 }
@@ -511,6 +522,7 @@ footer button {
   line-height: 30px;
   white-space: nowrap
 }
+
 footer button {
   background: none;
   border: none;
@@ -545,6 +557,7 @@ footer button:active {
   border-color: var(--theme-color-active);
   color: var(--theme-color-active)
 }
+
 div ::-webkit-scrollbar {
   width: 5px
 }
@@ -575,14 +588,16 @@ div ::-webkit-scrollbar-thumb:active {
     line-height: 2em;
   }
 
-  footer a, footer span, footer button {
+  footer a,
+  footer span,
+  footer button {
     font-size: 15px !important;
   }
 }
 
 @media (max-width: 900px) {
 
-  .info-content{
+  .info-content {
     flex-direction: column;
   }
 
@@ -613,7 +628,7 @@ div ::-webkit-scrollbar-thumb:active {
   }
 
   .scroll-down {
-      display: none;
+    display: none;
   }
 
   footer div {

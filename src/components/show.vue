@@ -15,19 +15,19 @@ const loading = ref(false)
 const error = ref(false)
 
 onMounted(async () => {
-  loading.value = true
-  try {
-    const response = await fetch('/assets/data/bilibili-videos.json')
-    if (!response.ok) throw new Error(`HTTP ${response.status}`)
-    const json: { bilibili_list: Array<BilibiliItem> } = await response.json()
-    list.value = json
-    bilibili_index.value = json.bilibili_list.length > 0 ? 0 : -1
-  } catch (e) {
-    console.error('Failed to load works data:', e)
-    error.value = true
-  } finally {
-    loading.value = false
-  }
+    loading.value = true
+    try {
+        const response = await fetch('/assets/data/bilibili-videos.json')
+        if (!response.ok) throw new Error(`HTTP ${response.status}`)
+        const json: { bilibili_list: Array<BilibiliItem> } = await response.json()
+        list.value = json
+        bilibili_index.value = json.bilibili_list.length > 0 ? 0 : -1
+    } catch (e) {
+        console.error('Failed to load works data:', e)
+        error.value = true
+    } finally {
+        loading.value = false
+    }
 })
 
 const tabComponents: Record<string, any> = { bilibili, blog, netease }
@@ -35,16 +35,22 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 </script>
 <template>
     <div class="selection-box flex-row">
-        <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" role="tab" :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id" @keydown.space.prevent="tab = tabItem.id" class="flex-col item-center">
-            <img :alt="t(tabItem.ariaKey)" :class="['selection', tab == tabItem.id ? 'selected' : '']" loading="lazy" :src="tabItem.icon"/>
+        <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" role="tab"
+            :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id"
+            @keydown.space.prevent="tab = tabItem.id" class="flex-col item-center">
+            <img :alt="t(tabItem.ariaKey)" :class="['selection', tab == tabItem.id ? 'selected' : '']" loading="lazy"
+                :src="tabItem.icon" />
             <span v-show="tab == tabItem.id" class="underline2"></span>
-            <a target="_blank" rel="noopener" :href="tabItem.href" :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text>> {{ t(tabItem.enterKey) }} <</text></a>
+            <a target="_blank" rel="noopener" :href="tabItem.href"
+                :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><text> > {{
+                    t(tabItem.enterKey) }} < </text></a>
         </div>
     </div>
-    <div v-if="tab=='bilibili'" class="show-box flex-row content-center" lang="zh-CN">
+    <div v-if="tab == 'bilibili'" class="show-box flex-row content-center" lang="zh-CN">
         <div class="media">
             <bilibili class="player" v-if="bilibili_index != -1" :aid="list.bilibili_list[bilibili_index].aid"
-                :bvid="list.bilibili_list[bilibili_index].bvid" :cid="list.bilibili_list[bilibili_index].cid"></bilibili>
+                :bvid="list.bilibili_list[bilibili_index].bvid" :cid="list.bilibili_list[bilibili_index].cid">
+            </bilibili>
         </div>
         <div class="list flex-col">
 
@@ -59,24 +65,28 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     </div>
 </template>
 <style scoped>
-.selection-box{
+.selection-box {
     margin: 10px;
 }
-.viewer{
+
+.viewer {
     border-radius: 10px;
     background-color: var(--w-alpha-90);
     width: calc(100vw - 80px);
     height: 80vh;
 }
+
 .blog.viewer {
     width: calc(100vw - 80px);
     height: 80vh;
 }
+
 .netease.viewer {
     width: calc((100vw - 80px)/2);
     height: 40vh;
 }
-.selection{
+
+.selection {
     margin: 5px;
     width: 50px;
     height: 50px;
@@ -84,26 +94,32 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     cursor: pointer;
     transition: transform .2s, opacity .2s
 }
-.selection:hover{
+
+.selection:hover {
     transform: scale(1.05);
 }
-.selection.selected{
+
+.selection.selected {
     opacity: 1;
     transform: scale(1.05);
 }
-.selection-id{
+
+.selection-id {
     color: var(--txt-b);
     pointer-events: none;
     font-weight: 600;
     opacity: 0;
 }
-.selection-id.selected{
+
+.selection-id.selected {
     pointer-events: all;
     opacity: 1;
 }
-text{
+
+text {
     color: var(--theme-color);
 }
+
 .show-box {
     width: calc((100vw - 300px));
 }
@@ -113,6 +129,7 @@ text{
         flex-direction: column;
         align-items: center;
     }
+
     .player {
         width: calc((100vw - 80px)) !important;
         height: calc((100vw - 80px)/ 16 * 9) !important;
