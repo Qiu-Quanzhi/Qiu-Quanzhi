@@ -59,7 +59,8 @@ export default {
                 domainCreated: "啟用網域",
                 httpsEnabled: "全站啟用HTTPS",
                 siteRedesigned: "網站改版",
-                multiLanguage: "支援多語言"
+                multiLanguage: "支援多語言",
+                compliance: "完成ICP備案與公安聯網備案",
             },
         }
     },

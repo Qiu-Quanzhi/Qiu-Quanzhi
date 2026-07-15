@@ -59,7 +59,8 @@ export default {
                 domainCreated: "Enable domain name",
                 httpsEnabled: "Site-wide HTTPS enabled",
                 siteRedesigned: "Website Revision",
-                multiLanguage: "Initial i18n"
+                multiLanguage: "Initial i18n",
+                compliance: "Complete ICP and Public Security Bureau Filing"
             },
         }
     },

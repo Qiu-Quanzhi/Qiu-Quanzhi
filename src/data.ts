@@ -58,6 +58,7 @@ const logEntries: LogEntry[] = [
   { kind: 'entry', date: '2022.8.17', contentKey: 'httpsEnabled' },
   { kind: 'entry', date: '2023.7.18', contentKey: 'siteRedesigned' },
   { kind: 'entry', date: '2023.7.19', contentKey: 'multiLanguage' },
+  { kind: 'entry', date: '2026.7.13', contentKey: 'compliance' },
   { kind: 'continuation', contentKeys: ['toBeContinued_0', 'toBeContinued_1'] },
 ]
 

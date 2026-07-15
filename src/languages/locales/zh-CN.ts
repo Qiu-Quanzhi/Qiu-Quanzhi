@@ -59,7 +59,8 @@ export default {
                 domainCreated: "启用域名",
                 httpsEnabled: "全站HTTPS",
                 siteRedesigned: "网站改版",
-                multiLanguage: "支持多语言"
+                multiLanguage: "支持多语言",
+                compliance: "完成ICP备案与公安联网备案",
             },
         }
     },

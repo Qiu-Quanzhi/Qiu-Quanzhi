@@ -60,7 +60,7 @@
 
     /* Shared values */
     --hover-scale: 1.05;
-    --opacity-dim: 0.7;
+    --opacity-dim: 0.6;
 
     /* Fixed variants — do not change in dark mode */
     --glass-90-fixed: rgba(255, 255, 255, .9);
