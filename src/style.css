@@ -207,6 +207,10 @@ body,
     &:hover {
         transform: scale(var(--hover-scale))
     }
+
+    &.blanked {
+        transition: transform var(--transition-slow), opacity 1s;
+    }
 }
 
 /* ===== Scroll-down arrow ===== */
@@ -240,7 +244,11 @@ body,
 .blanked {
     transform: scale(var(--hover-scale));
     opacity: 0;
-    transition: transform 1.5s, opacity 1s
+    transition: opacity 1s;
+}
+
+.bg.blanked {
+    transition: transform 1.5s, opacity 1s;
 }
 
 .loaded {
