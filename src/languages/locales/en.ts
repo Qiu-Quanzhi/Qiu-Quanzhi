@@ -45,13 +45,13 @@ export default {
             title: 'Works Exhibition',
             tip: 'Only Chinese Simplified content is available below',
             tabs: {
-                bilibili: { name: '旅禾Ryoine', enter: 'Click to Visit' },
-                blog: { name: '旅禾小栈', enter: 'Click to Visit' },
-                netease: { name: '旅禾', enter: 'Click to Visit' }
+                bilibili: { name: "{'@'}旅禾Ryoine", enter: 'Click to Visit' },
+                blog: { name: 'Ryoine Inn', enter: 'Click to Visit' },
+                netease: { name: "{'@'}旅禾", enter: 'Click to Visit' }
             }
         },
         log: {
-            title: 'Website Memorabilia',
+            title: 'Site Chronicle',
             tip: 'Swipe to view',
             contents: {
                 toBeContinued_0: "TO BE",
@@ -93,7 +93,7 @@ export default {
         mail: 'Email',
         Github: 'Github',
         X: 'X',
-        blog: 'Blog',
+        blog: 'Ryoine Inn',
         goto: 'Go to ',
         footer: 'footer',
         scrolldown: 'Page down'

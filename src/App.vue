@@ -145,9 +145,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             </div>
           </div>
           <div class="flex-row content-evenly media-box">
-            <a v-for="item in socialMediaList" target="_blank" rel="noopener" @click="copyInfo(item, $event)"
+            <a v-for="item in socialMediaList" :title="t(`aria.${item.id}`)" target="_blank" rel="noopener" @click="copyInfo(item, $event)"
               :href="item.url">
-              <img :title="t(`aria.${item.id}`)" :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
+              <img :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
                 :src="`assets/icons/${item.id}.svg`"></a>
           </div>
         </div>
@@ -262,6 +262,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   & a {
     display: inline-block;
     font-size: 16px;
+    font-weight: var(--weight-medium);
     color: var(--text-inverse);
     opacity: var(--opacity-dim);
     cursor: pointer;
@@ -269,14 +270,14 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
     &.current {
       opacity: 1;
-      font-weight: var(--weight-bold);
-      transform: scale(1.1);
-      cursor: default
+      text-shadow: 0 0 0.6px currentColor;
+      cursor: default;
+      transform: scale(1.1)
     }
 
     &:hover {
-      font-weight: var(--weight-bold);
-      transform: scale(1.1) 
+      text-shadow: 0 0 0.6px currentColor;
+      transform: scale(1.1)
     }
   }
 
@@ -286,7 +287,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     margin: 0 5px;
     position: relative;
     top: -2px;
-    color: var(--glass-90);
+    color: var(--text-inverse);
     opacity: var(--opacity-dim)
   }
 }

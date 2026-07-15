@@ -45,13 +45,13 @@ export default {
             title: '作品簡展',
             tip: '下面僅提供簡中內容',
             tabs: {
-                bilibili: { name: '旅禾Ryoine', enter: '點此進入主頁' },
+                bilibili: { name: "{'@'}旅禾Ryoine", enter: '點此進入主頁' },
                 blog: { name: '旅禾小棧', enter: '點此進入' },
-                netease: { name: '旅禾', enter: '點此進入主頁' }
+                netease: { name: "{'@'}旅禾", enter: '點此進入主頁' }
             }
         },
         log: {
-            title: '小棧事記',
+            title: '小站事記',
             tip: '左右滑動來查看',
             contents: {
                 toBeContinued_0: "未完",
@@ -93,7 +93,7 @@ export default {
         mail: '電子郵箱',
         Github: 'Github',
         X: 'X',
-        blog: '博客',
+        blog: '旅禾小棧',
         goto: '轉到 ',
         footer: '頁腳',
         scrolldown: '下一頁'

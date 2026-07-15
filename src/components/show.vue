@@ -35,14 +35,14 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 </script>
 <template>
     <div class="selection-box flex-row">
-        <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" role="tab"
+        <div v-for="tabItem in showTabs" :title="t(tabItem.ariaKey)" :class="{ selected: tab == tabItem.id }" :key="tabItem.id" @click="tab = tabItem.id" role="tab"
             :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id"
-            @keydown.space.prevent="tab = tabItem.id" class="flex-col item-center">
-            <img :alt="t(tabItem.ariaKey)" class="selection" :class="{ selected: tab == tabItem.id }" loading="lazy"
+            @keydown.space.prevent="tab = tabItem.id" class="tab flex-col item-center">
+            <img :alt="t(tabItem.ariaKey)" class="selection" loading="lazy"
                 :src="tabItem.icon" />
-            <span v-show="tab == tabItem.id" class="underline2"></span>
+            <span class="underline2"></span>
             <a target="_blank" rel="noopener" :href="tabItem.href"
-                class="selection-id" :class="{ selected: tab == tabItem.id }">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
+                class="selection-id">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
         </div>
     </div>
     <div v-if="tab == 'bilibili'" class="show-box flex-row content-center" lang="zh-CN">
@@ -87,20 +87,32 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 
 /* ===== Tab selection icons ===== */
 
+.tab {
+    cursor: pointer;
+    &.selected { cursor: default; }
+}
+
 .selection {
     margin: 5px;
     width: 50px;
     height: 50px;
     opacity: var(--opacity-dim);
-    cursor: pointer;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
 
-    &:hover { transform: scale(var(--hover-scale)); }
+    :hover>& { transform: scale(var(--hover-scale)); }
 
-    &.selected {
+    .selected & {
         opacity: 1;
         transform: scale(var(--hover-scale));
     }
+}
+
+.underline2 {
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+
+    .selected & { opacity: 1; }
+    :not(.selected):hover>& { opacity: var(--opacity-dim); }
 }
 
 .selection-id {
@@ -109,7 +121,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     font-weight: var(--weight-semibold);
     opacity: 0;
 
-    &.selected {
+    .selected & {
         pointer-events: all;
         opacity: 1;
 
@@ -197,7 +209,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 
     &:hover { transform: scale(var(--hover-scale)); }
 
-    &.selected { background-color: var(--glass-90); }
+    .selected & { background-color: var(--glass-90); }
 
     & > span {
         margin: 1px 0 0;
