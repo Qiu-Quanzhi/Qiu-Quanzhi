@@ -161,6 +161,15 @@ body {
     cursor: pointer;
 }
 
+.glass-hover {
+    transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast);
+
+    &:hover {
+        background-color: var(--overlay-30-fixed);
+        backdrop-filter: var(--blur-glass-heavy);
+    }
+}
+
 .alpha-50 {
     opacity: 0.5;
 }

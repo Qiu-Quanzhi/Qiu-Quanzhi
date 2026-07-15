@@ -109,7 +109,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
 <template>
   <div class="flex-col item-center app-container" :lang="t('lang')">
-    <div class="lang-area" data-nosnippet>
+    <div class="lang-area glass-hover" data-nosnippet>
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
         <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)"
@@ -212,7 +212,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
         </div>
       </div>
     </div>
-    <footer data-nosnippet id="footer">
+    <footer data-nosnippet id="footer" class="glass-hover">
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
         <p class="nowrap">{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
@@ -258,11 +258,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   top: 25px;
   padding: 10px 14px;
   border-radius: var(--radius-md);
-
-  &:hover {
-    background-color: var(--overlay-30-fixed);
-    backdrop-filter: var(--blur-glass-heavy);
-  }
 
   & a {
     position: relative;
@@ -484,12 +479,8 @@ footer {
   margin: 50px;
   padding: 20px 20px 30px;
   border-radius: var(--radius-lg);
-  transition: backdrop-filter .1s;
 
   &:hover {
-    background-color: var(--overlay-30-fixed);
-    backdrop-filter: var(--blur-glass-heavy);
-
     & .police-emblem-icon { opacity: 1; }
   }
 
