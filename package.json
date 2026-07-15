@@ -6,7 +6,7 @@
   "packageManager": "pnpm@11.10.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && node scripts/update-timestamps.mjs && vite build && node scripts/generate-error-pages.mjs && node scripts/generate-compressed.mjs",
+    "build": "vue-tsc && node scripts/update-timestamps.mjs && vite build && node scripts/generate-error-pages.mjs && node scripts/minify-css-vars.mjs && node scripts/generate-compressed.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

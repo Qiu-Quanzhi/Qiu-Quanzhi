@@ -11,12 +11,13 @@ pnpm preview      # 本地预览生产构建
 ```
 
 - 包管理器为 `pnpm`（非 npm 或 yarn）。
-- `build` 命令按顺序执行 5 个步骤：
+- `build` 命令按顺序执行 6 个步骤：
   1. `vue-tsc` — 对整个项目进行类型检查（类型错误会导致构建失败）
   2. `node scripts/update-timestamps.mjs` — 将 JSON-LD `dateModified` 和 sitemap `<lastmod>` 更新为当前日期
   3. `vite build` — 打包为生产产物
   4. `node scripts/generate-error-pages.mjs` — 生成静态错误页到 `dist/` 目录
-  5. `node scripts/generate-compressed.mjs` — 为 `dist/` 中所有文件生成 `.br` 和 `.gz` 预压缩副本
+  5. `node scripts/minify-css-vars.mjs` — 压缩 CSS 自定义属性名为短名（--brand→--a），减少字节体积
+  6. `node scripts/generate-compressed.mjs` — 为 `dist/` 中所有文件生成 `.br` 和 `.gz` 预压缩副本
 - TypeScript 配置为严格模式，启用了 `noUnusedLocals` 和 `noUnusedParameters`。
 
 ## 构建脚本
@@ -27,7 +28,8 @@ pnpm preview      # 本地预览生产构建
 |---|---|---|
 | `update-timestamps.mjs` | 替换 JSON-LD 中的 `dateModified`（所有 HTML 入口）和 `public/sitemap.xml` 中的 `<lastmod>` | `vite build` 之前 |
 | `generate-error-pages.mjs` | 生成 16 个静态错误 HTML 页面到 `dist/`（400/401/403/404/405/408/410/413/414/429/431/500/502/503/504 + `error.html` 兜底页） | `vite build` 之后 |
-| `generate-compressed.mjs` | 生成 `.br`（Brotli）和 `.gz`（gzip）预压缩副本，供 Nginx `gzip_static on; brotli_static on;` 使用 | 错误页生成之后 |
+| `minify-css-vars.mjs` | 将所有 CSS/HTML 中的自定义属性名压缩为短名（如 `--brand`→`--a`），减少字节体积 | 错误页生成之后 |
+| `generate-compressed.mjs` | 生成 `.br`（Brotli）和 `.gz`（gzip）预压缩副本，供 Nginx `gzip_static on; brotli_static on;` 使用 | CSS 变量压缩之后 |
 | `convert-to-avif.js` | 临时工具，用于将图片转换为 AVIF 格式 | 手动执行 |
 
 ### `update-timestamps.mjs`
