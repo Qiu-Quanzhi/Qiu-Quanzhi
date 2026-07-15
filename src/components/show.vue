@@ -38,11 +38,11 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
         <div v-for="tabItem in showTabs" :key="tabItem.id" @click="tab = tabItem.id" role="tab"
             :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id"
             @keydown.space.prevent="tab = tabItem.id" class="flex-col item-center">
-            <img :alt="t(tabItem.ariaKey)" :class="['selection', tab == tabItem.id ? 'selected' : '']" loading="lazy"
+            <img :alt="t(tabItem.ariaKey)" class="selection" :class="{ selected: tab == tabItem.id }" loading="lazy"
                 :src="tabItem.icon" />
             <span v-show="tab == tabItem.id" class="underline2"></span>
             <a target="_blank" rel="noopener" :href="tabItem.href"
-                :class="['selection-id', tab == tabItem.id ? 'selected' : '']">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
+                class="selection-id" :class="{ selected: tab == tabItem.id }">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
         </div>
     </div>
     <div v-if="tab == 'bilibili'" class="show-box flex-row content-center" lang="zh-CN">
@@ -53,7 +53,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
         </div>
         <div class="list flex-col">
 
-            <div @click="bilibili_index = index" :class="['list-item', index == bilibili_index ? 'selected' : '']"
+            <div @click="bilibili_index = index" class="list-item" :class="{ selected: index == bilibili_index }"
                 v-for="(item, index) in list.bilibili_list">
                 <span class="truncate">{{ item.title }}</span>
             </div>

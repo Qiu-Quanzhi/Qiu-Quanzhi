@@ -26,7 +26,7 @@ const cardRows = [
 </script>
 <template>
     <div class="wrapper flex-col content-center">
-        <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
+        <div data-nosnippet class="card blanked mini" :class="{ loaded: loaded }">
             <div v-for="row in cardRows" :key="row.icon" class="row flex-row">
                 <img aria-hidden="true"  class="icon" loading="lazy" :src="`/assets/icons/${row.icon}`" height="22" width="22">
                 <a v-if="row.type === 'time'" class="text nowrap" target="_blank" :href="row.href">

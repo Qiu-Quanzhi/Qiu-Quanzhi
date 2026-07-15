@@ -114,7 +114,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
         <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)"
-          :class="[t('lang') == opt.displayLocale ? 'current' : '']" :hreflang="opt.hreflang" :lang="opt.lang">{{
+          :class="{ current: t('lang') == opt.displayLocale }" :hreflang="opt.hreflang" :lang="opt.lang">{{
             opt.label }}</a>
       </template>
     </div>
@@ -122,7 +122,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       :href="anchor.href"></a>
     <div id="home" class="flex-col item-center content-center">
       <div class="info">
-        <div :class="['card', 'blanked', loaded ? 'loaded' : '']">
+        <div class="card blanked" :class="{ loaded: loaded }">
           <div class="flex-row item-center">
             <img aria-hidden="true" class="info-logo" loading="lazy" src="/assets/avatar.avif">
             <div class="flex-col">
@@ -155,9 +155,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       </div>
     </div>
     <a :title="t('aria.scrolldown')" href="#info" class="flex-row item-center scroll-link">
-      <span :class="['scroll-down', loaded ? 'loaded' : '']"></span>
+      <span class="scroll-down" :class="{ loaded: loaded }"></span>
     </a>
-    <div :class="['bg', 'blanked', loaded ? 'loaded' : '']"></div>
+    <div class="bg blanked" :class="{ loaded: loaded }"></div>
     <div id="info" class="flex-col item-center block">
       <h3>{{ t('parts.about.title') }}</h3>
       <span class="underline1"></span>
