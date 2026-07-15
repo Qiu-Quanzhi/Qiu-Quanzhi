@@ -508,6 +508,11 @@ footer {
     }
   }
 
+  & span {
+    border: none;
+    &:hover, &:active { color: inherit; }
+  }
+
   & button {
     background: none;
     border: none;
