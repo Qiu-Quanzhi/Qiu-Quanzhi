@@ -256,11 +256,18 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   position: absolute;
   right: 25px;
   top: 25px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+
+  &:hover {
+    background-color: var(--overlay-30-fixed);
+    backdrop-filter: var(--blur-glass-heavy);
+  }
 
   & a {
+    position: relative;
     display: inline-block;
     font-size: 16px;
-    font-weight: var(--weight-medium);
     color: var(--text-inverse);
     opacity: var(--opacity-dim);
     cursor: pointer;
@@ -279,7 +286,10 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     }
 
     &.underline2::after {
+      position: absolute;
+      bottom: -4.5px;
       width: 100%;
+      margin: 0;
     }
 
     &.current::after {
