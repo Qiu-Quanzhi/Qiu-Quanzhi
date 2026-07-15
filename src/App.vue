@@ -147,7 +147,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
           </div>
           <div class="flex-row content-evenly media-box">
             <a v-for="item in socialMediaList" :title="t(`aria.${item.id}`)" target="_blank" rel="noopener" @click="copyInfo(item, $event)"
-              :href="item.url">
+              :href="item.url" class="underline2">
               <img :alt="t(`aria.${item.id}`)" height="25" width="25" loading="lazy"
                 :src="`assets/icons/${item.id}.svg`"></a>
           </div>
@@ -377,24 +377,32 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   margin-top: 15px;
   height: 25px;
 
-  & > a { width: 25px; height: 25px; }
+  & > a {
+    width: 25px;
+    height: 25px;
+    position: relative;
+  }
 
   & img {
     opacity: .8;
     transition: var(--transition-fast);
     cursor: pointer;
     transform: scale(1);
-    border-width: 0;
 
     &:hover {
-      opacity: 1;
       transform: scale(var(--hover-scale));
-      border-color: var(--brand);
-      margin: -5px 0 -7px;
-      border-style: solid;
-      border-bottom-width: 2px;
-      padding: 5px 0
     }
+  }
+
+  & a.underline2::after {
+    position: absolute;
+    bottom: -8.5px;
+    width: 100%;
+    margin: 0;
+  }
+
+  &:hover, & a:hover::after {
+    opacity: 1;
   }
 }
 
