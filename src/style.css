@@ -340,6 +340,10 @@ body,
 
 /* ===== Links ===== */
 
+iframe {
+    border: 0;
+}
+
 a {
     color: var(--text);
     outline: 0;

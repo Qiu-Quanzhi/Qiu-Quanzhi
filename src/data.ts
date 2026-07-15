@@ -24,9 +24,9 @@ const info = {
 }
 
 
-let date = new Date(new Date().toLocaleString([], { timeZone: info.timeZone }));
-let [shortTime, timezone] = date.toLocaleString('en', { hour12: false, hour: "2-digit", minute: "2-digit", timeZoneName: "longOffset" }).replace("GMT", "UTC").split(' ');
-let year = date.getFullYear();
+const date = new Date(new Date().toLocaleString([], { timeZone: info.timeZone }));
+const [shortTime, timezone] = date.toLocaleString('en', { hour12: false, hour: "2-digit", minute: "2-digit", timeZoneName: "longOffset" }).replace("GMT", "UTC").split(' ');
+const year = date.getFullYear();
 const time = {
     shortTime,
     timezone,

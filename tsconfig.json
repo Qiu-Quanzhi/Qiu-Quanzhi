@@ -23,9 +23,7 @@
     "types": [],
     "paths": {
       "@/*":["./src/*"]
-    },
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.vue", "env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

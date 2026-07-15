@@ -61,7 +61,8 @@ const changeLang = async (lang: string, event?: MouseEvent) => {
   await loadLocale(lang)
   locale.value = lang
   document.documentElement.lang = t('lang')
-  document.querySelector("#title")!.textContent = document.title = t('title')
+  const titleEl = document.querySelector("#title")
+  if (titleEl) titleEl.textContent = document.title = t('title')
   history.replaceState(null, '', t('href'))
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', location.href)
 }
@@ -75,13 +76,11 @@ onMounted(async () => {
     })
   })
   // 浏览器空闲时预加载其他语言包，确保切换时即时响应
-  if (!(navigator as any).connection?.saveData) {
-    const runPrefetch = () => prefetchOtherLocales()
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(runPrefetch, { timeout: 3000 })
-    } else {
-      setTimeout(runPrefetch, 2000)
-    }
+  const runPrefetch = () => prefetchOtherLocales()
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(runPrefetch, { timeout: 3000 })
+  } else {
+    setTimeout(runPrefetch, 2000)
   }
   window.addEventListener('scroll', handleScroll);
 })
