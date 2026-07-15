@@ -13,7 +13,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 const root = resolve(process.cwd());
 
 // ── 读取配置文件 ──
@@ -96,11 +96,16 @@ const TEMPLATE = `<!DOCTYPE html>
       --c-primary: #66ccff;
       --c-text: rgba(0, 0, 0, 0.85);
       --c-text-secondary: rgba(0, 0, 0, 0.55);
+      --c-text-inverse: #fff;
       --c-bg: #f0f4f8;
       --c-card-bg: rgba(255, 255, 255, 0.75);
       --c-card-border: rgba(255, 255, 255, 0.5);
       --c-shadow: rgba(0, 0, 0, 0.08);
       --backdrop: blur(16px) saturate(140%);
+      --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --radius-sm: 6px;
+      --radius-lg: 20px;
+      --transition-fast: .2s;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -122,32 +127,32 @@ const TEMPLATE = `<!DOCTYPE html>
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: var(--font-sans);
       background: var(--c-bg);
       color: var(--c-text);
       padding: 24px;
-    }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 50%;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
-    }
+      &::before,
+      &::after {
+        content: "";
+        position: fixed;
+        border-radius: 50%;
+        opacity: 0.12;
+        pointer-events: none;
+        z-index: 0;
+      }
 
-    body::before {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--c-primary), transparent 70%);
-      top: -200px; left: -150px;
-    }
+      &::before {
+        width: 500px; height: 500px;
+        background: radial-gradient(circle, var(--c-primary), transparent 70%);
+        top: -200px; left: -150px;
+      }
 
-    body::after {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, var(--c-primary), transparent 70%);
-      bottom: -150px; right: -100px;
+      &::after {
+        width: 400px; height: 400px;
+        background: radial-gradient(circle, var(--c-primary), transparent 70%);
+        bottom: -150px; right: -100px;
+      }
     }
 
     .card {
@@ -158,10 +163,9 @@ const TEMPLATE = `<!DOCTYPE html>
       padding: 48px 40px;
       background: var(--c-card-bg);
       border: 1px solid var(--c-card-border);
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
       box-shadow: 0 8px 32px var(--c-shadow);
       backdrop-filter: var(--backdrop);
-      -webkit-backdrop-filter: var(--backdrop);
     }
 
     .code {
@@ -187,36 +191,36 @@ const TEMPLATE = `<!DOCTYPE html>
       text-align: center;
       line-height: 1.6;
       max-width: 400px;
-    }
 
-    .desc a {
-      color: var(--c-primary);
-      text-decoration: none;
-    }
+      & a {
+        color: var(--c-primary);
+        text-decoration: none;
 
-    .desc a:hover { text-decoration: underline; }
+        &:hover { text-decoration: underline; }
+      }
+    }
 
     .btn-home {
       display: inline-block;
       margin-top: 28px;
       padding: 10px 32px;
       background: var(--c-primary);
-      border-radius: 6px;
-      color: #fff;
+      border-radius: var(--radius-sm);
+      color: var(--c-text-inverse);
       font-size: 15px;
       font-weight: 500;
       text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
 
-    .btn-home:hover {
-      opacity: 0.85;
-      transform: translateY(-1px);
-    }
+      &:hover {
+        opacity: 0.85;
+        transform: scale(1.01);
+      }
 
-    .btn-home:active {
-      opacity: 0.65;
-      transform: translateY(0);
+      &:active {
+        opacity: 0.65;
+        transform: scale(0.95);
+      }
     }
 
     .footer {
