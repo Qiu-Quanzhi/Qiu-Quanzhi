@@ -54,7 +54,7 @@ const cardRows = [
     position: absolute;
 
     &:hover {
-        box-shadow: var(--b-alpha-30) 0 10px 30px;
+        box-shadow: var(--overlay-30) 0 10px 30px;
     }
 }
 

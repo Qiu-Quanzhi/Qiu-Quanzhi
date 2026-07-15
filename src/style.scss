@@ -1,114 +1,76 @@
 :root {
     color-scheme: light dark;
-    --theme-color: #66ccff;
-    --theme-color-active: #66ccffDE;
-    --highlight-color: #0077BB;
-    // --w-alpha-5: rgba(255, 255, 255, .05);
-    // --w-alpha-10: rgba(255, 255, 255, .1);
-    // --w-alpha-15: rgba(255, 255, 255, .15);
-    // --w-alpha-20: rgba(255, 255, 255, .2);
-    // --w-alpha-30: rgba(255, 255, 255, .3);
-    // --w-alpha-50: rgba(255, 255, 255, .5);
-    // --w-alpha-60: rgba(255, 255, 255, .6);
-    // --w-alpha-70: rgba(255, 255, 255, .7);
-    // --w-alpha-75: rgba(255, 255, 255, .75);
-    --w-alpha-80: rgba(255, 255, 255, .8);
-    --w-alpha-90: rgba(255, 255, 255, .9);
-    // --bg-w-p: white;
-    // --bg-w-s: rgb(245, 245, 245);
-    --bg-w-pure: white;
-    // --bg-w-245: rgb(245, 245, 245);
-    // --txt-w: white;
-    --txt-b: #4d4d4d;
-    // --txt-b-tip: rgba(0, 0, 0, .8);
-    --b-alpha-5: rgba(0, 0, 0, .05);
-    --b-alpha-10: rgba(0, 0, 0, .1);
-    // --b-alpha-15: rgba(0, 0, 0, .15);
-    --b-alpha-20: rgba(0, 0, 0, .2);
-    --b-alpha-30: rgba(0, 0, 0, .3);
-    // --b-alpha-35: rgba(0, 0, 0, .35);
-    --b-alpha-40: rgba(0, 0, 0, .4);
-    // --b-alpha-50: rgba(0, 0, 0, .5);
-    --b-alpha-60: rgba(0, 0, 0, .6);
-    --b-alpha-70: rgba(0, 0, 0, .7);
-    // --b-alpha-75: rgba(0, 0, 0, .75);
-    --b-alpha-80: rgba(0, 0, 0, .8);
-    --b-alpha-90: rgba(0, 0, 0, .9);
-    // --radius: 12px;
-    // --radius-half: calc(var(--radius) / 2);
-    --filter-glass-1: blur(20px) saturate(180%);
-    // --filter-glass-2: blur(40px) saturate(180%);
-    // --theme-color-fixed: #66ccff;
-    // --theme-color-active-fixed: #66ccffDE;
-    // --w-alpha-5-fixed: rgba(255, 255, 255, .05);
-    // --w-alpha-10-fixed: rgba(255, 255, 255, .1);
-    // --w-alpha-15-fixed: rgba(255, 255, 255, .15);
-    // --w-alpha-20-fixed: rgba(255, 255, 255, .2);
-    // --w-alpha-30-fixed: rgba(255, 255, 255, .3);
-    // --w-alpha-50-fixed: rgba(255, 255, 255, .5);
-    // --w-alpha-60-fixed: rgba(255, 255, 255, .6);
-    // --w-alpha-70-fixed: rgba(255, 255, 255, .7);
-    // --w-alpha-75-fixed: rgba(255, 255, 255, .75);
-    // --w-alpha-80-fixed: rgba(255, 255, 255, .8);
-    --w-alpha-90-fixed: rgba(255, 255, 255, .9);
-    // --bg-w-p-fixed: white;
-    // --bg-w-s-fixed: rgb(245, 245, 245);
-    // --bg-w-pure-fixed: white;
-    // --bg-w-245-fixed: rgb(245, 245, 245);
-    // --txt-w-fixed: white;
-    // --txt-b-fixed: #4d4d4d;
-    // --txt-b-tip-fixed: rgba(0, 0, 0, .8);
-    // --b-alpha-5-fixed: rgba(0, 0, 0, .05);
-    // --b-alpha-10-fixed: rgba(0, 0, 0, .1);
-    // --b-alpha-15-fixed: rgba(0, 0, 0, .15);
-    // --b-alpha-20-fixed: rgba(0, 0, 0, .2);
-    --b-alpha-30-fixed: rgba(0, 0, 0, .3);
-    // --b-alpha-35-fixed: rgba(0, 0, 0, .35);
-    // --b-alpha-40-fixed: rgba(0, 0, 0, .4);
-    // --b-alpha-50-fixed: rgba(0, 0, 0, .5);
-    // --b-alpha-60-fixed: rgba(0, 0, 0, .6);
-    // --b-alpha-70-fixed: rgba(0, 0, 0, .7);
-    // --b-alpha-75-fixed: rgba(0, 0, 0, .75);
-    // --b-alpha-80-fixed: rgba(0, 0, 0, .8);
-    // --b-alpha-90-fixed: rgba(0, 0, 0, .9);
+
+    /* Brand */
+    --brand: #66ccff;
+    --brand-active: #66ccffDE;
+    --accent: #0077BB;
+
+    /* Glass surfaces (semi-transparent backgrounds for frosted glass effect) */
+    --glass-80: rgba(255, 255, 255, .8);
+    --glass-90: rgba(255, 255, 255, .9);
+
+    /* Opaque surface */
+    --surface: white;
+
+    /* Overlays (semi-transparent layers: shadows, hover states, muted text) */
+    --overlay-5: rgba(0, 0, 0, .05);
+    --overlay-10: rgba(0, 0, 0, .1);
+    --overlay-20: rgba(0, 0, 0, .2);
+    --overlay-30: rgba(0, 0, 0, .3);
+    --overlay-40: rgba(0, 0, 0, .4);
+    --overlay-60: rgba(0, 0, 0, .6);
+    --overlay-70: rgba(0, 0, 0, .7);
+    --overlay-80: rgba(0, 0, 0, .8);
+    --overlay-90: rgba(0, 0, 0, .9);
+
+    /* Text */
+    --text: #4d4d4d;
+    --text-inverse: #fff;
+
+    /* Backdrop filters */
+    --blur-glass: blur(20px) saturate(180%);
+    --blur-glass-heavy: blur(30px) saturate(180%);
+
+    /* Typography */
+    --font-sans: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Radii */
+    --radius-sm: 3px;
+    --radius-md: 5px;
+    --radius-lg: 10px;
+
+    /* Transitions */
+    --transition-fast: .2s;
+    --transition-base: .25s;
+    --transition-slow: 1s;
+
+    /* Fixed variants — do not change in dark mode */
+    --glass-90-fixed: rgba(255, 255, 255, .9);
+    --overlay-30-fixed: rgba(0, 0, 0, .3);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --highlight-color: #66ccff;
-        --b-alpha-5: rgba(255, 255, 255, .05);
-        --b-alpha-10: rgba(255, 255, 255, .1);
-        // --b-alpha-15: rgba(255, 255, 255, .15);
-        --b-alpha-20: rgba(255, 255, 255, .2);
-        --b-alpha-30: rgba(255, 255, 255, .3);
-        --b-alpha-40: rgba(255, 255, 255, .4);
-        // --b-alpha-50: rgba(255, 255, 255, .5);
-        --b-alpha-60: rgba(255, 255, 255, .6);
-        --b-alpha-70: rgba(255, 255, 255, .7);
-        // --b-alpha-75: rgba(255, 255, 255, .75);
-        --b-alpha-80: rgba(255, 255, 255, .8);
-        --b-alpha-90: rgba(255, 255, 255, .9);
-        // --bg-b-p: white;
-        // --bg-b-s: rgb(245, 245, 245);
-        // --bg-b-pure: white;
-        --bg-w-pure: black;
-        // --bg-b-245: rgb(245, 245, 245);
-        --txt-b: white;
-        // --txt-w: #4d4d4d;
-        // --txt-w-tip: rgba(0, 0, 0, .8);
-        // --w-alpha-5: rgba(0, 0, 0, .05);
-        // --w-alpha-10: rgba(0, 0, 0, .1);
-        // --w-alpha-15: rgba(0, 0, 0, .15);
-        // --w-alpha-20: rgba(0, 0, 0, .2);
-        // --w-alpha-30: rgba(0, 0, 0, .3);
-        // --w-alpha-35: rgba(0, 0, 0, .35);
-        // --w-alpha-40: rgba(0, 0, 0, .4);
-        // --w-alpha-50: rgba(0, 0, 0, .5);
-        // --w-alpha-60: rgba(0, 0, 0, .6);
-        // --w-alpha-70: rgba(0, 0, 0, .7);
-        // --w-alpha-75: rgba(0, 0, 0, .75);
-        --w-alpha-80: rgba(0, 0, 0, .8);
-        --w-alpha-90: rgba(0, 0, 0, .9);
+        --accent: #66ccff;
+
+        --glass-80: rgba(0, 0, 0, .8);
+        --glass-90: rgba(0, 0, 0, .9);
+
+        --surface: black;
+
+        --overlay-5: rgba(255, 255, 255, .05);
+        --overlay-10: rgba(255, 255, 255, .1);
+        --overlay-20: rgba(255, 255, 255, .2);
+        --overlay-30: rgba(255, 255, 255, .3);
+        --overlay-40: rgba(255, 255, 255, .4);
+        --overlay-60: rgba(255, 255, 255, .6);
+        --overlay-70: rgba(255, 255, 255, .7);
+        --overlay-80: rgba(255, 255, 255, .8);
+        --overlay-90: rgba(255, 255, 255, .9);
+
+        --text: white;
     }
 
     .media-box {
@@ -129,8 +91,8 @@
 }
 
 body {
-    color: var(--txt-b);
-    font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    color: var(--text);
+    font-family: var(--font-sans);
 }
 
 .bg {
@@ -169,14 +131,14 @@ body,
 }
 
 .card {
-    background-color: var(--w-alpha-80);
+    background-color: var(--glass-80);
     padding: 20px;
-    border-radius: 10px;
-    transition: transform .25s;
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base);
 
     &.mini {
         padding: 10px;
-        border-radius: 5px;
+        border-radius: var(--radius-md);
     }
 
     &:hover {
@@ -207,7 +169,7 @@ body,
 }
 
 .monospace {
-    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: var(--font-mono);
 }
 
 .scroll-down.loaded {
@@ -220,18 +182,18 @@ body,
     left: calc(50% - 10px);
     border-right: 3px solid;
     border-top: 3px solid;
-    border-color: var(--w-alpha-90-fixed);
+    border-color: var(--glass-90-fixed);
     border-radius: 2px;
     box-sizing: unset;
     height: 20px;
     width: 20px;
     transform: rotate(calc(-180deg + 135deg)) scale(1.1);
     cursor: pointer;
-    transition: 1s;
+    transition: var(--transition-slow);
 }
 
 .scroll-down:hover {
-    border-color: var(--theme-color)
+    border-color: var(--brand)
 }
 
 .work-list {
@@ -246,19 +208,19 @@ body,
     width: 250px;
     height: 235px;
     margin: 0 15px 30px;
-    background-color: var(--bg-w-pure);
+    background-color: var(--surface);
     border-radius: 8px;
-    -webkit-box-shadow: var(--b-alpha-5) 0 5px 10px;
-    -moz-box-shadow: var(--b-alpha-5) 0 5px 10px;
-    box-shadow: var(--b-alpha-5) 0 5px 10px;
+    -webkit-box-shadow: var(--overlay-5) 0 5px 10px;
+    -moz-box-shadow: var(--overlay-5) 0 5px 10px;
+    box-shadow: var(--overlay-5) 0 5px 10px;
     text-align: left;
     overflow: hidden;
-    transition: .25s;
+    transition: var(--transition-base);
     cursor: pointer
 }
 
 .highlight {
-    color: var(--highlight-color) !important
+    color: var(--accent) !important
 }
 
 .pointer {
@@ -266,20 +228,20 @@ body,
 }
 
 .work-link:hover {
-    -webkit-box-shadow: var(--b-alpha-20) 0 10px 30px;
-    -moz-box-shadow: var(--b-alpha-20) 0 10px 30px;
-    box-shadow: var(--b-alpha-30) 0 10px 30px;
+    -webkit-box-shadow: var(--overlay-20) 0 10px 30px;
+    -moz-box-shadow: var(--overlay-20) 0 10px 30px;
+    box-shadow: var(--overlay-30) 0 10px 30px;
     transform: scale(1.05)
 }
 
 .work-link * {
-    transition: .25s
+    transition: var(--transition-base)
 }
 
 .work-link-pic {
     width: 100%;
     height: 140px;
-    background-color: var(--b-alpha-5);
+    background-color: var(--overlay-5);
     object-fit: cover;
     object-position: center
 }
@@ -291,15 +253,15 @@ body,
 
 .work-link-title {
     margin: 5px 0 0;
-    color: var(--txt-b);
+    color: var(--text);
     font-size: 15px;
-    font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 700
 }
 
 .work-link-intro {
     margin: 1px 0 0;
-    color: var(--txt-b);
+    color: var(--text);
     font-size: small;
     white-space: nowrap;
     overflow: hidden;
@@ -309,7 +271,7 @@ body,
 .work-link-cat {
     margin: 5px 0 0;
     font-size: 11px;
-    color: var(--b-alpha-70)
+    color: var(--overlay-70)
 }
 
 .underline1 {
@@ -317,7 +279,7 @@ body,
     margin-bottom: 40px;
     width: 50px;
     height: 3px;
-    background-color: var(--theme-color)
+    background-color: var(--brand)
 }
 
 .underline2 {
@@ -325,29 +287,29 @@ body,
     margin-bottom: 5px;
     width: 50px;
     height: 3px;
-    background-color: var(--theme-color)
+    background-color: var(--brand)
 }
 
 a {
-    color: var(--txt-b);
+    color: var(--text);
     outline: 0;
     text-decoration: none;
-    transition: .25s;
+    transition: var(--transition-base);
     cursor: pointer;
 }
 
 a.link {
-    color: var(--theme-color);
+    color: var(--brand);
     border-bottom: 1px solid transparent
 }
 
 a.link:hover {
-    border-color: var(--theme-color)
+    border-color: var(--brand)
 }
 
 a.link:active {
-    border-color: var(--theme-color-active);
-    color: var(--theme-color-active)
+    border-color: var(--brand-active);
+    color: var(--brand-active)
 }
 
 ::-webkit-scrollbar {
@@ -355,12 +317,12 @@ a.link:active {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--b-alpha-10);
-    border-radius: 3px
+    background-color: var(--overlay-10);
+    border-radius: var(--radius-sm)
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--b-alpha-20)
+    background-color: var(--overlay-20)
 }
 
 .alpha-50 {

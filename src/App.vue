@@ -280,10 +280,10 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .lang-area a {
   display: inline-block;
   font-size: 16px;
-  color: #fff;
+  color: var(--text-inverse);
   opacity: .7;
   cursor: pointer;
-  transition: transform .2s, opacity .2s
+  transition: transform var(--transition-fast), opacity var(--transition-fast)
 }
 
 .lang-area .s-line {
@@ -292,7 +292,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   margin: 0 5px;
   position: relative;
   top: -2px;
-  color: var(--w-alpha-90);
+  color: var(--glass-90);
   opacity: .7
 }
 
@@ -303,7 +303,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
 .block {
   animation: 0.6s ease 0.4s 1 normal backwards running slide-in;
-  transition: transform .25s, backdrop-filter .25s, background-color .25s;
+  transition: transform var(--transition-base), backdrop-filter var(--transition-base), background-color var(--transition-base);
 }
 
 #info {
@@ -311,14 +311,14 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .block {
-  background-color: var(--w-alpha-80);
-  -webkit-backdrop-filter: var(--filter-glass-1);
-  backdrop-filter: var(--filter-glass-1);
+  background-color: var(--glass-80);
+  -webkit-backdrop-filter: var(--blur-glass);
+  backdrop-filter: var(--blur-glass);
   width: calc(100% - 40px);
   padding: 20px .5em 50px;
   text-align: center;
-  transition: .25s;
-  border-radius: 10px
+  transition: var(--transition-base);
+  border-radius: var(--radius-lg)
 }
 
 .block+.block {
@@ -326,7 +326,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .block:hover {
-  background-color: var(--w-alpha-80);
+  background-color: var(--glass-80);
   transform: scale(1.01);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
@@ -335,8 +335,8 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .block h3 {
   font-weight: 400;
   font-size: 30px;
-  color: var(--txt-b-pure);
-  transition: .25s;
+  color: var(--text);
+  transition: var(--transition-base);
   margin-block-end: 0
 }
 
@@ -392,24 +392,24 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .tag-box>span {
   margin: 3px;
   padding: 4px 9px;
-  border-radius: 5px;
-  background-color: var(--b-alpha-5);
-  color: var(--b-alpha-40);
-  transition: .25s;
+  border-radius: var(--radius-md);
+  background-color: var(--overlay-5);
+  color: var(--overlay-40);
+  transition: var(--transition-base);
   white-space: nowrap;
 }
 
 .tag-box>span:hover {
-  background-color: var(--b-alpha-10);
-  color: var(--txt-b);
-  -webkit-box-shadow: rgba(0, 0, 0, .1) 0 5px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, .1) 0 5px 10px;
-  box-shadow: #0000001a 0 5px 10px
+  background-color: var(--overlay-10);
+  color: var(--text);
+  -webkit-box-shadow: var(--overlay-10) 0 5px 10px;
+  -moz-box-shadow: var(--overlay-10) 0 5px 10px;
+  box-shadow: var(--overlay-10) 0 5px 10px
 }
 
 .media-box img {
   opacity: .8;
-  transition: .2s;
+  transition: var(--transition-fast);
   cursor: pointer;
   transform: scale(1);
   border-width: 0
@@ -418,7 +418,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .media-box img:hover {
   opacity: 1;
   transform: scale(1.05);
-  border-color: var(--theme-color);
+  border-color: var(--brand);
   margin: -5px 0 -7px;
   border-style: solid;
   border-bottom-width: 2px;
@@ -428,7 +428,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .tip {
   margin-top: -20px;
   font-size: 12px;
-  color: var(--b-alpha-60)
+  color: var(--overlay-60)
 }
 
 .log-box-outer {
@@ -439,7 +439,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .log-box-outer * {
-  transition: .25s
+  transition: var(--transition-base)
 }
 
 .log-box {
@@ -467,17 +467,17 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .log-text-1 {
-  color: var(--txt-b-pure)
+  color: var(--text)
 }
 
 .log-text-2 {
-  color: var(--b-alpha-80);
+  color: var(--overlay-80);
   font-size: small;
   line-height: 5px
 }
 
 .log-text-3 {
-  color: var(--b-alpha-60)
+  color: var(--overlay-60)
 }
 
 footer {
@@ -486,14 +486,14 @@ footer {
   justify-content: center;
   margin: 50px;
   padding: 20px 20px 30px;
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   transition: backdrop-filter .1s
 }
 
 footer:hover {
-  background-color: var(--b-alpha-30-fixed);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  backdrop-filter: blur(30px) saturate(180%)
+  background-color: var(--overlay-30-fixed);
+  -webkit-backdrop-filter: var(--blur-glass-heavy);
+  backdrop-filter: var(--blur-glass-heavy)
 }
 
 footer div {
@@ -504,12 +504,12 @@ footer div {
 }
 
 footer p {
-  font-family: Microsoft Yahei, PingFangSC-Regular;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 700;
   line-height: 10px;
   white-space: nowrap;
-  color: #fff
+  color: var(--text-inverse)
 }
 
 footer a,
@@ -517,7 +517,7 @@ footer span,
 footer button {
   position: relative;
   border-bottom: 1px solid transparent;
-  color: #fff;
+  color: var(--text-inverse);
   font-size: 12px;
   line-height: 30px;
   white-space: nowrap
@@ -529,7 +529,7 @@ footer button {
   padding: 0;
   cursor: pointer;
   font-family: inherit;
-  transition: 0.25s;
+  transition: var(--transition-base);
 }
 
 .police-emblem-icon {
@@ -548,14 +548,14 @@ footer:hover .police-emblem-icon {
 
 footer a:hover,
 footer button:hover {
-  border-color: var(--theme-color);
-  color: var(--theme-color)
+  border-color: var(--brand);
+  color: var(--brand)
 }
 
 footer a:active,
 footer button:active {
-  border-color: var(--theme-color-active);
-  color: var(--theme-color-active)
+  border-color: var(--brand-active);
+  color: var(--brand-active)
 }
 
 div ::-webkit-scrollbar {
@@ -563,25 +563,25 @@ div ::-webkit-scrollbar {
 }
 
 div ::-webkit-scrollbar-thumb {
-  background-color: var(--b-alpha-10);
-  border-radius: 3px
+  background-color: var(--overlay-10);
+  border-radius: var(--radius-sm)
 }
 
 div ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--b-alpha-20)
+  background-color: var(--overlay-20)
 }
 
 div ::-webkit-scrollbar-thumb:active {
-  background-color: var(--theme-color)
+  background-color: var(--brand)
 }
 
 @media screen and (max-width: 660px) {
   .lang-area a {
-    font-size: 20px !important;
+    font-size: 20px;
   }
 
   .lang-area i {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 
   footer {
@@ -591,7 +591,7 @@ div ::-webkit-scrollbar-thumb:active {
   footer a,
   footer span,
   footer button {
-    font-size: 15px !important;
+    font-size: 15px;
   }
 }
 

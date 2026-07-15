@@ -69,8 +69,8 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 }
 
 .viewer {
-    border-radius: 10px;
-    background-color: var(--w-alpha-90);
+    border-radius: var(--radius-lg);
+    background-color: var(--glass-90);
     width: calc(100vw - 80px);
     height: 80vh;
 }
@@ -104,7 +104,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 }
 
 .selection-id {
-    color: var(--txt-b);
+    color: var(--text);
     pointer-events: none;
     font-weight: 600;
     opacity: 0;
@@ -116,7 +116,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 }
 
 .enter-text {
-    color: var(--theme-color);
+    color: var(--brand);
     display: inline-block;
     position: relative;
     font-weight: 600;
@@ -126,7 +126,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 .enter-text::after {
     display: inline-block;
     font-weight: 700;
-    color: var(--theme-color);
+    color: var(--brand);
     opacity: 0.4;
 }
 
@@ -190,25 +190,25 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     }
 
     .player {
-        width: calc((100vw - 80px)) !important;
-        height: calc((100vw - 80px)/ 16 * 9) !important;
-        border-bottom-left-radius: 0 !important;
-        border-top-left-radius: 5px !important;
-        border-top-right-radius: 5px;
+        width: calc(100vw - 80px);
+        height: calc((100vw - 80px) / 16 * 9);
+        border-bottom-left-radius: 0;
+        border-top-left-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-md);
     }
 
     .list {
-        width: calc((100vw - 80px) - 10px) !important;
-        border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 5px !important;
-        border-bottom-left-radius: 5px;
-        padding: 5px 5px !important;
-        padding-top: 15px !important;
+        width: calc((100vw - 80px) - 10px);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: var(--radius-md);
+        border-bottom-left-radius: var(--radius-md);
+        padding: 5px 5px;
+        padding-top: 15px;
         margin-top: -5px;
-        left: 0 !important;
+        left: 0;
         max-height: 30vh;
-        height: unset !important;
-        max-width: none !important;
+        height: unset;
+        max-width: none;
     }
 }
 
@@ -219,24 +219,24 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     }
 
     .player {
-        width: calc(100vw - 80px) !important;
-        height: calc((100vw - 80px) * .5625) !important;
-        border-bottom-left-radius: 0 !important;
-        border-top-left-radius: 5px !important;
-        border-top-right-radius: 5px;
+        width: calc(100vw - 80px);
+        height: calc((100vw - 80px) * .5625);
+        border-bottom-left-radius: 0;
+        border-top-left-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-md);
     }
 
     .list {
-        width: calc(100vw - 90px) !important;
-        border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 5px !important;
-        border-bottom-left-radius: 5px;
-        padding: 15px 5px 5px !important;
+        width: calc(100vw - 90px);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: var(--radius-md);
+        border-bottom-left-radius: var(--radius-md);
+        padding: 15px 5px 5px;
         margin-top: -5px;
-        left: 0 !important;
+        left: 0;
         max-height: 30vh;
-        height: unset !important;
-        max-width: none !important;
+        height: unset;
+        max-width: none;
     }
 }
 
@@ -244,20 +244,20 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     width: calc((100vw - 80px) * 0.5);
     height: calc((100vw - 80px) * 0.5 / 16 * 9);
     z-index: 10;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
     background: url(/assets/icons/Bilibili.svg) no-repeat center;
     background-size: 10%;
-    background-color: var(--b-alpha-90);
+    background-color: var(--overlay-90);
 }
 
 .list {
     position: relative;
-    background-color: var(--b-alpha-10);
+    background-color: var(--overlay-10);
     height: calc((100vw - 80px) * 0.5 / 16 * 9 - 10px);
     padding: 5px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
     overflow-y: scroll;
     overflow-x: hidden;
     max-width: 30vw;
@@ -266,9 +266,9 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 .list-item {
     margin: 3px 10px;
     padding: 10px 10px;
-    border-radius: 5px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: transform .2s
+    transition: transform var(--transition-fast)
 }
 
 .list-item:hover {
@@ -276,13 +276,13 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 }
 
 .list-item.selected {
-    background-color: var(--w-alpha-90);
+    background-color: var(--glass-90);
 
 }
 
 .list-item>span {
     margin: 1px 0 0;
-    color: var(--txt-b);
+    color: var(--text);
     font-size: medium;
     white-space: nowrap;
     overflow: hidden;
