@@ -509,7 +509,7 @@ footer {
   }
 
   & span {
-    border: none;
+    border: 0;
     &:hover, &:active { color: inherit; }
   }
 
