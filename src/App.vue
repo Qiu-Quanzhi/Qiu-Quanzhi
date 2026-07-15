@@ -259,7 +259,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
 .lang-area {
   z-index: 100;
-  -webkit-user-select: none;
   user-select: none;
   display: block;
   position: absolute;
@@ -312,7 +311,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
 .block {
   background-color: var(--glass-80);
-  -webkit-backdrop-filter: var(--blur-glass);
   backdrop-filter: var(--blur-glass);
   width: calc(100% - 40px);
   padding: 20px .5em 50px;
@@ -328,7 +326,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .block:hover {
   background-color: var(--glass-80);
   transform: scale(1.01);
-  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
 
@@ -382,7 +379,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 }
 
 .tag-box {
-  -webkit-user-select: none;
   user-select: none;
   display: flex;
   font-size: small;
@@ -402,8 +398,6 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .tag-box>span:hover {
   background-color: var(--overlay-10);
   color: var(--text);
-  -webkit-box-shadow: var(--overlay-10) 0 5px 10px;
-  -moz-box-shadow: var(--overlay-10) 0 5px 10px;
   box-shadow: var(--overlay-10) 0 5px 10px
 }
 
@@ -445,11 +439,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 .log-box {
   white-space: nowrap;
   overflow-y: hidden;
-  overflow-x: auto
-}
-
-.log-box::-webkit-scrollbar {
-  height: 5px
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--overlay-10) transparent
 }
 
 .log-box div {
@@ -492,7 +484,6 @@ footer {
 
 footer:hover {
   background-color: var(--overlay-30-fixed);
-  -webkit-backdrop-filter: var(--blur-glass-heavy);
   backdrop-filter: var(--blur-glass-heavy)
 }
 
@@ -558,22 +549,6 @@ footer button:active {
   color: var(--brand-active)
 }
 
-div ::-webkit-scrollbar {
-  width: 5px
-}
-
-div ::-webkit-scrollbar-thumb {
-  background-color: var(--overlay-10);
-  border-radius: var(--radius-sm)
-}
-
-div ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--overlay-20)
-}
-
-div ::-webkit-scrollbar-thumb:active {
-  background-color: var(--brand)
-}
 
 @media screen and (max-width: 660px) {
   .lang-area a {

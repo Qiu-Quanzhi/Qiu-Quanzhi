@@ -90,6 +90,10 @@
     }
 }
 
+html {
+    scrollbar-color: var(--overlay-10) transparent;
+}
+
 body {
     color: var(--text);
     font-family: var(--font-sans);
@@ -210,8 +214,6 @@ body,
     margin: 0 15px 30px;
     background-color: var(--surface);
     border-radius: 8px;
-    -webkit-box-shadow: var(--overlay-5) 0 5px 10px;
-    -moz-box-shadow: var(--overlay-5) 0 5px 10px;
     box-shadow: var(--overlay-5) 0 5px 10px;
     text-align: left;
     overflow: hidden;
@@ -228,8 +230,6 @@ body,
 }
 
 .work-link:hover {
-    -webkit-box-shadow: var(--overlay-20) 0 10px 30px;
-    -moz-box-shadow: var(--overlay-20) 0 10px 30px;
     box-shadow: var(--overlay-30) 0 10px 30px;
     transform: scale(1.05)
 }
@@ -312,18 +312,8 @@ a.link:active {
     color: var(--brand-active)
 }
 
-::-webkit-scrollbar {
-    width: 10px
-}
 
-::-webkit-scrollbar-thumb {
-    background-color: var(--overlay-10);
-    border-radius: var(--radius-sm)
-}
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--overlay-20)
-}
 
 .alpha-50 {
     opacity: 0.5;
