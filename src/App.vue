@@ -127,7 +127,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
             <img aria-hidden="true" class="info-logo" loading="lazy" src="/assets/avatar.avif">
             <div class="flex-col">
               <div class="flex-row item-center">
-                <h2>
+                <h2 class="nowrap">
                   <ruby class="ruby-under">
                     <ruby class="ruby-over">
                       {{ t('name.full') }}
@@ -139,7 +139,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
                   </ruby>
                 </h2>
                 <div class="tag-box">
-                  <span v-for="(tag, index) in tagList" :key="index">{{ tag }}</span>
+                  <span v-for="(tag, index) in tagList" :key="index" class="nowrap">{{ tag }}</span>
                 </div>
               </div>
               <span>{{ t('slogan') }}</span>
@@ -180,7 +180,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
           <img loading="lazy" class="work-link-pic" :src="workLinkData[index]?.pic" alt="" />
           <div class="work-link-text">
             <p class="work-link-title">{{ work.title }}</p>
-            <p class="work-link-intro">{{ work.intro }}</p>
+            <p class="work-link-intro truncate">{{ work.intro }}</p>
             <p class="work-link-cat">{{ work.cat }}</p>
           </div>
         </a>
@@ -197,7 +197,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
       <p class="tip">{{ t('parts.log.tip') }}</p>
       <div class="log-box-outer">
-        <div class="log-box">
+        <div class="log-box nowrap">
           <div v-for="(entry, index) in logEntries" :key="index">
             <template v-if="entry.kind === 'entry'">
               <p class="log-text-1">{{ entry.date }}</p>
@@ -217,20 +217,20 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     </div>
     <footer data-nosnippet id="footer">
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
-        <p>{{ t(`footer[${colIdx}].title`) }}</p>
+        <p class="nowrap">{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
-          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener">{{
+          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener" class="nowrap">{{
             t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
-          <button v-else @click="copyContact(link.contact)">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
+          <button v-else @click="copyContact(link.contact)" class="nowrap">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
           <br>
         </template>
       </div>
       <div>
-        <p>© {{ time.year }} {{ t('name.full') }}</p>
-        <span>{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">粤ICP备2026090856号</a><br>
+        <p class="nowrap">© {{ time.year }} {{ t('name.full') }}</p>
+        <span class="nowrap">{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow" class="nowrap">粤ICP备2026090856号</a><br>
         <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank"
-          rel="noopener nofollow"><img aria-hidden="true" class="police-emblem-icon" loading="lazy"
+          rel="noopener nofollow" class="nowrap"><img aria-hidden="true" class="police-emblem-icon" loading="lazy"
             src="/assets/icons/police-emblem.avif">粤公网安备44098302441277号</a>
       </div>
     </footer>
@@ -238,17 +238,10 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 </template>
 
 <style scoped>
-.app-container {
-  width: 100%;
-}
+.app-container { width: 100%; }
 
-.ruby-under {
-  ruby-position: under;
-}
-
-.ruby-over {
-  ruby-position: over;
-}
+.ruby-under { ruby-position: under; }
+.ruby-over  { ruby-position: over; }
 
 .scroll-link {
   position: absolute;
@@ -257,108 +250,101 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   height: 20px;
 }
 
+/* ===== Language switcher ===== */
+
 .lang-area {
   z-index: 100;
   user-select: none;
   display: block;
   position: absolute;
   right: 25px;
-  top: 25px
+  top: 25px;
+
+  & a {
+    display: inline-block;
+    font-size: 16px;
+    color: var(--text-inverse);
+    opacity: var(--opacity-dim);
+    cursor: pointer;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+
+    &.current {
+      opacity: 1;
+      transform: scale(1.1);
+      cursor: default
+    }
+
+    &:hover { transform: scale(1.1) }
+  }
+
+  & .s-line {
+    display: inline-block;
+    font-size: var(--text-xs);
+    margin: 0 5px;
+    position: relative;
+    top: -2px;
+    color: var(--glass-90);
+    opacity: var(--opacity-dim)
+  }
 }
 
-.lang-area a.current {
-  opacity: 1;
-  transform: scale(1.1);
-  cursor: default
-}
-
-.lang-area a:hover {
-  transform: scale(1.1)
-}
-
-.lang-area a {
-  display: inline-block;
-  font-size: 16px;
-  color: var(--text-inverse);
-  opacity: .7;
-  cursor: pointer;
-  transition: transform var(--transition-fast), opacity var(--transition-fast)
-}
-
-.lang-area .s-line {
-  display: inline-block;
-  font-size: 12px;
-  margin: 0 5px;
-  position: relative;
-  top: -2px;
-  color: var(--glass-90);
-  opacity: .7
-}
+/* ===== Sections ===== */
 
 #home {
   width: 100%;
   height: 100vh
 }
 
+#info { margin-top: -40px }
+
 .block {
   animation: 0.6s ease 0.4s 1 normal backwards running slide-in;
-  transition: transform var(--transition-base), backdrop-filter var(--transition-base), background-color var(--transition-base);
-}
-
-#info {
-  margin-top: -40px
-}
-
-.block {
   background-color: var(--glass-80);
   backdrop-filter: var(--blur-glass);
   width: calc(100% - 40px);
   padding: 20px .5em 50px;
   text-align: center;
-  transition: var(--transition-base);
-  border-radius: var(--radius-lg)
+  transition: transform var(--transition-base), backdrop-filter var(--transition-base), background-color var(--transition-base);
+  border-radius: var(--radius-lg);
+
+  & + .block { margin-top: 50px }
+
+  &:hover {
+    background-color: var(--glass-80);
+    transform: scale(1.01);
+    backdrop-filter: none;
+  }
+
+  & h3 {
+    font-weight: 400;
+    font-size: var(--text-xl);
+    color: var(--text);
+    transition: var(--transition-base);
+    margin-block-end: 0
+  }
+
+  & > p,
+  &#info p {
+    font-size: var(--text-sm);
+    margin-block-start: 0
+  }
 }
 
-.block+.block {
-  margin-top: 50px
-}
-
-.block:hover {
-  background-color: var(--glass-80);
-  transform: scale(1.01);
-  backdrop-filter: none;
-}
-
-.block h3 {
-  font-weight: 400;
-  font-size: 30px;
-  color: var(--text);
-  transition: var(--transition-base);
-  margin-block-end: 0
-}
-
-.block>p,
-.block#info p {
-  font-size: 14px;
-  margin-block-start: 0
-}
+/* ===== Home / Info card ===== */
 
 .info {
   position: absolute;
-  right: calc((100% - 200px)*.1);
+  right: calc((100% - 200px) * .1);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.info>div {
-  margin: 7.5px;
-}
+  & > div { margin: 7.5px; }
 
-.info h2 {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  white-space: nowrap;
+  & h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
 }
 
 .info-logo {
@@ -371,96 +357,91 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   width: 100%;
   margin-top: 15px;
   height: 25px;
-}
 
-.media-box>a {
-  width: 25px;
-  height: 25px;
+  & > a { width: 25px; height: 25px; }
+
+  & img {
+    opacity: .8;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    transform: scale(1);
+    border-width: 0;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(var(--hover-scale));
+      border-color: var(--brand);
+      margin: -5px 0 -7px;
+      border-style: solid;
+      border-bottom-width: 2px;
+      padding: 5px 0
+    }
+  }
 }
 
 .tag-box {
   user-select: none;
   display: flex;
   font-size: small;
-  font-weight: 600
+  font-weight: var(--weight-semibold);
+
+  & > span {
+    margin: 3px;
+    padding: 4px 9px;
+    border-radius: var(--radius-md);
+    background-color: var(--overlay-5);
+    color: var(--overlay-40);
+    transition: var(--transition-base);
+
+    &:hover {
+      background-color: var(--overlay-10);
+      color: var(--text);
+      box-shadow: var(--overlay-10) 0 5px 10px
+    }
+  }
 }
 
-.tag-box>span {
-  margin: 3px;
-  padding: 4px 9px;
-  border-radius: var(--radius-md);
-  background-color: var(--overlay-5);
-  color: var(--overlay-40);
-  transition: var(--transition-base);
-  white-space: nowrap;
-}
-
-.tag-box>span:hover {
-  background-color: var(--overlay-10);
-  color: var(--text);
-  box-shadow: var(--overlay-10) 0 5px 10px
-}
-
-.media-box img {
-  opacity: .8;
-  transition: var(--transition-fast);
-  cursor: pointer;
-  transform: scale(1);
-  border-width: 0
-}
-
-.media-box img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-  border-color: var(--brand);
-  margin: -5px 0 -7px;
-  border-style: solid;
-  border-bottom-width: 2px;
-  padding: 5px 0
-}
+/* ===== Tip ===== */
 
 .tip {
   margin-top: -20px;
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: var(--overlay-60)
 }
+
+/* ===== Log ===== */
 
 .log-box-outer {
   margin-top: 10px;
   margin-bottom: 30px;
   width: 70%;
-  overflow: hidden
-}
+  overflow: hidden;
 
-.log-box-outer * {
-  transition: var(--transition-base)
+  & * { transition: var(--transition-base) }
 }
 
 .log-box {
-  white-space: nowrap;
   overflow-y: hidden;
   overflow-x: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--overlay-10) transparent
-}
+  scrollbar-color: var(--overlay-10) transparent;
 
-.log-box div {
-  display: inline-block;
-  padding: 0 30px;
-  text-align: left;
-  vertical-align: top
+  & div {
+    display: inline-block;
+    padding: 0 30px;
+    text-align: left;
+    vertical-align: top
+  }
 }
 
 .log-text-1,
 .log-text-3 {
-  font-size: 18px;
+  font-size: var(--text-lg);
   line-height: 3px;
-  font-weight: 500
+  font-weight: var(--weight-medium)
 }
 
-.log-text-1 {
-  color: var(--text)
-}
+.log-text-1 { color: var(--text) }
 
 .log-text-2 {
   color: var(--overlay-80);
@@ -468,9 +449,9 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   line-height: 5px
 }
 
-.log-text-3 {
-  color: var(--overlay-60)
-}
+.log-text-3 { color: var(--overlay-60) }
+
+/* ===== Footer ===== */
 
 footer {
   display: flex;
@@ -479,48 +460,58 @@ footer {
   margin: 50px;
   padding: 20px 20px 30px;
   border-radius: var(--radius-lg);
-  transition: backdrop-filter .1s
-}
+  transition: backdrop-filter .1s;
 
-footer:hover {
-  background-color: var(--overlay-30-fixed);
-  backdrop-filter: var(--blur-glass-heavy)
-}
+  &:hover {
+    background-color: var(--overlay-30-fixed);
+    backdrop-filter: var(--blur-glass-heavy);
 
-footer div {
-  flex: 1 0 0;
-  text-align: left;
-  padding: 0 50px;
-  margin-top: 10px
-}
+    & .police-emblem-icon { opacity: 1; }
+  }
 
-footer p {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 10px;
-  white-space: nowrap;
-  color: var(--text-inverse)
-}
+  & div {
+    flex: 1 0 0;
+    text-align: left;
+    padding: 0 50px;
+    margin-top: 10px
+  }
 
-footer a,
-footer span,
-footer button {
-  position: relative;
-  border-bottom: 1px solid transparent;
-  color: var(--text-inverse);
-  font-size: 12px;
-  line-height: 30px;
-  white-space: nowrap
-}
+  & p {
+    font-family: var(--font-sans);
+    font-size: var(--text-md);
+    font-weight: var(--weight-bold);
+    line-height: 10px;
+    color: var(--text-inverse)
+  }
 
-footer button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: inherit;
-  transition: var(--transition-base);
+  & a,
+  & span,
+  & button {
+    position: relative;
+    border-bottom: 1px solid transparent;
+    color: var(--text-inverse);
+    font-size: var(--text-xs);
+    line-height: 30px;
+
+    &:hover {
+      border-color: var(--brand);
+      color: var(--brand)
+    }
+
+    &:active {
+      border-color: var(--brand-active);
+      color: var(--brand-active)
+    }
+  }
+
+  & button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    transition: var(--transition-base);
+  }
 }
 
 .police-emblem-icon {
@@ -533,81 +524,33 @@ footer button {
   width: auto;
 }
 
-footer:hover .police-emblem-icon {
-  opacity: 1;
-}
-
-footer a:hover,
-footer button:hover {
-  border-color: var(--brand);
-  color: var(--brand)
-}
-
-footer a:active,
-footer button:active {
-  border-color: var(--brand-active);
-  color: var(--brand-active)
-}
-
+/* ===== Responsive ===== */
 
 @media screen and (max-width: 660px) {
-  .lang-area a {
-    font-size: 20px;
-  }
-
-  .lang-area i {
-    font-size: 16px;
-  }
-
-  footer {
-    line-height: 2em;
-  }
-
+  .lang-area a { font-size: 20px; }
+  .lang-area i { font-size: 16px; }
+  footer { line-height: 2em; }
   footer a,
   footer span,
-  footer button {
-    font-size: 15px;
-  }
+  footer button { font-size: var(--text-md); }
 }
 
 @media (max-width: 900px) {
-
-  .info-content {
-    flex-direction: column;
-  }
-
+  .info-content { flex-direction: column; }
   .info {
-    position: static
-  }
+    position: static;
+    transform: scale(.9);
 
-  .info {
-    transform: scale(.9)
+    & h2 { transform: scale(0.9) }
   }
-
-  .info h2 {
-    transform: scale(0.9)
-  }
-
-  .tag-box {
-    font-size: .5em
-  }
-
+  .tag-box { font-size: .5em }
   .info-logo {
     width: 50px;
     height: 50px;
     margin-right: 5px
   }
-
-  .media-box {
-    transform: scale(.9)
-  }
-
-  .scroll-down {
-    display: none;
-  }
-
-  footer div {
-    padding: 0 20px;
-  }
+  .media-box { transform: scale(.9) }
+  .scroll-down { display: none; }
+  footer div { padding: 0 20px; }
 }
 </style>

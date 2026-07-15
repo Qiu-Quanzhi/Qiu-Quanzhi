@@ -29,59 +29,42 @@ const cardRows = [
         <div data-nosnippet :class="['card', 'blanked', loaded ? 'loaded' : '', 'mini', '']">
             <div v-for="row in cardRows" :key="row.icon" class="row flex-row">
                 <img aria-hidden="true"  class="icon" loading="lazy" :src="`/assets/icons/${row.icon}`" height="22" width="22">
-                <a v-if="row.type === 'time'" class="text" target="_blank" :href="row.href">
+                <a v-if="row.type === 'time'" class="text nowrap" target="_blank" :href="row.href">
                     {{ row.text }}
                     <span class="alpha-50">({{ row.timezone }})</span>
                 </a>
-                <a v-else-if="row.type === 'fingerprint'" class="text monospace" target="_blank" v-html="row.fingerprint" :href="row.href"></a>
-                <a v-else class="text" target="_blank" :href="row.href">{{ row.text }}</a>
+                <a v-else-if="row.type === 'fingerprint'" class="text nowrap monospace" target="_blank" v-html="row.fingerprint" :href="row.href"></a>
+                <a v-else class="text nowrap" target="_blank" :href="row.href">{{ row.text }}</a>
             </div>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .wrapper {
-    opacity: 0.7;
-    &:hover {
-        opacity: unset;
-    }
+    opacity: var(--opacity-dim);
+    &:hover { opacity: unset; }
 }
 
 .card {
     transform: scale(0.8);
     margin-left: 20px;
     position: absolute;
-
-    &:hover {
-        box-shadow: var(--overlay-30) 0 10px 30px;
-    }
+    &:hover { box-shadow: var(--overlay-30) 0 10px 30px; }
 }
 
-.row {
-    margin: 5px 0;
-}
+.row { margin: 5px 0; }
 
-.icon {
-    margin: 0 5px;
-}
+.icon { margin: 0 5px; }
 
 .text {
-    font-size: 15px;
+    font-size: var(--text-md);
     font-weight: 800;
-    white-space: nowrap;
     opacity: 0.6;
 }
 
-
 @media (max-width: 1000px) {
-    .wrapper{
-      align-items: center;
-    }
-
-    .card {
-        margin-left: 0;
-        position: unset;
-    }
+    .wrapper { align-items: center; }
+    .card { margin-left: 0; position: unset; }
 }
 </style>

@@ -6,14 +6,14 @@
     --brand-active: #66ccffDE;
     --accent: #0077BB;
 
-    /* Glass surfaces (semi-transparent backgrounds for frosted glass effect) */
+    /* Glass surfaces */
     --glass-80: rgba(255, 255, 255, .8);
     --glass-90: rgba(255, 255, 255, .9);
 
     /* Opaque surface */
     --surface: white;
 
-    /* Overlays (semi-transparent layers: shadows, hover states, muted text) */
+    /* Overlays */
     --overlay-5: rgba(0, 0, 0, .05);
     --overlay-10: rgba(0, 0, 0, .1);
     --overlay-20: rgba(0, 0, 0, .2);
@@ -36,6 +36,18 @@
     --font-sans: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
+    /* Font sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 15px;
+    --text-lg: 18px;
+    --text-xl: 30px;
+
+    /* Font weights */
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
     /* Radii */
     --radius-sm: 3px;
     --radius-md: 5px;
@@ -45,6 +57,10 @@
     --transition-fast: .2s;
     --transition-base: .25s;
     --transition-slow: 1s;
+
+    /* Shared values */
+    --hover-scale: 1.05;
+    --opacity-dim: 0.7;
 
     /* Fixed variants — do not change in dark mode */
     --glass-90-fixed: rgba(255, 255, 255, .9);
@@ -99,55 +115,16 @@ body {
     font-family: var(--font-sans);
 }
 
-.bg {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    z-index: -100;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-position-x: 20%;
-    background-position-y: center;
-    background-image: url(/assets/background.avif);
-    filter: brightness(0.8);
+/* ===== Utilities ===== */
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.blanked {
-    transform: scale(1.05);
-    opacity: 0;
-    transition: transform 1.5s, opacity 1s
-}
-
-.loaded {
-    transform: scale(1);
-    opacity: 0.9
-}
-
-html,
-body,
-#app {
-    max-width: 100%;
-    overflow-x: hidden;
-    display: flex;
-    width: 100%;
-    margin: 0
-}
-
-.card {
-    background-color: var(--glass-80);
-    padding: 20px;
-    border-radius: var(--radius-lg);
-    transition: transform var(--transition-base);
-
-    &.mini {
-        padding: 10px;
-        border-radius: var(--radius-md);
-    }
-
-    &:hover {
-        transform: scale(1.05)
-    }
+.nowrap {
+    white-space: nowrap;
 }
 
 .flex-row {
@@ -176,9 +153,63 @@ body,
     font-family: var(--font-mono);
 }
 
-.scroll-down.loaded {
-    transform: rotate(calc(360deg + 135deg)) scale(1);
+.highlight {
+    color: var(--accent) !important
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.alpha-50 {
+    opacity: 0.5;
+}
+
+/* ===== Layout ===== */
+
+html,
+body,
+#app {
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    width: 100%;
+    margin: 0
+}
+
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -100;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-position-x: 20%;
+    background-position-y: center;
+    background-image: url(/assets/background.avif);
+    filter: brightness(0.8);
+}
+
+/* ===== Card ===== */
+
+.card {
+    background-color: var(--glass-80);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base);
+
+    &.mini {
+        padding: 10px;
+        border-radius: var(--radius-md);
+    }
+
+    &:hover {
+        transform: scale(var(--hover-scale))
+    }
+}
+
+/* ===== Scroll-down arrow ===== */
 
 .scroll-down {
     position: absolute;
@@ -194,11 +225,30 @@ body,
     transform: rotate(calc(-180deg + 135deg)) scale(1.1);
     cursor: pointer;
     transition: var(--transition-slow);
+
+    &:hover {
+        border-color: var(--brand)
+    }
+
+    &.loaded {
+        transform: rotate(calc(360deg + 135deg)) scale(1);
+    }
 }
 
-.scroll-down:hover {
-    border-color: var(--brand)
+/* ===== Entrance animation ===== */
+
+.blanked {
+    transform: scale(var(--hover-scale));
+    opacity: 0;
+    transition: transform 1.5s, opacity 1s
 }
+
+.loaded {
+    transform: scale(1);
+    opacity: 0.9
+}
+
+/* ===== Work links ===== */
 
 .work-list {
     display: flex;
@@ -218,24 +268,16 @@ body,
     text-align: left;
     overflow: hidden;
     transition: var(--transition-base);
-    cursor: pointer
-}
-
-.highlight {
-    color: var(--accent) !important
-}
-
-.pointer {
     cursor: pointer;
-}
 
-.work-link:hover {
-    box-shadow: var(--overlay-30) 0 10px 30px;
-    transform: scale(1.05)
-}
+    &:hover {
+        box-shadow: var(--overlay-30) 0 10px 30px;
+        transform: scale(var(--hover-scale))
+    }
 
-.work-link * {
-    transition: var(--transition-base)
+    & * {
+        transition: var(--transition-base)
+    }
 }
 
 .work-link-pic {
@@ -254,18 +296,15 @@ body,
 .work-link-title {
     margin: 5px 0 0;
     color: var(--text);
-    font-size: 15px;
+    font-size: var(--text-md);
     font-family: var(--font-sans);
-    font-weight: 700
+    font-weight: var(--weight-bold)
 }
 
 .work-link-intro {
     margin: 1px 0 0;
     color: var(--text);
     font-size: small;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
 }
 
 .work-link-cat {
@@ -274,21 +313,24 @@ body,
     color: var(--overlay-70)
 }
 
-.underline1 {
-    margin-top: 30px;
-    margin-bottom: 40px;
+/* ===== Underline decorators ===== */
+
+.underline1,
+.underline2 {
     width: 50px;
     height: 3px;
-    background-color: var(--brand)
+    background-color: var(--brand);
+}
+
+.underline1 {
+    margin: 30px 0 40px
 }
 
 .underline2 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 50px;
-    height: 3px;
-    background-color: var(--brand)
+    margin: 5px 0
 }
+
+/* ===== Links ===== */
 
 a {
     color: var(--text);
@@ -300,31 +342,25 @@ a {
 
 a.link {
     color: var(--brand);
-    border-bottom: 1px solid transparent
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+        border-color: var(--brand)
+    }
+
+    &:active {
+        border-color: var(--brand-active);
+        color: var(--brand-active)
+    }
 }
 
-a.link:hover {
-    border-color: var(--brand)
-}
-
-a.link:active {
-    border-color: var(--brand-active);
-    color: var(--brand-active)
-}
-
-
-
-
-.alpha-50 {
-    opacity: 0.5;
-}
+/* ===== Animations ===== */
 
 @keyframes slide-in {
     from {
         transform: translateY(20px);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
