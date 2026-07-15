@@ -16,7 +16,7 @@ function detectLang(): string {
 
 const lang = detectLang()
 
-// Load only the detected locale at initialization
+// 初始化时仅加载检测到的语言包
 const initialMsgs: Record<string, any> = {}
 const loaded: Record<string, boolean> = {}
 initialMsgs[lang] = (await loaders[lang]()).default
@@ -30,7 +30,7 @@ const i18n = createI18n({
   messages: initialMsgs,
 })
 
-/** Load a locale on demand. Call before switching locale. */
+/** 按需加载语言包。在切换语言之前调用。 */
 export async function loadLocale(locale: string) {
   if (loaded[locale]) return
   const mod = await loaders[locale]()
@@ -38,7 +38,7 @@ export async function loadLocale(locale: string) {
   loaded[locale] = true
 }
 
-/** Silently prefetch the other locales so language switching is instant. */
+/** 静默预加载其他语言包，使语言切换即时响应。 */
 export function prefetchOtherLocales() {
   const others = Object.keys(loaders).filter(l => !loaded[l])
   others.forEach(l => {

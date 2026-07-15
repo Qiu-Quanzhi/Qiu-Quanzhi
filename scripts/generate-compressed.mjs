@@ -43,26 +43,7 @@ const { dir, threshold } = parseArgs(process.argv);
 const root = resolve(process.cwd(), dir);
 
 // ── 可压缩的文件扩展名 ──
-// 参考 Nginx gzip_types 常用配置，覆盖以下 MIME 对应的扩展名：
-//   text/html .html .htm
-//   text/css .css
-//   text/javascript .js .mjs .cjs
-//   text/plain .txt
-//   text/xml .xml
-//   text/x-markdown .md
-//   application/javascript .js .mjs
-//   application/json .json .geojson .jsonld
-//   application/xml .xml
-//   application/rss+xml .rss .xml
-//   application/xhtml+xml .xhtml
-//   application/manifest+json .webmanifest
-//   application/wasm .wasm
-//   image/svg+xml .svg
-//   image/x-icon .ico
-//   font/ttf .ttf
-//   font/otf .otf
-//   font/x-woff .woff
-//   application/vnd.ms-fontobject .eot
+// 参考 Nginx gzip_types 常用配置，覆盖以下 MIME 类型对应的扩展名：
 const COMPRESSIBLE = new Set([
   '.html', '.htm', '.xhtml',
   '.css',
@@ -102,7 +83,7 @@ function walk(d) {
 }
 
 if (!exists(root)) {
-  console.error(`✗ Directory not found: ${dir}`);
+  console.error(`✗ 目录不存在：${dir}`);
   process.exit(1);
 }
 
@@ -118,11 +99,11 @@ const targets = allFiles.filter(f => {
 });
 
 if (targets.length === 0) {
-  console.log(`⚠ No compressible files found in "${dir}/"`);
+  console.log(`⚠ 在 "${dir}/" 中未找到可压缩文件`);
   process.exit(0);
 }
 
-console.log(`Found ${targets.length} compressible file(s) in "${dir}/"\n`);
+console.log(`在 "${dir}/" 中找到 ${targets.length} 个可压缩文件\n`);
 
 // ── 压缩参数 ──
 const GZIP_OPTS = { level: 9 };
@@ -186,12 +167,12 @@ for (const file of targets) {
 console.log('');
 const totalSaved = totalOriginal - totalGz;
 const pct = totalOriginal > 0 ? ((totalSaved / totalOriginal) * 100).toFixed(1) : '0.0';
-console.log(`  gzip:  ${gzCount} generated, ${gzSkipped} skipped`);
-console.log(`  br:    ${brCount} generated, ${brSkipped} skipped`);
-console.log(`  Total: ${formatSize(totalOriginal)} → ${formatSize(totalGz)} (gzip), saved ${formatSize(totalSaved)} (${pct}%)`);
-console.log(`\n✓ Pre-compression complete.`);
+console.log(`  gzip： ${gzCount} 个已生成，${gzSkipped} 个已跳过`);
+console.log(`  br：   ${brCount} 个已生成，${brSkipped} 个已跳过`);
+console.log(`  合计： ${formatSize(totalOriginal)} → ${formatSize(totalGz)} (gzip)，节省 ${formatSize(totalSaved)}（${pct}%）`);
+console.log(`\n✓ 预压缩完成。`);
 if (gzCount > 0 || brCount > 0) {
-  console.log('  Ensure Nginx has: gzip_static on;  brotli_static on;');
+  console.log('  请确保 Nginx 已开启：gzip_static on;  brotli_static on;');
 }
 
 // ── 辅助 ──

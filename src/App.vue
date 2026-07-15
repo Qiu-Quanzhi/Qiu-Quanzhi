@@ -67,14 +67,14 @@ const changeLang = async (lang: string, event?: MouseEvent) => {
 }
 onMounted(async () => {
   location.pathname !== t('href') && changeLang(t('href').replace(/^\//, ''))
-  // Wait for initial paint before triggering entrance animations
+  // 等待首次绘制完成后再触发入场动画
   await nextTick()
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       loaded.value = true
     })
   })
-  // Prefetch other locales only when the browser is idle, after initial render
+  // 浏览器空闲时预加载其他语言包，确保切换时即时响应
   if (!(navigator as any).connection?.saveData) {
     const runPrefetch = () => prefetchOtherLocales()
     if ('requestIdleCallback' in window) {

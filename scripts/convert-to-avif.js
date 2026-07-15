@@ -1,9 +1,9 @@
 /**
- * Convert webp/png images in public/ to AVIF format.
- * Only keeps the AVIF if it is smaller than the original.
- * Original files are always preserved.
+ * 将 public/ 目录下的 webp/png 图片转换为 AVIF 格式。
+ * 仅当 AVIF 体积小于原图时保留 AVIF 副本。
+ * 原始文件始终保留。
  *
- * Usage: node scripts/convert-to-avif.js
+ * 用法: node scripts/convert-to-avif.js
  */
 
 import { readdir, stat, unlink } from 'node:fs/promises';
@@ -14,9 +14,9 @@ import sharp from 'sharp';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = join(__dirname, '..', 'public');
 
-// Quality levels to try (descending). First one that beats the original wins.
+// 尝试的质量级别（从高到低）。首个体积小于原图的即采纳。
 const QUALITY_LEVELS = [45, 35, 25];
-const EFFORT = 9; // 0-9, higher = better compression but slower
+const EFFORT = 9; // 0-9，值越大压缩率越高但速度越慢
 
 const kept = [];   // { file, avif, origKB, avifKB, pct }
 const skipped = []; // { file, origKB, reason }
@@ -54,7 +54,7 @@ async function convert(filePath) {
     const origInfo = await stat(filePath);
     const origKB = origInfo.size / 1024;
 
-    // Try quality levels until we find one that produces a smaller file
+    // 尝试不同质量级别，直到找到体积小于原图的
     let bestSize = Infinity;
     let bestQuality = null;
 
@@ -65,7 +65,7 @@ async function convert(filePath) {
         bestQuality = q;
         break; // Found a winner
       }
-      // Result is larger — this version gets overwritten on next iteration anyway
+      // 当前质量级别体积更大 —— 下一轮迭代会覆盖此文件
     }
 
     if (bestQuality !== null) {
@@ -74,10 +74,10 @@ async function convert(filePath) {
       console.log(`  ✓ ${relPath}  (${origKB.toFixed(1)}KB → ${avifKB.toFixed(1)}KB, -${pct}%, q=${bestQuality})`);
       kept.push({ file: relPath, avif: avifRel, origKB, avifKB, pct: parseFloat(pct) });
     } else {
-      // All quality levels produced larger files — delete the last attempt
+      // 所有质量级别均大于原图 —— 删除最后生成的 AVIF
       try { await unlink(avifPath); } catch {}
-      const reason = `min AVIF > original (${origKB.toFixed(1)}KB)`;
-      console.log(`  ✗ ${relPath}  skipped: ${reason}`);
+      const reason = `最小 AVIF 仍大于原图（${origKB.toFixed(1)}KB）`;
+      console.log(`  ✗ ${relPath}  已跳过：${reason}`);
       skipped.push({ file: relPath, origKB, reason });
     }
   } catch (err) {
@@ -87,26 +87,26 @@ async function convert(filePath) {
   }
 }
 
-console.log('Converting images in public/ to AVIF...');
-console.log(`Settings: effort=${EFFORT}, quality levels=[${QUALITY_LEVELS}]\n`);
+console.log('正在将 public/ 中的图片转换为 AVIF……');
+console.log(`设置：effort=${EFFORT}，质量级别=[${QUALITY_LEVELS}]\n`);
 
 for await (const file of walk(PUBLIC_DIR)) {
   await convert(file);
 }
 
-// Summary
+// 汇总
 console.log(`\n${'='.repeat(60)}`);
-console.log(`Kept:    ${kept.length} files (AVIF smaller than original)`);
-console.log(`Skipped: ${skipped.length} files (AVIF not beneficial)`);
-console.log(`Errors:  ${errors.length}`);
+console.log(`已保留： ${kept.length} 个文件（AVIF 体积小于原图）`);
+console.log(`已跳过： ${skipped.length} 个文件（AVIF 无收益）`);
+console.log(`错误：   ${errors.length} 个`);
 console.log(`${'='.repeat(60)}`);
 
 if (kept.length > 0) {
   const totalOrig = kept.reduce((s, k) => s + k.origKB, 0);
   const totalAvif = kept.reduce((s, k) => s + k.avifKB, 0);
-  console.log(`Total savings: ${totalOrig.toFixed(1)}KB → ${totalAvif.toFixed(1)}KB  (-${((1 - totalAvif/totalOrig) * 100).toFixed(1)}%)`);
+  console.log(`总计节省：${totalOrig.toFixed(1)}KB → ${totalAvif.toFixed(1)}KB（-${((1 - totalAvif/totalOrig) * 100).toFixed(1)}%）`);
 }
 
-// Output JSON report for reference
+// 输出 JSON 报告供参考
 const report = { kept, skipped, errors };
-console.log(`\nReport: ${JSON.stringify(report, null, 2)}`);
+console.log(`\n报告：${JSON.stringify(report, null, 2)}`);

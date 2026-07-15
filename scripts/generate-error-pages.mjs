@@ -283,4 +283,4 @@ for (const [code, msg] of Object.entries(ERRORS)) {
   count++;
 }
 
-console.log(`✓ Generated ${count} error pages → ${out} (${skipped} skipped due to existing files)`);
+console.log(`✓ 已生成 ${count} 个错误页 → ${out}（${skipped} 个因文件已存在而跳过）`);

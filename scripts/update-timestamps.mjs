@@ -81,6 +81,6 @@ try {
 } catch { /* 文件不存在则跳过 */ }
 
 // ── 输出 ──
-console.log(`✓ Timestamps updated to ${dateStr} (ISO: ${isoStr})`);
-console.log(`  HTML (JSON-LD): ${htmlUpdated} files`);
-console.log(`  Sitemap:        ${sitemapUpdated} entries`);
+console.log(`✓ 时间戳已更新为 ${dateStr}（ISO: ${isoStr}）`);
+console.log(`  HTML（JSON-LD）：${htmlUpdated} 个文件`);
+console.log(`  Sitemap：         ${sitemapUpdated} 条记录`);

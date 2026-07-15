@@ -23,7 +23,7 @@ onMounted(async () => {
         list.value = json
         bilibili_index.value = json.bilibili_list.length > 0 ? 0 : -1
     } catch (e) {
-        console.error('Failed to load works data:', e)
+        console.error('加载作品数据失败：', e)
         error.value = true
     } finally {
         loading.value = false
