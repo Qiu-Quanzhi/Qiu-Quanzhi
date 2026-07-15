@@ -158,8 +158,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     </a>
     <div class="bg blanked" :class="{ loaded: loaded }"></div>
     <div id="info" class="flex-col item-center block">
-      <h3>{{ t('parts.about.title') }}</h3>
-      <span class="underline1"></span>
+      <h3 class="underline1">{{ t('parts.about.title') }}</h3>
       <div class="info-content flex-row item-center">
         <div class="flex-col item-center">
           <p v-for="(content, index) in aboutContents" :key="index">
@@ -171,8 +170,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       </div>
     </div>
     <div data-nosnippet id="work" class="flex-col item-center block">
-      <h3>{{ t('parts.work.title') }}</h3>
-      <span class="underline1"></span>
+      <h3 class="underline1">{{ t('parts.work.title') }}</h3>
       <div class="work-list">
         <a v-for="(work, index) in workContents" :key="index" :href="workLinkData[index]?.href" target="_blank"
           rel="noopener" class="work-link" :id="workLinkData[index]?.id" @click="handleWorkClick(index, $event)">
@@ -186,14 +184,13 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       </div>
     </div>
     <div data-nosnippet id="show" class="flex-col item-center block">
-      <h3>{{ t('parts.show.title') }}</h3>
-      <span class="underline1"></span>
+      <h3 class="underline1">{{ t('parts.show.title') }}</h3>
       <p class="tip">{{ t('parts.show.tip') }}</p>
       <show v-if="activated"></show>
       <span v-else class="pointer" @click="() => { activated = true }">{{ t('texts.clickToLoad') }}</span>
     </div>
     <div data-nosnippet id="log" class="flex-col item-center block">
-      <h3>{{ t('parts.log.title') }}</h3><span class="underline1"></span>
+      <h3 class="underline1">{{ t('parts.log.title') }}</h3>
       <p class="tip">{{ t('parts.log.tip') }}</p>
       <div class="log-box-outer">
         <div class="log-box nowrap">

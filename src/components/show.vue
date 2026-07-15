@@ -37,10 +37,9 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     <div class="selection-box flex-row">
         <div v-for="tabItem in showTabs" :title="t(tabItem.ariaKey)" :class="{ selected: tab == tabItem.id }" :key="tabItem.id" @click="tab = tabItem.id" role="tab"
             :aria-selected="tab == tabItem.id" tabindex="0" @keydown.enter="tab = tabItem.id"
-            @keydown.space.prevent="tab = tabItem.id" class="tab flex-col item-center">
+            @keydown.space.prevent="tab = tabItem.id" class="tab underline2 flex-col item-center">
             <img :alt="t(tabItem.ariaKey)" class="selection" loading="lazy"
                 :src="tabItem.icon" />
-            <span class="underline2"></span>
             <a target="_blank" rel="noopener" :href="tabItem.href"
                 class="selection-id">{{ t(tabItem.nameKey) }}<br><span class="enter-text">{{ t(tabItem.enterKey) }}</span></a>
         </div>
@@ -107,9 +106,10 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     }
 }
 
-.underline2 {
+.tab::after {
     opacity: 0;
     transition: opacity var(--transition-fast);
+    order: 1;
 
     .selected & { opacity: 1; }
     :not(.selected):hover>& { opacity: var(--opacity-dim); }
@@ -120,6 +120,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     pointer-events: none;
     font-weight: var(--weight-semibold);
     opacity: 0;
+    order: 2;
 
     .selected & {
         pointer-events: all;

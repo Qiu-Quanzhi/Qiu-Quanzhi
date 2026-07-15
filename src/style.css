@@ -323,19 +323,21 @@ body,
 
 /* ===== Underline decorators ===== */
 
-.underline1,
-.underline2 {
+.underline1::after,
+.underline2::after {
+    content: '';
+    display: block;
     width: 50px;
     height: 3px;
     background-color: var(--brand);
 }
 
-.underline1 {
-    margin: 30px 0 40px
+.underline1::after {
+    margin: 30px auto 40px;
 }
 
-.underline2 {
-    margin: 5px 0
+.underline2::after {
+    margin: 5px 0;
 }
 
 /* ===== Links ===== */
