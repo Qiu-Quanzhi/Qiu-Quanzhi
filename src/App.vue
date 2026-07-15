@@ -559,7 +559,6 @@ footer {
 
     & h2 { transform: scale(0.9) }
   }
-  .tag-box { font-size: .5em }
   .info-logo {
     width: 50px;
     height: 50px;
