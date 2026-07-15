@@ -113,6 +113,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <template v-for="(opt, index) in langOptions" :key="opt.code">
         <i v-if="Number(index) > 0" class="s-line" aria-hidden="true">|</i>
         <a :href="opt.href" :aria-label="opt.aria" @click="changeLang(opt.code, $event)"
+          class="underline2"
           :class="{ current: t('lang') == opt.displayLocale }" :hreflang="opt.hreflang" :lang="opt.lang">{{
             opt.label }}</a>
       </template>
@@ -275,6 +276,18 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
     &:hover {
       text-shadow: 0 0 0.6px currentColor;
       transform: scale(1.1)
+    }
+
+    &.underline2::after {
+      width: 100%;
+    }
+
+    &.current::after {
+      opacity: 1;
+    }
+
+    &:not(.current):hover::after {
+      opacity: var(--opacity-dim);
     }
   }
 

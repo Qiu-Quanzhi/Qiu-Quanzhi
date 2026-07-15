@@ -107,13 +107,11 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 }
 
 .tab::after {
-    opacity: 0;
-    transition: opacity var(--transition-fast);
     order: 1;
-
-    .selected & { opacity: 1; }
-    :not(.selected):hover>& { opacity: var(--opacity-dim); }
 }
+
+.tab.selected::after { opacity: 1; }
+.tab:not(.selected):hover::after { opacity: var(--opacity-dim); }
 
 .selection-id {
     color: var(--text);
