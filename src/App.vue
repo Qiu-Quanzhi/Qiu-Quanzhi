@@ -216,18 +216,18 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
       <div v-for="(col, colIdx) in footerLinkData" :key="colIdx">
         <p class="nowrap">{{ t(`footer[${colIdx}].title`) }}</p>
         <template v-for="(link, linkIdx) in col.links" :key="linkIdx">
-          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener" class="nowrap">{{
+          <a v-if="link.type === 'link'" :href="link.href" target="_blank" rel="noopener" class="nowrap link">{{
             t(`footer[${colIdx}].contents[${linkIdx}]`) }}</a>
-          <button v-else @click="copyContact(link.contact)" class="nowrap">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
+          <button v-else @click="copyContact(link.contact)" class="nowrap link">{{ t(`footer[${colIdx}].contents[${linkIdx}]`) }}</button>
           <br>
         </template>
       </div>
       <div>
         <p class="nowrap">© {{ time.year }} {{ t('name.full') }}</p>
-        <span class="nowrap">{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow" class="nowrap">粤ICP备2026090856号</a><br>
+        <span class="nowrap link">{{ t('texts.background') }}: Speedpaint #43 - Sylar113</span><br>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow" class="nowrap link">粤ICP备2026090856号</a><br>
         <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44098302441277" target="_blank"
-          rel="noopener nofollow" class="nowrap"><img aria-hidden="true" class="police-emblem-icon" loading="lazy"
+          rel="noopener nofollow" class="nowrap link"><img aria-hidden="true" class="police-emblem-icon" loading="lazy"
             src="/assets/icons/police-emblem.avif">粤公网安备44098302441277号</a>
       </div>
     </footer>
@@ -510,21 +510,9 @@ footer {
   & a,
   & span,
   & button {
-    position: relative;
-    border-bottom: 1px solid transparent;
     color: var(--text-inverse);
     font-size: var(--text-xs);
     line-height: 30px;
-
-    &:hover {
-      border-color: var(--brand);
-      color: var(--brand)
-    }
-
-    &:active {
-      border-color: var(--brand-active);
-      color: var(--brand-active)
-    }
   }
 
   & span {
