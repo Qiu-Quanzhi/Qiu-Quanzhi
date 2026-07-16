@@ -247,7 +247,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   height: 20px;
 }
 
-/* ===== Language switcher ===== */
+/* ===== 语言切换器 ===== */
 
 .lang-area {
   z-index: 100;
@@ -307,7 +307,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   }
 }
 
-/* ===== Sections ===== */
+/* ===== 章节 ===== */
 
 #home {
   width: 100%;
@@ -349,7 +349,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   }
 }
 
-/* ===== Home / Info card ===== */
+/* ===== 信息框 ===== */
 
 .info {
   position: absolute;
@@ -428,7 +428,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   }
 }
 
-/* ===== Tip ===== */
+/* ===== 提示 ===== */
 
 .tip {
   margin-top: -20px;
@@ -436,7 +436,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
   color: var(--overlay-60)
 }
 
-/* ===== Log ===== */
+/* ===== 日志 ===== */
 
 .log-box-outer {
   margin-top: 10px;
@@ -478,7 +478,7 @@ const handleWorkClick = (index: number, event: MouseEvent) => {
 
 .log-text-3 { color: var(--overlay-60) }
 
-/* ===== Footer ===== */
+/* ===== 页脚 ===== */
 
 footer {
   display: flex;
@@ -540,7 +540,7 @@ footer {
   width: auto;
 }
 
-/* ===== Responsive ===== */
+/* ===== 响应式 ===== */
 
 @media screen and (max-width: 660px) {
   .lang-area a { font-size: 20px; }

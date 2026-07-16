@@ -65,7 +65,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
 <style scoped>
 .selection-box { margin: 10px; }
 
-/* ===== Viewer ===== */
+/* ===== 浏览窗口 ===== */
 
 .viewer {
     border-radius: var(--radius-lg);
@@ -84,7 +84,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     height: 40vh;
 }
 
-/* ===== Tab selection icons ===== */
+/* ===== 标签选择 ===== */
 
 .tab {
     cursor: pointer;
@@ -172,7 +172,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     50% { filter: brightness(1.4); transform: scale(1.03); }
 }
 
-/* ===== Show content ===== */
+/* ===== 视频展演 ===== */
 
 .show-box { width: calc(100vw - 300px); }
 
@@ -218,7 +218,7 @@ const currentTabComponent = computed(() => tabComponents[tab.value])
     }
 }
 
-/* ===== Responsive ===== */
+/* ===== 响应式 ===== */
 
 @media screen and (max-width: 900px) {
     .show-box {

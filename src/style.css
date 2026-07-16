@@ -1,19 +1,19 @@
 :root {
     color-scheme: light dark;
 
-    /* Brand */
+    /* 主题 */
     --brand: #66ccff;
     --brand-active: #66ccffDE;
     --accent: #0077BB;
 
-    /* Glass surfaces */
+    /* 半透明表面 */
     --glass-80: rgba(255, 255, 255, .8);
     --glass-90: rgba(255, 255, 255, .9);
 
-    /* Opaque surface */
+    /* 不透明表面 */
     --surface: white;
 
-    /* Overlays */
+    /* 覆盖层 */
     --overlay-5: rgba(0, 0, 0, .05);
     --overlay-10: rgba(0, 0, 0, .1);
     --overlay-20: rgba(0, 0, 0, .2);
@@ -24,45 +24,45 @@
     --overlay-80: rgba(0, 0, 0, .8);
     --overlay-90: rgba(0, 0, 0, .9);
 
-    /* Text */
+    /* 文本 */
     --text: #4d4d4d;
     --text-inverse: #fff;
 
-    /* Backdrop filters */
+    /* 毛玻璃效果 */
     --blur-glass: blur(20px) saturate(180%);
     --blur-glass-heavy: blur(30px) saturate(180%);
 
-    /* Typography */
+    /* 字体 */
     --font-sans: PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-    /* Font sizes */
+    /* 字体大小 */
     --text-xs: 12px;
     --text-sm: 14px;
     --text-md: 15px;
     --text-lg: 18px;
     --text-xl: 30px;
 
-    /* Font weights */
+    /* 字体粗细 */
     --weight-medium: 500;
     --weight-semibold: 600;
     --weight-bold: 700;
 
-    /* Radii */
+    /* 圆角 */
     --radius-sm: 3px;
     --radius-md: 5px;
     --radius-lg: 10px;
 
-    /* Transitions */
+    /* 过渡效果 */
     --transition-fast: .2s;
     --transition-base: .25s;
     --transition-slow: 1s;
 
-    /* Shared values */
+    /* 通用变量 */
     --hover-scale: 1.05;
     --opacity-dim: 0.6;
 
-    /* Fixed variants — do not change in dark mode */
+    /* 固定变量 —— 在深色模式下不改变 */
     --glass-90-fixed: rgba(255, 255, 255, .9);
     --overlay-30-fixed: rgba(0, 0, 0, .3);
 }
@@ -116,7 +116,7 @@ body {
     font-family: var(--font-sans);
 }
 
-/* ===== Utilities ===== */
+/* ===== 工具类 ===== */
 
 .truncate {
     white-space: nowrap;
@@ -175,7 +175,7 @@ body {
     opacity: 0.5;
 }
 
-/* ===== Layout ===== */
+/* ===== 布局 ===== */
 
 html,
 body,
@@ -201,7 +201,7 @@ body,
     filter: brightness(0.8);
 }
 
-/* ===== Card ===== */
+/* ===== 卡片 ===== */
 
 .card {
     background-color: var(--glass-80);
@@ -223,7 +223,7 @@ body,
     }
 }
 
-/* ===== Scroll-down arrow ===== */
+/* ===== 滚动指示器 ===== */
 
 .scroll-down {
     position: absolute;
@@ -249,7 +249,7 @@ body,
     }
 }
 
-/* ===== Entrance animation ===== */
+/* ===== 加载动画 ===== */
 
 .blanked {
     transform: scale(var(--hover-scale));
@@ -266,7 +266,7 @@ body,
     opacity: 0.9
 }
 
-/* ===== Work links ===== */
+/* ===== 作品链接 ===== */
 
 .work-list {
     display: flex;
@@ -331,7 +331,7 @@ body,
     color: var(--overlay-70)
 }
 
-/* ===== Underline decorators ===== */
+/* ===== 下划线装饰 ===== */
 
 .underline1::after,
 .underline2::after {
@@ -352,7 +352,7 @@ body,
     transition: opacity var(--transition-fast);
 }
 
-/* ===== Links ===== */
+/* ===== 链接 ===== */
 
 iframe {
     border: 0;
@@ -381,7 +381,7 @@ a {
     }
 }
 
-/* ===== Animations ===== */
+/* ===== 动画 ===== */
 
 @keyframes slide-in {
     from {
